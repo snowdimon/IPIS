@@ -51,7 +51,7 @@ A person born on Earth (`01`), who worked on a lunar orbital station with EVAs (
 2. Check the [Stack Guide](docs/stack_guide.md) for detailed patch donning / updating  
 3. See [technical integration](docs/rfid_spec.md) for RFID and NORAD  
 4. Explore the [design kit](assets/) to make your own patches
-5. Quick Start for Beginners (docs/quickstart.md) – make your first IPIS patch in 5 minutes.
+5.[Quick Start for Beginners](docs/quickstart.md) – make your first IPIS patch in 5 minutes.
 
 The system is **open** – you can adopt, modify, and pilot it. Feedback and contributions are welcome.
 
