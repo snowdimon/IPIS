@@ -13,7 +13,9 @@ IPIS gives every object (human, spacecraft, robot) a **human‑readable code** a
 It does not replace national flags or existing systems (NORAD, transponders). It works alongside them, creating a shared semantic layer for space activities.
 
 <p align="center">
-  <img src="assets/logo.svg" alt="IPIS Logo" width="200" style="background-color: #0a1128; border-radius: 20px;">
+  <img src="assets/logo.svg" alt="IPIS Logo" width="200">
+  <br>
+  <em>Duranki – The Bond of Heaven and Earth</em>
 </p>
 
 ---
