@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <style>
+      .bg { fill: #0a1128; }
+      .circle { fill: none; stroke: #ffffff; stroke-width: 4; }
+      .ziggurat { fill: #cccccc; }
+      .thread { stroke: #ffffff; stroke-width: 2; }
+      .star { fill: #ffffff; }
+    </style>
+  </defs>
+  
+  <!-- Фон (опционально, для тёмного режима) -->
+  <rect class="bg" x="0" y="0" width="200" height="200" rx="20" ry="20" />
+  
+  <!-- Основной круг -->
+  <circle class="circle" cx="100" cy="100" r="80" />
+  
+  <!-- Зиккурат (три ступени) -->
+  <rect class="ziggurat" x="75" y="135" width="50" height="18" rx="2" />
+  <rect class="ziggurat" x="81" y="117" width="38" height="18" rx="2" />
+  <rect class="ziggurat" x="87" y="99" width="26" height="18" rx="2" />
+  
+  <!-- Прямая нить от вершины зиккурата до звезды -->
+  <line class="thread" x1="100" y1="99" x2="100" y2="60" />
+  
+  <!-- Звезда (четырёхконечная) -->
+  <polygon class="star" points="100,50 102,56 108,58 102,60 100,66 98,60 92,58 98,56" />
+</svg>
