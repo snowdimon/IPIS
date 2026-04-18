@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" width="400" height="200">
+  <defs>
+    <style>
+      .bg { fill: #1a1a2e; }
+      .layer-outer { fill: #0a1128; stroke: #ffffff; stroke-width: 2; }
+      .layer-inner { fill: #333333; stroke: #cccccc; stroke-width: 1; }
+      .text-outer { fill: #ffffff; font-family: 'Arial', sans-serif; font-weight: bold; font-size: 16px; text-anchor: middle; dominant-baseline: central; }
+      .text-inner { fill: #ffffff; font-family: 'Arial', sans-serif; font-weight: bold; font-size: 12px; text-anchor: middle; dominant-baseline: central; }
+      .label { fill: #aaaaaa; font-family: 'Arial', sans-serif; font-size: 12px; text-anchor: middle; }
+      .arrow { stroke: #ffaa00; stroke-width: 2; marker-end: url(#arrowhead); }
+      .marker { fill: #ffaa00; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ffaa00" />
+    </marker>
+  </defs>
+  
+  <rect class="bg" x="0" y="0" width="400" height="200" rx="10" ry="10" />
+  
+  <!-- Двухслойный шеврон (вид сбоку, разрез) -->
+  <!-- Внешний слой (верхний) -->
+  <rect class="layer-outer" x="80" y="40" width="100" height="100" rx="10" />
+  <text class="text-outer" x="130" y="90">circle 01</text>
+  
+  <!-- Внутренний слой (скрытая плашка) -->
+  <rect class="layer-inner" x="95" y="100" width="40" height="40" rx="4" />
+  <text class="text-inner" x="115" y="120">01</text>
+  
+  <!-- Липучка (средний слой) -->
+  <pattern id="velcro" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+    <circle cx="2" cy="2" r="1" fill="#666666" />
+  </pattern>
+  <rect class="layer-outer" x="80" y="140" width="100" height="8" fill="url(#velcro)" stroke="#888888" stroke-width="1" />
+  
+  <!-- Стрелка: отлепление -->
+  <line class="arrow" x1="190" y1="90" x2="240" y2="90" />
+  <text class="label" x="215" y="80" fill="#ffaa00">peel off</text>
+  
+  <!-- Правая часть: стек с добавленной плашкой -->
+  <rect class="layer-inner" x="270" y="40" width="40" height="40" rx="4" />
+  <text class="text-inner" x="290" y="60">01</text>
+  
+  <text class="label" x="290" y="100">added to stack</text>
+  
+  <text class="label" x="200" y="180">Two‑layer patch: outer layer (current code) + inner flat disc (future stack element)</text>
+</svg>
