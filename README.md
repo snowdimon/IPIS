@@ -1,8 +1,16 @@
+<p align="center">
+  <img src="assets/logo.svg" alt="IPIS Logo" width="200">
+  <br>
+  <em>Duranki – The Bond of Heaven and Earth</em>
+</p>
+
 # IPIS / Duranki – InterPlanetary Identity System
 
-[![Concept](https://img.shields.io/badge/status-concept-blue)](https://github.com/yourname/IPIS-Duranki)
-[![Version](https://img.shields.io/badge/version-15.0-green)](https://github.com/yourname/IPIS-Duranki)
+[![Concept Status](https://img.shields.io/badge/status-concept-blue)](https://github.com/snowdimon/IPIS)
+[![Version](https://img.shields.io/badge/version-15.0-green)](https://github.com/snowdimon/IPIS/releases)
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
+[![GitHub issues](https://img.shields.io/github/issues/snowdimon/IPIS)](https://github.com/snowdimon/IPIS/issues)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 > *“There’s a starman waiting in the sky…”* – David Bowie, *Starman* (1972)
 
@@ -11,11 +19,6 @@
 IPIS gives every object (human, spacecraft, robot) a **human‑readable code** and a **stackable history of visited worlds** – the **Snezhkov Stack**.
 
 It does not replace national flags or existing systems (NORAD, transponders). It works alongside them, creating a shared semantic layer for space activities.
-
-<p align="center">
-    <br>
-  <img src="assets/IPIS_LOGO3.png" alt="IPIS Logo" width="300">
-</p>
 
 ---
 
@@ -42,23 +45,38 @@ A person born on Earth (`01`), who worked on a lunar orbital station with EVAs (
 
 ## Repository Structure
 
-- `presentation/` – slides (PDF + source)  
-- `docs/` – full specifications, stack guide, RFID spec, NORAD extension, verification via logbooks, future expansion notes, cultural examples  
+- `presentation/` – slides (Markdown source, and eventually PDF)  
+- `docs/` – full specifications, stack guide, RFID spec, NORAD extension, verification via logbooks, future expansion notes, cultural examples, quick start guide  
 - `assets/` – SVG logo, patch designs, stack layout, ship thread, two‑layer diagram  
 - `LICENSE` – CC BY-SA 4.0  
 - `CONTRIBUTING.md` – how to help  
+- `CODE_OF_CONDUCT.md` – community guidelines  
 
 ---
 
 ## How to Use This
 
-1. Read the [presentation](presentation/IPIS_Duranki.pdf)  
-2. Check the [Stack Guide](docs/stack_guide.md) for detailed patch donning / updating  
-3. See [technical integration](docs/rfid_spec.md) for RFID and NORAD  
-4. Explore the [design kit](assets/) to make your own patches
-5. [Quick Start for Beginners](docs/quickstart.md) – make your first IPIS patch in 5 minutes.
+1. **Quick start** – [Quick Start for Beginners](docs/quickstart.md) – make your first IPIS patch in 5 minutes.  
+2. **Read the presentation** – [Slides](presentation/slides.md) (convert to PDF for printing).  
+3. **Learn the stack mechanics** – [Stack Guide](docs/stack_guide.md) for detailed patch donning / updating.  
+4. **Dive into technical integration** – [RFID spec](docs/rfid_spec.md) and [NORAD extension](docs/norad_extension.md).  
+5. **Explore cultural examples** – [Stack Examples](docs/stack_examples.md) (Major Tom, John Carter, etc.).  
 
 The system is **open** – you can adopt, modify, and pilot it. Feedback and contributions are welcome.
+
+---
+
+## Contributing
+
+We welcome contributions of all kinds: bug reports, design improvements, code, translations, and community building.  
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) and our [Code of Conduct](CODE_OF_CONDUCT.md) before submitting anything.
+
+**Ways to help**:
+- Create a mod for Kerbal Space Program, Star Citizen, or Elite Dangerous.  
+- Translate documentation into other languages.  
+- Improve SVG assets or add new examples.  
+- Write a script to convert NORAD IDs to `IPIS_CODE`.  
+- Spread the word – articles, videos, social media.
 
 ---
 
