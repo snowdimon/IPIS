@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <defs>
+    <style>
+      .bg { fill: #1a1a2e; }
+      .stack-circle { fill: #0a1128; stroke: #ffffff; stroke-width: 1.5; }
+      .stack-text { fill: #ffffff; font-family: 'Arial', sans-serif; font-weight: bold; font-size: 12px; text-anchor: middle; dominant-baseline: central; }
+      .label { fill: #aaaaaa; font-family: 'Arial', sans-serif; font-size: 10px; text-anchor: middle; }
+    </style>
+  </defs>
+  
+  <rect class="bg" x="0" y="0" width="200" height="60" rx="8" ry="8" />
+  
+  <!-- Четыре кружка: 01, 02', E, 03. Диаметр 14, расстояние между центрами 14. Общая ширина 4*14=56, центрируем (200-56)/2 = 72 -->
+  <circle class="stack-circle" cx="79" cy="30" r="7" />
+  <text class="stack-text" x="79" y="30">01</text>
+  
+  <circle class="stack-circle" cx="93" cy="30" r="7" />
+  <text class="stack-text" x="93" y="30">02'</text>
+  
+  <circle class="stack-circle" cx="107" cy="30" r="7" />
+  <text class="stack-text" x="107" y="30">E</text>
+  
+  <circle class="stack-circle" cx="121" cy="30" r="7" />
+  <text class="stack-text" x="121" y="30">03</text>
+  
+  <text class="label" x="100" y="52">Snezhkov Stack (touching discs)</text>
+</svg>
