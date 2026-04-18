@@ -2,15 +2,15 @@
 
 Thank you for your interest in improving IPIS – the InterPlanetary Identity System.
 
-This project is open to contributions of all kinds: bug reports, design improvements, new code (e.g., RFID scripts, NORAD API integrations), documentation fixes, translation, and even philosophical discussions.
+## How Can I Contribute?
 
-## How to Contribute
-
-1. **Read the concept** – Start with the [README](README.md) and the [presentation](presentation/IPIS_Duranki.pdf).
-2. **Check existing issues** – Look for similar ideas or problems in the [Issues](https://github.com/yourname/IPIS-Duranki/issues) section.
-3. **Open a new issue** – If you find a problem or have a suggestion, create a new issue describing it clearly.
-4. **Fork and create a branch** – For code or documentation changes, fork the repository, create a branch, and make your changes.
-5. **Submit a pull request** – Explain what you changed and why. Reference any related issues.
+- **Report bugs or inconsistencies** – open an Issue describing the problem.
+- **Suggest enhancements** – new features, design improvements, or clarifications.
+- **Write or translate documentation** – English is primary, but Russian, Chinese, German, etc. are welcome.
+- **Create mods for games** – Kerbal Space Program, Star Citizen, Elite Dangerous, etc.
+- **Develop tools** – NORAD ID to IPIS_CODE converter, stack registry web service, RFID programming scripts.
+- **Design assets** – improve SVG logos, patch templates, or create new examples.
+- **Promote the concept** – write articles, make videos, present at conferences.
 
 ## What We Need Help With
 
@@ -20,18 +20,30 @@ This project is open to contributions of all kinds: bug reports, design improvem
 - **Design assets** – Improve the SVG logo, patch designs, or create new examples.
 - **Technical implementations** – Write scripts to convert NORAD IDs to IPIS_CODE, or develop a simple stack registry web service.
 
+## Ground Rules
+
+- **Be respectful** – follow the [Code of Conduct](CODE_OF_CONDUCT.md) (you can adopt the Contributor Covenant).
+- **Keep it open** – all contributions must be compatible with the CC BY-SA 4.0 license.
+- **English for core files** – translations go into separate files (e.g., `README.ru.md`).
+
+## How to Submit Changes
+
+1. **Open an issue** – discuss your idea before doing heavy work.
+2. **Fork the repository** – create your own copy.
+3. **Create a branch** – use a descriptive name (e.g., `fix-stack-guide` or `add-russian-readme`).
+4. **Make your changes** – follow the existing style (Markdown, code comments, etc.).
+5. **Test locally** – ensure links work, images display, code runs.
+6. **Submit a pull request** – explain what you changed and why, referencing any related issues.
+
 ## Style Guidelines
 
-- **Markdown**: Use standard GitHub Markdown. Wrap code blocks with triple backticks and specify language.
-- **Code**: Python, JavaScript, or pseudocode – keep it readable and commented.
-- **Language**: English for all core files. Translations go into separate files (e.g., `README.ru.md`).
+- **Markdown** – use standard GitHub Markdown. Wrap code blocks with triple backticks and specify language.
+- **Code** – Python or JavaScript preferred. Include comments and docstrings.
+- **Images** – SVG for vector graphics; PNG for screenshots (max 1 MB).
+- **Line length** – try to keep under 120 characters for readability.
 
-## License
+## Getting Help
 
-By contributing, you agree that your contributions will be licensed under the same CC BY-SA 4.0 license as the project.
+If you are unsure about anything, open a Discussion or an Issue. We are here to help.
 
-## Contact
-
-For major changes or if you’re unsure, open an issue first. We’ll discuss.
-
-*Thank you for helping build a common language for space.*
+Thank you for building the future of space identification together!
