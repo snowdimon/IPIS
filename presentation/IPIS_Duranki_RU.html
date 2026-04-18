@@ -75,10 +75,16 @@
             border-top: 1px solid #2a3a5a;
             padding-top: 2rem;
         }
-        img {
-            max-width: 200px;
-            display: block;
-            margin: 1rem auto;
+        .svg-container {
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        svg {
+            max-width: 100%;
+            height: auto;
+            background: #1a1a2e;
+            border-radius: 12px;
+            padding: 10px;
         }
         .badge {
             display: inline-block;
@@ -94,6 +100,9 @@
             font-size: 0.8rem;
             background: #061020;
         }
+        a {
+            color: #bbffaa;
+        }
         @media (max-width: 700px) {
             .slide { padding: 1.5rem; }
             h1 { font-size: 2rem; }
@@ -103,9 +112,21 @@
     </style>
 </head>
 <body>
+
+    <!-- Слайд 1: Титул -->
     <div class="slide">
         <div class="container">
-            <img src="assets/logo.svg" alt="Логотип IPIS" style="width: 150px;">
+            <div class="svg-container">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="150" height="150">
+                    <defs><style>.circle { fill: none; stroke: #ffffff; stroke-width: 4; } .ziggurat { fill: #cccccc; } .thread { stroke: #ffffff; stroke-width: 2; } .star { fill: #ffffff; }</style></defs>
+                    <circle class="circle" cx="100" cy="100" r="80" />
+                    <rect class="ziggurat" x="75" y="135" width="50" height="18" rx="2" />
+                    <rect class="ziggurat" x="81" y="117" width="38" height="18" rx="2" />
+                    <rect class="ziggurat" x="87" y="99" width="26" height="18" rx="2" />
+                    <line class="thread" x1="100" y1="99" x2="100" y2="60" />
+                    <polygon class="star" points="100,50 102,56 108,58 102,60 100,66 98,60 92,58 98,56" />
+                </svg>
+            </div>
             <h1>IPIS / Дуранки</h1>
             <p><strong>InterPlanetary Identity System</strong><br>Межпланетная система идентификации</p>
             <p>Кодовое имя: «Дуранки» — <em>Нить Неба и Земли</em></p>
@@ -115,6 +136,7 @@
         </div>
     </div>
 
+    <!-- Слайд 2: Что даёт IPIS -->
     <div class="slide">
         <div class="container">
             <h2>Что даёт IPIS?</h2>
@@ -130,6 +152,7 @@
         </div>
     </div>
 
+    <!-- Слайд 3: Кодировка -->
     <div class="slide">
         <div class="container">
             <h2>Кодировка</h2>
@@ -147,6 +170,7 @@
         </div>
     </div>
 
+    <!-- Слайд 4: Стек Снежкова -->
     <div class="slide">
         <div class="container">
             <h2>Стек Снежкова</h2>
@@ -161,19 +185,54 @@
                 Пример: 01 02’ E 03<br>
                 Родился на Земле, работал на лунной орбите с выходами, теперь на Марсе
             </div>
-            <img src="assets/stack_layout.svg" alt="Стек" style="width: 300px;">
+            <div class="svg-container">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="300" height="90">
+                    <defs><style>.stack-circle { fill: #0a1128; stroke: #ffffff; stroke-width: 1.5; } .stack-text { fill: #ffffff; font-family: 'Arial', sans-serif; font-weight: bold; font-size: 12px; text-anchor: middle; dominant-baseline: central; }</style></defs>
+                    <rect x="0" y="0" width="200" height="60" fill="#1a1a2e" rx="8"/>
+                    <circle class="stack-circle" cx="79" cy="30" r="7" /><text class="stack-text" x="79" y="30">01</text>
+                    <circle class="stack-circle" cx="93" cy="30" r="7" /><text class="stack-text" x="93" y="30">02'</text>
+                    <circle class="stack-circle" cx="107" cy="30" r="7" /><text class="stack-text" x="107" y="30">E</text>
+                    <circle class="stack-circle" cx="121" cy="30" r="7" /><text class="stack-text" x="121" y="30">03</text>
+                </svg>
+            </div>
         </div>
     </div>
 
+    <!-- Слайд 5: Нить корабля и двухслойный шеврон -->
     <div class="slide">
         <div class="container">
             <h2>Нить корабля и двухслойный шеврон</h2>
-            <p><strong>Нить корабля:</strong> на корпусе — прямая линия от начального узла к конечному (например, 01—03). Промежуточные манёвры — только в цифровом профиле.</p>
-            <p><strong>Двухслойный шеврон:</strong> внешний слой — текущий код; внутренний — плоская плашка (будущий элемент стека). При смене базы внешний слой отлепляется, плашка извлекается и добавляется в стек. Не нужно печатать плашки в космосе.</p>
-            <img src="assets/two_layer_patch.svg" alt="Двухслойный шеврон" style="width: 300px;">
+            <p><strong>Нить корабля:</strong> на корпусе — прямая линия от начального узла к конечному (например, 01—03).</p>
+            <div class="svg-container">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150" width="300" height="150">
+                    <defs><style>.ship { fill: none; stroke: #aaaaaa; stroke-width: 2; } .thread { stroke: #ffffff; stroke-width: 3; } .node { fill: #ffffff; font-family: 'Arial', sans-serif; font-weight: bold; font-size: 14px; text-anchor: middle; dominant-baseline: central; }</style></defs>
+                    <rect width="300" height="150" fill="#0a1128" rx="10"/>
+                    <polygon class="ship" points="80,75 220,75 200,105 100,105" />
+                    <polygon class="ship" points="220,75 240,75 220,95" />
+                    <line class="thread" x1="60" y1="60" x2="240" y2="60" />
+                    <circle cx="60" cy="60" r="16" fill="none" stroke="#ffffff" stroke-width="2" />
+                    <text class="node" x="60" y="60">01</text>
+                    <circle cx="240" cy="60" r="16" fill="none" stroke="#ffffff" stroke-width="2" />
+                    <text class="node" x="240" y="60">03</text>
+                </svg>
+            </div>
+            <p><strong>Двухслойный шеврон:</strong> внешний слой — текущий код; внутренний — плоская плашка (будущий элемент стека). При смене базы внешний слой отлепляется, плашка извлекается и добавляется в стек.</p>
+            <div class="svg-container">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" width="400" height="200">
+                    <defs><style>.layer-outer { fill: #0a1128; stroke: #ffffff; stroke-width: 2; } .layer-inner { fill: #333333; stroke: #cccccc; stroke-width: 1; } .text-outer { fill: #ffffff; font-family: 'Arial', sans-serif; font-weight: bold; font-size: 16px; text-anchor: middle; dominant-baseline: central; } .text-inner { fill: #ffffff; font-family: 'Arial', sans-serif; font-weight: bold; font-size: 12px; text-anchor: middle; dominant-baseline: central; } .label { fill: #aaaaaa; font-family: 'Arial', sans-serif; font-size: 12px; text-anchor: middle; } .arrow { stroke: #ffaa00; stroke-width: 2; marker-end: url(#arrowhead); } .marker { fill: #ffaa00; }</style><marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#ffaa00" /></marker></defs>
+                    <rect width="400" height="200" fill="#1a1a2e" rx="10"/>
+                    <rect class="layer-outer" x="80" y="40" width="100" height="100" rx="10" /><text class="text-outer" x="130" y="90">circle 01</text>
+                    <rect class="layer-inner" x="95" y="100" width="40" height="40" rx="4" /><text class="text-inner" x="115" y="120">01</text>
+                    <line class="arrow" x1="190" y1="90" x2="240" y2="90" />
+                    <text class="label" x="215" y="80" fill="#ffaa00">отлепление</text>
+                    <rect class="layer-inner" x="270" y="40" width="40" height="40" rx="4" /><text class="text-inner" x="290" y="60">01</text>
+                    <text class="label" x="290" y="100">добавляется в стек</text>
+                </svg>
+            </div>
         </div>
     </div>
 
+    <!-- Слайд 6: Ритуал -->
     <div class="slide">
         <div class="container">
             <h2>Ритуал «Глоток базы»</h2>
@@ -186,6 +245,7 @@
         </div>
     </div>
 
+    <!-- Слайд 7: Техническая интеграция -->
     <div class="slide">
         <div class="container">
             <h2>Техническая интеграция</h2>
@@ -198,6 +258,7 @@
         </div>
     </div>
 
+    <!-- Слайд 8: Границы применимости -->
     <div class="slide">
         <div class="container">
             <h2>Границы применимости</h2>
@@ -213,6 +274,7 @@
         </div>
     </div>
 
+    <!-- Слайд 9: Авторство -->
     <div class="slide">
         <div class="container">
             <div class="quote">
