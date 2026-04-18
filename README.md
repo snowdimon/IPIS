@@ -15,6 +15,7 @@ It does not replace national flags or existing systems (NORAD, transponders). It
 <p align="center">
   <img src="assets/logo.svg" alt="IPIS Logo" width="200" style="background-color: #0a1128; border-radius: 20px;">
 </p>
+
 ---
 
 ## Key Features
