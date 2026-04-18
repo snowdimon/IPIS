@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150" width="300" height="150">
+  <defs>
+    <style>
+      .bg { fill: #0a1128; }
+      .ship { fill: none; stroke: #aaaaaa; stroke-width: 2; }
+      .thread { stroke: #ffffff; stroke-width: 3; }
+      .node { fill: #ffffff; font-family: 'Arial', sans-serif; font-weight: bold; font-size: 14px; text-anchor: middle; dominant-baseline: central; }
+      .label { fill: #cccccc; font-family: 'Arial', sans-serif; font-size: 12px; text-anchor: middle; }
+    </style>
+  </defs>
+  
+  <rect class="bg" x="0" y="0" width="300" height="150" rx="10" ry="10" />
+  
+  <!-- Стилизованный корабль (корпус) -->
+  <polygon class="ship" points="80,75 220,75 200,105 100,105" />
+  <polygon class="ship" points="220,75 240,75 220,95" />
+  
+  <!-- Прямая нить между 01 и 03 -->
+  <line class="thread" x1="60" y1="60" x2="240" y2="60" />
+  
+  <!-- Узлы 01 и 03 -->
+  <circle cx="60" cy="60" r="16" fill="none" stroke="#ffffff" stroke-width="2" />
+  <text class="node" x="60" y="60">01</text>
+  
+  <circle cx="240" cy="60" r="16" fill="none" stroke="#ffffff" stroke-width="2" />
+  <text class="node" x="240" y="60">03</text>
+  
+  <text class="label" x="150" y="130">Ship Thread: 01 — 03 (straight line)</text>
+</svg>
