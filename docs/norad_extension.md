@@ -41,7 +41,7 @@ For a deep‑space probe:
   "OBJECT_NAME": "VOYAGER 1",
   "IPIS_CODE": "circle 00"
 }
-
+```
 ---
 
 ## 3. Automatic Assignment Rules
