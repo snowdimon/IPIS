@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" width="160" height="120">
+  <defs>
+    <style>
+      .bg { fill: #1a1a2e; }
+      .main-circle { fill: none; stroke: #ffffff; stroke-width: 3; }
+      .main-text { fill: #ffffff; font-family: 'Arial', sans-serif; font-weight: bold; font-size: 24px; text-anchor: middle; dominant-baseline: central; }
+      .stack-circle { fill: #0a1128; stroke: #ffffff; stroke-width: 1.2; }
+      .stack-text { fill: #ffffff; font-family: 'Arial', sans-serif; font-weight: bold; font-size: 9px; text-anchor: middle; dominant-baseline: central; }
+    </style>
+  </defs>
+  
+  <rect class="bg" x="0" y="0" width="160" height="120" rx="8" ry="8" />
+  
+  <!-- Основной круг (03) -->
+  <circle class="main-circle" cx="80" cy="45" r="28" />
+  <text class="main-text" x="80" y="45">03</text>
+  
+  <!-- Стек: три соприкасающихся кружка 01, 02', E -->
+  <!-- Диаметр 12, расстояние между центрами 12. Центрируем под основным кругом (ширина круга 56, центр 80). Общая ширина стека 3*12=36, начало = 80-18=62 -->
+  <circle class="stack-circle" cx="68" cy="90" r="6" />
+  <text class="stack-text" x="68" y="90">01</text>
+  
+  <circle class="stack-circle" cx="80" cy="90" r="6" />
+  <text class="stack-text" x="80" y="90">02'</text>
+  
+  <circle class="stack-circle" cx="92" cy="90" r="6" />
+  <text class="stack-text" x="92" y="90">E</text>
+</svg>
