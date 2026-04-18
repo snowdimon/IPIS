@@ -46,19 +46,20 @@ For a deep‑space probe:
 
 ## 3. Automatic Assignment Rules
 
-When an object is first catalogued, the system can suggest an IPIS_CODE based on its orbit and function:
+When an object is first catalogued, the system can **suggest** an `IPIS_CODE` based on its orbit and function:
 
-Object type	Suggested IPIS_CODE
-Crewed station in LEO	circle 01’
-Uncrewed cargo ship in LEO	hex 01’
-Satellite in GEO	circle 01’ (or hex 01’ if uncrewed)
-Lunar orbiter	circle 02’ (or hex 02’)
-Lunar surface lander	hex 02
-Mars orbiter	circle 03’ (or hex 03’)
-Mars rover	hex 03
-Interplanetary probe beyond Mars	circle 00 (or hex 00)
+| Object type | Suggested IPIS_CODE |
+|-------------|----------------------|
+| Crewed station in LEO | `circle 01'` |
+| Uncrewed cargo ship in LEO | `hex 01'` |
+| Satellite in GEO | `circle 01'` (or `hex 01'` if uncrewed) |
+| Lunar orbiter | `circle 02'` (or `hex 02'`) |
+| Lunar surface lander | `hex 02` |
+| Mars orbiter | `circle 03'` (or `hex 03'`) |
+| Mars rover | `hex 03` |
+| Interplanetary probe beyond Mars | `circle 00` (or `hex 00`) |
 
-The operator can override the suggestion (e.g., a crewed Mars ship would be circle 00 while in transit, then change to circle 03 after landing).
+The operator can **override** the suggestion (e.g., a crewed Mars ship would be `circle 00` while in transit, then change to `circle 03` after landing).
 
 ## 4. Updating IPIS_CODE
 
