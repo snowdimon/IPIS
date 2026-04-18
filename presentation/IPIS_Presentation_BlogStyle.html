@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPIS / Дуранки – презентация-пост</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #0a1128;
+            color: #eee;
+            line-height: 1.5;
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+        }
+        .slide {
+            min-height: 100vh;
+            scroll-snap-align: start;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 2rem;
+            border-bottom: 1px solid #2a3a5a;
+        }
+        .container {
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            border-left: 5px solid #4a90e2;
+            padding-left: 1rem;
+        }
+        h2 {
+            font-size: 2rem;
+            margin: 1.5rem 0 1rem;
+            color: #ffd966;
+        }
+        h3 {
+            font-size: 1.4rem;
+            margin: 1rem 0 0.5rem;
+            color: #bbccff;
+        }
+        p, li {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+        ul, ol {
+            margin: 1rem 0 1rem 2rem;
+        }
+        .code-example {
+            background: #1e2a3a;
+            padding: 0.8rem;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 1rem;
+            margin: 1rem 0;
+            color: #bbffaa;
+        }
+        .quote {
+            font-style: italic;
+            font-size: 1.4rem;
+            color: #bbccff;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .author {
+            text-align: center;
+            margin-top: 2rem;
+            border-top: 1px solid #2a3a5a;
+            padding-top: 2rem;
+        }
+        .svg-container {
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        svg {
+            max-width: 100%;
+            height: auto;
+            background: #1a1a2e;
+            border-radius: 12px;
+            padding: 10px;
+        }
+        .badge {
+            display: inline-block;
+            background: #2a3a5a;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.8rem;
+            background: #061020;
+        }
+        a {
+            color: #bbffaa;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .button {
+            display: inline-block;
+            background: #4a90e2;
+            color: #fff;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+        @media (max-width: 700px) {
+            .slide { padding: 1.5rem; }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.6rem; }
+            p, li { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Слайд 1: Проблема (как в посте) -->
+    <div class="slide">
+        <div class="container">
+            <div class="svg-container">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="120" height="120">
+                    <defs><style>.circle { fill: none; stroke: #ffffff; stroke-width: 4; } .ziggurat { fill: #cccccc; } .thread { stroke: #ffffff; stroke-width: 2; } .star { fill: #ffffff; }</style></defs>
+                    <circle class="circle" cx="100" cy="100" r="80" />
+                    <rect class="ziggurat" x="75" y="135" width="50" height="18" rx="2" />
+                    <rect class="ziggurat" x="81" y="117" width="38" height="18" rx="2" />
+                    <rect class="ziggurat" x="87" y="99" width="26" height="18" rx="2" />
+                    <line class="thread" x1="100" y1="99" x2="100" y2="60" />
+                    <polygon class="star" points="100,50 102,56 108,58 102,60 100,66 98,60 92,58 98,56" />
+                </svg>
+            </div>
+            <h1>IPIS / Дуранки</h1>
+            <p><strong>Межпланетная система идентификации</strong></p>
+            <h3>🔥 Проблема</h3>
+            <p>Космос становится тесным. Десятки стран, частные компании, смешанные экипажи. Но у нас нет <strong>единого простого языка</strong>, чтобы мгновенно понять:</p>
+            <ul>
+                <li>❓ Кто перед тобой — человек или робот?</li>
+                <li>❓ С Земли он, с Луны или с Марса?</li>
+                <li>❓ Какой у него опыт? Сколько миров посетил? Выходил ли в открытый космос?</li>
+            </ul>
+            <p>Флаги и позывные не дают истории. А опыт в космосе критичен для безопасности и доверия.</p>
+            <p><strong>IPIS решает это — просто, дёшево, добровольно.</strong></p>
+        </div>
+    </div>
+
+    <!-- Слайд 2: Что такое IPIS (общее объяснение) -->
+    <div class="slide">
+        <div class="container">
+            <h2>💡 Что такое IPIS?</h2>
+            <p><strong>IPIS (InterPlanetary Identity System)</strong> — это «паспорт» и «послужной список» для космоса.</p>
+            <p>Каждый человек, корабль или робот получает:</p>
+            <ul>
+                <li><strong>Код</strong> — из формы (круг/шестиугольник), номера планеты (01 Земля, 02 Луна, 03 Марс) и индекса (орбита, выход в космос).</li>
+                <li><strong>Стек Снежкова</strong> — ряд значков, которые накапливаются как «лента опыта»: где родился, где работал, выходил ли в открытый космос.</li>
+            </ul>
+            <p>Система добровольная, не заменяет флаги, работает рядом с существующими стандартами (NORAD, транспондеры).</p>
+            <div class="code-example">Пример кода человека на Марсе: circle 03<br>Стек: 01 02’ E (Земля → лунная орбита с выходами → Марс)</div>
+        </div>
+    </div>
+
+    <!-- Слайд 3: Кодировка (просто и наглядно) -->
+    <div class="slide">
+        <div class="container">
+            <h2>🧩 Кодировка за 1 минуту</h2>
+            <ul>
+                <li>🔵 <strong>Круг</strong> – человек / база / пилотируемый корабль</li>
+                <li>⬡ <strong>Шестиугольник</strong> – робот / дрон / беспилотник</li>
+                <li><strong>01</strong> – Земля, <strong>02</strong> – Луна, <strong>03</strong> – Марс, <strong>04,05…</strong> – будущие миры</li>
+                <li><strong>’</strong> (апостроф) – орбитальный объект (пример: <code>02’</code> – лунная станция)</li>
+                <li><strong>E</strong> – выход в открытый космос (EVA) – знак риска и заслуги</li>
+                <li><strong>00</strong> – глубокий космос (за орбитой Марса)</li>
+            </ul>
+            <div class="code-example">Примеры: circle 01 (человек на Земле), hex 03 (марсоход), circle 02’ (экипаж лунной станции)</div>
+        </div>
+    </div>
+
+    <!-- Слайд 4: Стек Снежкова (личный опыт) -->
+    <div class="slide">
+        <div class="container">
+            <h2>🏅 Стек Снежкова — «нашивка опыта»</h2>
+            <p>Под основным шевроном — горизонтальный ряд <strong>соприкасающихся кружков</strong> (диаметр 8–10 мм).</p>
+            <ul>
+                <li>Первый кружок — место рождения (только поверхность планеты).</li>
+                <li>Затем — места долговременной работы (>6 месяцев) по порядку.</li>
+                <li>После мира, где были выходы в космос — отдельный кружок <strong>E</strong>.</li>
+                <li>Текущее место — в основном круге, в стеке не дублируется.</li>
+            </ul>
+            <div class="code-example">Пример: 01 02’ E 03 — родился на Земле, работал на лунной орбите с выходами, теперь на Марсе.</div>
+            <div class="svg-container">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="300" height="90">
+                    <defs><style>.stack-circle { fill: #0a1128; stroke: #ffffff; stroke-width: 1.5; } .stack-text { fill: #ffffff; font-family: 'Arial', sans-serif; font-weight: bold; font-size: 12px; text-anchor: middle; dominant-baseline: central; }</style></defs>
+                    <rect x="0" y="0" width="200" height="60" fill="#1a1a2e" rx="8"/>
+                    <circle class="stack-circle" cx="79" cy="30" r="7" /><text class="stack-text" x="79" y="30">01</text>
+                    <circle class="stack-circle" cx="93" cy="30" r="7" /><text class="stack-text" x="93" y="30">02'</text>
+                    <circle class="stack-circle" cx="107" cy="30" r="7" /><text class="stack-text" x="107" y="30">E</text>
+                    <circle class="stack-circle" cx="121" cy="30" r="7" /><text class="stack-text" x="121" y="30">03</text>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- Слайд 5: Нить корабля (исправленная: от края к краю) -->
+    <div class="slide">
+        <div class="container">
+            <h2>🚀 Нить корабля — маршрут перелёта</h2>
+            <p>На корпусе корабля — прямая линия от края круга стартового узла до края круга конечного узла. Цифры внутри кругов не загораживаются.</p>
+            <div class="svg-container">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150" width="300" height="150">
+                    <defs><style>.ship { fill: none; stroke: #aaaaaa; stroke-width: 2; } .thread { stroke: #ffffff; stroke-width: 3; } .node { fill: #ffffff; font-family: 'Arial', sans-serif; font-weight: bold; font-size: 16px; text-anchor: middle; dominant-baseline: central; } .circle-node { fill: none; stroke: #ffffff; stroke-width: 2; }</style></defs>
+                    <rect width="300" height="150" fill="#0a1128" rx="10"/>
+                    <polygon class="ship" points="80,75 220,75 200,105 100,105" />
+                    <polygon class="ship" points="220,75 240,75 220,95" />
+                    <line class="thread" x1="76" y1="60" x2="224" y2="60" />
+                    <circle class="circle-node" cx="60" cy="60" r="16" />
+                    <text class="node" x="60" y="60">01</text>
+                    <circle class="circle-node" cx="240" cy="60" r="16" />
+                    <text class="node" x="240" y="60">03</text>
+                </svg>
+            </div>
+            <p>Пример: корабль летит с Земли на Марс — на корпусе прямая линия <strong>01—03</strong>. Промежуточные манёвры (например, у Луны) только в цифровом профиле.</p>
+        </div>
+    </div>
+
+    <!-- Слайд 6: Двухслойный шеврон (круглый) -->
+    <div class="slide">
+        <div class="container">
+            <h2>🔄 Двухслойный шеврон — удобная смена базы</h2>
+            <p>Чтобы не печатать новые значки в космосе, каждый основной шеврон имеет два слоя:</p>
+            <ul>
+                <li>Внешний слой — круг с текущим кодом (на липучке).</li>
+                <li>Внутренний слой — маленький плоский кружок с тем же номером (будущая плашка стека).</li>
+            </ul>
+            <p>При убытии с базы внешний слой отлепляется, внутренний кружок извлекается и добавляется в горизонтальный стек.</p>
+            <div class="svg-container">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" width="400" height="200">
+                    <defs>
+                        <style>
+                            .layer-outer { fill: #0a1128; stroke: #ffffff; stroke-width: 2; }
+                            .layer-inner { fill: #333333; stroke: #cccccc; stroke-width: 1; }
+                            .text-outer { fill: #ffffff; font-family: 'Arial', sans-serif; font-weight: bold; font-size: 18px; text-anchor: middle; dominant-baseline: central; }
+                            .text-inner { fill: #ffffff; font-family: 'Arial', sans-serif; font-weight: bold; font-size: 12px; text-anchor: middle; dominant-baseline: central; }
+                            .label { fill: #aaaaaa; font-family: 'Arial', sans-serif; font-size: 12px; text-anchor: middle; }
+                            .arrow { stroke: #ffaa00; stroke-width: 2; marker-end: url(#arrowhead); }
+                        </style>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#ffaa00" />
+                        </marker>
+                    </defs>
+                    <rect width="400" height="200" fill="#1a1a2e" rx="10"/>
+                    <circle class="layer-outer" cx="130" cy="90" r="50" />
+                    <text class="text-outer" x="130" y="90">01</text>
+                    <circle class="layer-inner" cx="130" cy="120" r="20" />
+                    <text class="text-inner" x="130" y="120">01</text>
+                    <line class="arrow" x1="190" y1="90" x2="240" y2="90" />
+                    <text class="label" x="215" y="80" fill="#ffaa00">отлепление</text>
+                    <circle class="layer-inner" cx="290" cy="70" r="20" />
+                    <text class="text-inner" x="290" y="70">01</text>
+                    <text class="label" x="290" y="110">добавляется в стек</text>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- Слайд 7: Ритуал "Глоток базы" -->
+    <div class="slide">
+        <div class="container">
+            <h2>🍵 Ритуал «Глоток базы»</h2>
+            <p>Добровольная традиция, закрепляющая смену кода:</p>
+            <ol>
+                <li>Прибывший на базу получает стакан местной воды.</li>
+                <li>Глоток — символическое принятие в экосистему.</li>
+                <li>Старший вручает новый шеврон (звук липучки Velcro).</li>
+            </ol>
+            <p>Ритуал не заменяет официальные процедуры, но создаёт доверие и общность.</p>
+        </div>
+    </div>
+
+    <!-- Слайд 8: Техническая интеграция (кратко) -->
+    <div class="slide">
+        <div class="container">
+            <h2>🛠 Техническая сторона</h2>
+            <ul>
+                <li><strong>RFID-шеврон</strong> — пассивный чип для контроля доступа и автоматического логирования.</li>
+                <li><strong>Поле IPIS_CODE в каталоге NORAD</strong> — человеко-читаемая маркировка спутников и кораблей.</li>
+                <li><strong>Верификация стека</strong> — по цифровым подписям в бортовых журналах (надёжнее блокчейна).</li>
+            </ul>
+            <p>Детали — в технической документации репозитория.</p>
+        </div>
+    </div>
+
+    <!-- Слайд 9: Честные границы -->
+    <div class="slide">
+        <div class="container">
+            <h2>⚠️ Что IPIS не делает?</h2>
+            <ul>
+                <li>Не заменяет медицинские приборы (стек — лишь подсказка о радиационном фоне).</li>
+                <li>Не отменяет военные звания и государственные флаги.</li>
+                <li>Не является массовой модой на Земле (это нишевая система для космоса).</li>
+                <li>Не предназначен для общения с инопланетянами (хотя кто знает).</li>
+                <li>Не обязателен к использованию — всегда доброволен.</li>
+            </ul>
+            <p><strong>В своей нише</strong> (идентификация, доступ, навигация, культура) — работает отлично.</p>
+        </div>
+    </div>
+
+    <!-- Слайд 10: Призыв и ссылки (как в посте) -->
+    <div class="slide">
+        <div class="container">
+            <div class="quote">
+                «Там, в небе, нас ждёт звёздный человек…»<br>
+                — Дэвид Боуи, «Starman» (1972)
+            </div>
+            <h2>📢 Присоединяйтесь!</h2>
+            <p>Проект полностью открыт. Мы приглашаем всех:</p>
+            <ul>
+                <li>⭐ Поставить звезду на GitHub</li>
+                <li>🪡 Сделать свой первый шеврон по <a href="https://github.com/snowdimon/IPIS/blob/main/docs/quickstart.md">быстрой инструкции</a></li>
+                <li>💡 Предложить улучшение через Issues или Pull Request</li>
+                <li>🎮 Создать мод для Kerbal Space Program, Star Citizen, Elite Dangerous</li>
+                <li>🚀 Провести пилот на реальной базе (аналоговой или настоящей)</li>
+            </ul>
+            <p style="margin-top: 2rem;"><a href="https://github.com/snowdimon/IPIS" class="button">Перейти на GitHub →</a></p>
+            <div class="author">
+                <p><strong>Автор:</strong> Снежков Д., 01 — ЗЕМЛЯ<br>
+                <strong>Кодовое имя:</strong> «Дуранки» (Duranki — Нить Неба и Земли)<br>
+                Версия 15.0, апрель 2026<br>
+                Лицензия: CC BY-SA 4.0</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        IPIS / Дуранки — Межпланетная система идентификации | Снежков Д., 01 — ЗЕМЛЯ
+    </footer>
+</body>
+</html>
