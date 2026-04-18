@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use IPIS / Duranki in your work, please cite this software as follows:"
+title: "IPIS / Duranki: InterPlanetary Identity System"
+version: 15.0
+date-released: 2026-04
+authors:
+  - family-names: "Snezhkov"
+    given-names: "Dmitry"
+    orcid: ""  # optional
+    affiliation: "Independent"
+identifiers:
+  - type: "url"
+    value: "https://github.com/snowdimon/IPIS"
+license: "CC-BY-SA-4.0"
+repository-code: "https://github.com/snowdimon/IPIS"
+abstract: "A voluntary protocol for identification, access, and navigation in the Solar System, featuring the Snezhkov Stack and the Duranki bond."
+keywords:
+  - space
+  - identification
+  - protocol
+  - stack
+  - RFID
+  - NORAD
+  - NASA
+  - rocket
+  - sputnik
+  - Earth
+  - Moon
