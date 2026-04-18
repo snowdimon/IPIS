@@ -5,95 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IPIS / Дуранки – презентация</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Segoe UI', 'Arial', sans-serif;
-            background: #0a1128;
-            color: #eee;
-            line-height: 1.5;
-        }
-        .slide {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 3rem;
-            border-bottom: 1px solid #2a3a5a;
-            scroll-snap-align: start;
-        }
-        .container {
-            max-width: 1000px;
-            width: 100%;
-            margin: 0 auto;
-        }
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: #fff;
-            border-left: 5px solid #4a90e2;
-            padding-left: 1rem;
-        }
-        h2 {
-            font-size: 2rem;
-            margin: 1.5rem 0 1rem;
-            color: #ffd966;
-        }
-        h3 {
-            font-size: 1.5rem;
-            margin: 1rem 0;
-        }
-        p, li {
-            font-size: 1.2rem;
-            margin-bottom: 0.8rem;
-        }
-        ul, ol {
-            margin: 1rem 0 1rem 2rem;
-        }
-        .code-example {
-            background: #1e2a3a;
-            padding: 0.8rem;
-            border-radius: 8px;
-            font-family: monospace;
-            font-size: 1.1rem;
-            margin: 1rem 0;
-            color: #bbffaa;
-        }
-        .quote {
-            font-style: italic;
-            font-size: 1.4rem;
-            color: #bbccff;
-            text-align: center;
-            margin: 2rem 0;
-        }
-        .author {
-            text-align: center;
-            margin-top: 2rem;
-            border-top: 1px solid #2a3a5a;
-            padding-top: 2rem;
-        }
-        img {
-            max-width: 200px;
-            display: block;
-            margin: 1rem auto;
-        }
-        .badge {
-            display: inline-block;
-            background: #2a3a5a;
-            padding: 0.2rem 0.6rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-right: 0.5rem;
-        }
-        footer {
-            text-align: center;
-            padding: 1rem;
-            font-size: 0.8rem;
-            background: #061020;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #0a1128; color: #eee; line-height: 1.5; }
+        .slide { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 3rem; border-bottom: 1px solid #2a3a5a; }
+        .container { max-width: 1000px; width: 100%; margin: 0 auto; }
+        h1 { font-size: 3rem; margin-bottom: 1rem; color: #fff; border-left: 5px solid #4a90e2; padding-left: 1rem; }
+        h2 { font-size: 2rem; margin: 1.5rem 0 1rem; color: #ffd966; }
+        p, li { font-size: 1.2rem; margin-bottom: 0.8rem; }
+        ul, ol { margin: 1rem 0 1rem 2rem; }
+        .code-example { background: #1e2a3a; padding: 0.8rem; border-radius: 8px; font-family: monospace; font-size: 1.1rem; margin: 1rem 0; color: #bbffaa; }
+        .quote { font-style: italic; font-size: 1.4rem; color: #bbccff; text-align: center; margin: 2rem 0; }
+        .author { text-align: center; margin-top: 2rem; border-top: 1px solid #2a3a5a; padding-top: 2rem; }
+        .svg-container { text-align: center; margin: 1.5rem 0; }
+        svg { max-width: 100%; height: auto; background: #1a1a2e; border-radius: 12px; padding: 10px; }
+        footer { text-align: center; padding: 1rem; font-size: 0.8rem; background: #061020; }
+        a { color: #bbffaa; }
         @media (max-width: 700px) {
             .slide { padding: 1.5rem; }
             h1 { font-size: 2rem; }
@@ -103,9 +29,21 @@
     </style>
 </head>
 <body>
+
+    <!-- Слайд 1 -->
     <div class="slide">
         <div class="container">
-            <img src="assets/logo.svg" alt="Логотип IPIS" style="width: 150px;">
+            <div class="svg-container">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="150" height="150">
+                    <defs><style>.circle { fill: none; stroke: #ffffff; stroke-width: 4; } .ziggurat { fill: #cccccc; } .thread { stroke: #ffffff; stroke-width: 2; } .star { fill: #ffffff; }</style></defs>
+                    <circle class="circle" cx="100" cy="100" r="80" />
+                    <rect class="ziggurat" x="75" y="135" width="50" height="18" rx="2" />
+                    <rect class="ziggurat" x="81" y="117" width="38" height="18" rx="2" />
+                    <rect class="ziggurat" x="87" y="99" width="26" height="18" rx="2" />
+                    <line class="thread" x1="100" y1="99" x2="100" y2="60" />
+                    <polygon class="star" points="100,50 102,56 108,58 102,60 100,66 98,60 92,58 98,56" />
+                </svg>
+            </div>
             <h1>IPIS / Дуранки</h1>
             <p><strong>InterPlanetary Identity System</strong><br>Межпланетная система идентификации</p>
             <p>Кодовое имя: «Дуранки» — <em>Нить Неба и Земли</em></p>
@@ -115,6 +53,7 @@
         </div>
     </div>
 
+    <!-- Слайд 2 -->
     <div class="slide">
         <div class="container">
             <h2>Что даёт IPIS?</h2>
@@ -123,13 +62,11 @@
                 <li><strong>Стек Снежкова</strong> — накапливаемая история посещённых миров</li>
                 <li>Единый язык для идентификации без отмены флагов и существующих систем</li>
             </ul>
-            <div class="code-example">
-                Пример кода: circle 03 (человек на Марсе)<br>
-                Стек: 01 02’ E (родился на Земле, работал на лунной орбите с выходами)
-            </div>
+            <div class="code-example">Пример кода: circle 03 (человек на Марсе)<br>Стек: 01 02’ E (родился на Земле, работал на лунной орбите с выходами)</div>
         </div>
     </div>
 
+    <!-- Слайд 3 -->
     <div class="slide">
         <div class="container">
             <h2>Кодировка</h2>
@@ -141,12 +78,11 @@
                 <li>E — выход в открытый космос (временный маркер и плашка за риск)</li>
                 <li>00 — глубокий космос за орбитой Марса</li>
             </ul>
-            <div class="code-example">
-                Примеры: circle 01, circle 02’, hex 03, circle 00
-            </div>
+            <div class="code-example">Примеры: circle 01, circle 02’, hex 03, circle 00</div>
         </div>
     </div>
 
+    <!-- Слайд 4 -->
     <div class="slide">
         <div class="container">
             <h2>Стек Снежкова</h2>
@@ -157,23 +93,55 @@
                 <li>После мира с выходами в космос — отдельный кружок E</li>
                 <li>Текущее место — в основном круге шеврона, в стеке не дублируется</li>
             </ul>
-            <div class="code-example">
-                Пример: 01 02’ E 03<br>
-                Родился на Земле, работал на лунной орбите с выходами, теперь на Марсе
+            <div class="code-example">Пример: 01 02’ E 03<br>Родился на Земле, работал на лунной орбите с выходами, теперь на Марсе</div>
+            <div class="svg-container">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="300" height="90">
+                    <defs><style>.stack-circle { fill: #0a1128; stroke: #ffffff; stroke-width: 1.5; } .stack-text { fill: #ffffff; font-family: 'Arial', sans-serif; font-weight: bold; font-size: 12px; text-anchor: middle; dominant-baseline: central; }</style></defs>
+                    <rect x="0" y="0" width="200" height="60" fill="#1a1a2e" rx="8"/>
+                    <circle class="stack-circle" cx="79" cy="30" r="7" /><text class="stack-text" x="79" y="30">01</text>
+                    <circle class="stack-circle" cx="93" cy="30" r="7" /><text class="stack-text" x="93" y="30">02'</text>
+                    <circle class="stack-circle" cx="107" cy="30" r="7" /><text class="stack-text" x="107" y="30">E</text>
+                    <circle class="stack-circle" cx="121" cy="30" r="7" /><text class="stack-text" x="121" y="30">03</text>
+                </svg>
             </div>
-            <img src="assets/stack_layout.svg" alt="Стек" style="width: 300px;">
         </div>
     </div>
 
+    <!-- Слайд 5 -->
     <div class="slide">
         <div class="container">
             <h2>Нить корабля и двухслойный шеврон</h2>
-            <p><strong>Нить корабля:</strong> на корпусе — прямая линия от начального узла к конечному (например, 01—03). Промежуточные манёвры — только в цифровом профиле.</p>
-            <p><strong>Двухслойный шеврон:</strong> внешний слой — текущий код; внутренний — плоская плашка (будущий элемент стека). При смене базы внешний слой отлепляется, плашка извлекается и добавляется в стек. Не нужно печатать плашки в космосе.</p>
-            <img src="assets/two_layer_patch.svg" alt="Двухслойный шеврон" style="width: 300px;">
+            <p><strong>Нить корабля:</strong> на корпусе — прямая линия от начального узла к конечному (например, 01—03).</p>
+            <div class="svg-container">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150" width="300" height="150">
+                    <defs><style>.ship { fill: none; stroke: #aaaaaa; stroke-width: 2; } .thread { stroke: #ffffff; stroke-width: 3; } .node { fill: #ffffff; font-family: 'Arial', sans-serif; font-weight: bold; font-size: 14px; text-anchor: middle; dominant-baseline: central; }</style></defs>
+                    <rect width="300" height="150" fill="#0a1128" rx="10"/>
+                    <polygon class="ship" points="80,75 220,75 200,105 100,105" />
+                    <polygon class="ship" points="220,75 240,75 220,95" />
+                    <line class="thread" x1="60" y1="60" x2="240" y2="60" />
+                    <circle cx="60" cy="60" r="16" fill="none" stroke="#ffffff" stroke-width="2" />
+                    <text class="node" x="60" y="60">01</text>
+                    <circle cx="240" cy="60" r="16" fill="none" stroke="#ffffff" stroke-width="2" />
+                    <text class="node" x="240" y="60">03</text>
+                </svg>
+            </div>
+            <p><strong>Двухслойный шеврон:</strong> внешний слой — текущий код; внутренний — плоская плашка (будущий элемент стека). При смене базы внешний слой отлепляется, плашка извлекается и добавляется в стек.</p>
+            <div class="svg-container">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" width="400" height="200">
+                    <defs><style>.layer-outer { fill: #0a1128; stroke: #ffffff; stroke-width: 2; } .layer-inner { fill: #333333; stroke: #cccccc; stroke-width: 1; } .text-outer { fill: #ffffff; font-family: 'Arial', sans-serif; font-weight: bold; font-size: 16px; text-anchor: middle; dominant-baseline: central; } .text-inner { fill: #ffffff; font-family: 'Arial', sans-serif; font-weight: bold; font-size: 12px; text-anchor: middle; dominant-baseline: central; } .label { fill: #aaaaaa; font-family: 'Arial', sans-serif; font-size: 12px; text-anchor: middle; } .arrow { stroke: #ffaa00; stroke-width: 2; marker-end: url(#arrowhead); }</style><marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#ffaa00" /></marker></defs>
+                    <rect width="400" height="200" fill="#1a1a2e" rx="10"/>
+                    <rect class="layer-outer" x="80" y="40" width="100" height="100" rx="10" /><text class="text-outer" x="130" y="90">circle 01</text>
+                    <rect class="layer-inner" x="95" y="100" width="40" height="40" rx="4" /><text class="text-inner" x="115" y="120">01</text>
+                    <line class="arrow" x1="190" y1="90" x2="240" y2="90" />
+                    <text class="label" x="215" y="80" fill="#ffaa00">отлепление</text>
+                    <rect class="layer-inner" x="270" y="40" width="40" height="40" rx="4" /><text class="text-inner" x="290" y="60">01</text>
+                    <text class="label" x="290" y="100">добавляется в стек</text>
+                </svg>
+            </div>
         </div>
     </div>
 
+    <!-- Слайд 6 -->
     <div class="slide">
         <div class="container">
             <h2>Ритуал «Глоток базы»</h2>
@@ -186,6 +154,7 @@
         </div>
     </div>
 
+    <!-- Слайд 7 -->
     <div class="slide">
         <div class="container">
             <h2>Техническая интеграция</h2>
@@ -198,6 +167,7 @@
         </div>
     </div>
 
+    <!-- Слайд 8 -->
     <div class="slide">
         <div class="container">
             <h2>Границы применимости</h2>
@@ -213,6 +183,7 @@
         </div>
     </div>
 
+    <!-- Слайд 9 -->
     <div class="slide">
         <div class="container">
             <div class="quote">
