@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPIS / Duranki – Open Space Identification System</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #0a1128;
+            color: #eee;
+            line-height: 1.5;
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+        }
+        .slide {
+            min-height: 100vh;
+            scroll-snap-align: start;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 2rem;
+            border-bottom: 1px solid #2a3a5a;
+        }
+        .container {
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            border-left: 5px solid #4a90e2;
+            padding-left: 1rem;
+        }
+        h2 {
+            font-size: 2rem;
+            margin: 1.5rem 0 1rem;
+            color: #ffd966;
+        }
+        h3 {
+            font-size: 1.4rem;
+            margin: 1rem 0 0.5rem;
+            color: #bbccff;
+        }
+        p, li {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+        ul, ol {
+            margin: 1rem 0 1rem 2rem;
+        }
+        .code-example {
+            background: #1e2a3a;
+            padding: 0.8rem;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 1rem;
+            margin: 1rem 0;
+            color: #bbffaa;
+        }
+        .quote {
+            font-style: italic;
+            font-size: 1.4rem;
+            color: #bbccff;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .author {
+            text-align: center;
+            margin-top: 2rem;
+            border-top: 1px solid #2a3a5a;
+            padding-top: 2rem;
+        }
+        .svg-container {
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        svg {
+            max-width: 100%;
+            height: auto;
+            background: #1a1a2e;
+            border-radius: 12px;
+            padding: 10px;
+        }
+        .badge {
+            display: inline-block;
+            background: #2a3a5a;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.8rem;
+            background: #061020;
+        }
+        a {
+            color: #bbffaa;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .button {
+            display: inline-block;
+            background: #4a90e2;
+            color: #fff;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+        @media (max-width: 700px) {
+            .slide { padding: 1.5rem; }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.6rem; }
+            p, li { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Slide 1: Problem -->
+    <div class="slide">
+        <div class="container">
+            <div class="svg-container">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="120" height="120">
+                    <defs><style>.circle { fill: none; stroke: #ffffff; stroke-width: 4; } .ziggurat { fill: #cccccc; } .thread { stroke: #ffffff; stroke-width: 2; } .star { fill: #ffffff; }</style></defs>
+                    <circle class="circle" cx="100" cy="100" r="80" />
+                    <rect class="ziggurat" x="75" y="135" width="50" height="18" rx="2" />
+                    <rect class="ziggurat" x="81" y="117" width="38" height="18" rx="2" />
+                    <rect class="ziggurat" x="87" y="99" width="26" height="18" rx="2" />
+                    <line class="thread" x1="100" y1="99" x2="100" y2="60" />
+                    <polygon class="star" points="100,50 102,56 108,58 102,60 100,66 98,60 92,58 98,56" />
+                </svg>
+            </div>
+            <h1>IPIS / Duranki</h1>
+            <p><strong>InterPlanetary Identity System</strong></p>
+            <h3>🔥 The Problem</h3>
+            <p>Space is getting crowded. Dozens of nations, private companies, mixed crews on the ISS and Lunar Gateway. But we lack a <strong>simple, universal language</strong> to instantly tell:</p>
+            <ul>
+                <li>❓ Is that a human or a robot?</li>
+                <li>❓ Are they from Earth, the Moon, or Mars?</li>
+                <li>❓ What is their experience? How many worlds have they visited? Have they performed spacewalks?</li>
+            </ul>
+            <p>Flags and call signs don't show history. But in space, experience is critical for safety and trust.</p>
+            <p><strong>IPIS solves this — simple, cheap, voluntary.</strong></p>
+        </div>
+    </div>
+
+    <!-- Slide 2: What is IPIS (overview) -->
+    <div class="slide">
+        <div class="container">
+            <h2>💡 What is IPIS?</h2>
+            <p><strong>IPIS (InterPlanetary Identity System)</strong> is a "passport" and "resume" for space.</p>
+            <p>Every human, spacecraft, and robot gets:</p>
+            <ul>
+                <li><strong>A human‑readable code</strong> – shape (circle/hexagon), planet number (01 Earth, 02 Moon, 03 Mars), and optional index (orbit, EVA).</li>
+                <li><strong>The Snezhkov Stack</strong> – a row of badges that accumulate like a "career tape": birthplace, work locations, and whether they performed spacewalks.</li>
+            </ul>
+            <p>The system is voluntary, does not replace flags, and works alongside existing standards (NORAD, transponders).</p>
+            <div class="code-example">Example: person on Mars → code: circle 03<br>Stack: 01 02’ E (Earth → lunar orbit with EVAs → Mars)</div>
+        </div>
+    </div>
+
+    <!-- Slide 3: Coding in one minute -->
+    <div class="slide">
+        <div class="container">
+            <h2>🧩 Coding in 1 minute</h2>
+            <ul>
+                <li>🔵 <strong>Circle</strong> – human / base / crewed ship</li>
+                <li>⬡ <strong>Hexagon</strong> – robot / drone / uncrewed vehicle</li>
+                <li><strong>01</strong> – Earth, <strong>02</strong> – Moon, <strong>03</strong> – Mars, <strong>04,05…</strong> – future worlds</li>
+                <li><strong>’</strong> (apostrophe) – orbital object (e.g. <code>02’</code> – lunar orbital station)</li>
+                <li><strong>E</strong> – extravehicular activity (EVA) – a mark of risk and merit</li>
+                <li><strong>00</strong> – deep space (beyond Mars orbit)</li>
+            </ul>
+            <div class="code-example">Examples: circle 01 (human on Earth), hex 03 (Mars rover), circle 02’ (lunar station crew)</div>
+        </div>
+    </div>
+
+    <!-- Slide 4: Snezhkov Stack -->
+    <div class="slide">
+        <div class="container">
+            <h2>🏅 Snezhkov Stack – "Experience Badges"</h2>
+            <p>Below the main patch – a horizontal row of <strong>touching discs</strong> (diameter 8–10 mm).</p>
+            <ul>
+                <li>First disc – birthplace (surface only).</li>
+                <li>Next discs – work locations (>6 months) in chronological order.</li>
+                <li>After any world where EVAs were performed – a separate <strong>E</strong> disc.</li>
+                <li>Current location is shown in the main patch circle, not duplicated in the stack.</li>
+            </ul>
+            <div class="code-example">Example: 01 02’ E 03 — born on Earth, worked on lunar orbit with EVAs, now on Mars.</div>
+            <div class="svg-container">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="300" height="90">
+                    <defs><style>.stack-circle { fill: #0a1128; stroke: #ffffff; stroke-width: 1.5; } .stack-text { fill: #ffffff; font-family: 'Arial', sans-serif; font-weight: bold; font-size: 12px; text-anchor: middle; dominant-baseline: central; }</style></defs>
+                    <rect x="0" y="0" width="200" height="60" fill="#1a1a2e" rx="8"/>
+                    <circle class="stack-circle" cx="79" cy="30" r="7" /><text class="stack-text" x="79" y="30">01</text>
+                    <circle class="stack-circle" cx="93" cy="30" r="7" /><text class="stack-text" x="93" y="30">02'</text>
+                    <circle class="stack-circle" cx="107" cy="30" r="7" /><text class="stack-text" x="107" y="30">E</text>
+                    <circle class="stack-circle" cx="121" cy="30" r="7" /><text class="stack-text" x="121" y="30">03</text>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: Ship Thread (fixed: edge to edge) -->
+    <div class="slide">
+        <div class="container">
+            <h2>🚀 Ship Thread – Flight Route</h2>
+            <p>On the hull – a straight line from the <strong>edge</strong> of the start node's circle to the <strong>edge</strong> of the end node's circle. Numbers inside circles remain unobscured.</p>
+            <div class="svg-container">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150" width="300" height="150">
+                    <defs><style>.ship { fill: none; stroke: #aaaaaa; stroke-width: 2; } .thread { stroke: #ffffff; stroke-width: 3; } .node { fill: #ffffff; font-family: 'Arial', sans-serif; font-weight: bold; font-size: 16px; text-anchor: middle; dominant-baseline: central; } .circle-node { fill: none; stroke: #ffffff; stroke-width: 2; }</style></defs>
+                    <rect width="300" height="150" fill="#0a1128" rx="10"/>
+                    <polygon class="ship" points="80,75 220,75 200,105 100,105" />
+                    <polygon class="ship" points="220,75 240,75 220,95" />
+                    <line class="thread" x1="76" y1="60" x2="224" y2="60" />
+                    <circle class="circle-node" cx="60" cy="60" r="16" />
+                    <text class="node" x="60" y="60">01</text>
+                    <circle class="circle-node" cx="240" cy="60" r="16" />
+                    <text class="node" x="240" y="60">03</text>
+                </svg>
+            </div>
+            <p>Example: a ship flying from Earth to Mars – the hull shows a straight line <strong>01—03</strong>. Intermediate manoeuvres (e.g., lunar gravity assist) are digital only.</p>
+        </div>
+    </div>
+
+    <!-- Slide 6: Two‑layer patch (circular) -->
+    <div class="slide">
+        <div class="container">
+            <h2>🔄 Two‑layer Patch – Easy Base Transfer</h2>
+            <p>No need to print new badges in space. Every main patch has two layers:</p>
+            <ul>
+                <li>Outer layer – circle with current code (Velcro‑attached).</li>
+                <li>Inner layer – a small flat disc with the same number (future stack element).</li>
+            </ul>
+            <p>When you leave a base, the outer layer is peeled off, the inner disc is extracted and added to the horizontal stack.</p>
+            <div class="svg-container">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" width="400" height="200">
+                    <defs>
+                        <style>
+                            .layer-outer { fill: #0a1128; stroke: #ffffff; stroke-width: 2; }
+                            .layer-inner { fill: #333333; stroke: #cccccc; stroke-width: 1; }
+                            .text-outer { fill: #ffffff; font-family: 'Arial', sans-serif; font-weight: bold; font-size: 18px; text-anchor: middle; dominant-baseline: central; }
+                            .text-inner { fill: #ffffff; font-family: 'Arial', sans-serif; font-weight: bold; font-size: 12px; text-anchor: middle; dominant-baseline: central; }
+                            .label { fill: #aaaaaa; font-family: 'Arial', sans-serif; font-size: 12px; text-anchor: middle; }
+                            .arrow { stroke: #ffaa00; stroke-width: 2; marker-end: url(#arrowhead); }
+                        </style>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#ffaa00" />
+                        </marker>
+                    </defs>
+                    <rect width="400" height="200" fill="#1a1a2e" rx="10"/>
+                    <circle class="layer-outer" cx="130" cy="90" r="50" />
+                    <text class="text-outer" x="130" y="90">01</text>
+                    <circle class="layer-inner" cx="130" cy="120" r="20" />
+                    <text class="text-inner" x="130" y="120">01</text>
+                    <line class="arrow" x1="190" y1="90" x2="240" y2="90" />
+                    <text class="label" x="215" y="80" fill="#ffaa00">peel off</text>
+                    <circle class="layer-inner" cx="290" cy="70" r="20" />
+                    <text class="text-inner" x="290" y="70">01</text>
+                    <text class="label" x="290" y="110">added to stack</text>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 7: Ritual "Base Gulp" -->
+    <div class="slide">
+        <div class="container">
+            <h2>🍵 Ritual "Base Gulp"</h2>
+            <p>A voluntary tradition that cements the change of code:</p>
+            <ol>
+                <li>Arriving crew member receives a glass of local water.</li>
+                <li>A sip – symbolic acceptance into the ecosystem.</li>
+                <li>The senior hands over the new patch (sound of Velcro).</li>
+            </ol>
+            <p>The ritual does not replace official procedures, but builds trust and a sense of community.</p>
+        </div>
+    </div>
+
+    <!-- Slide 8: Technical integration (brief) -->
+    <div class="slide">
+        <div class="container">
+            <h2>🛠 Technical Integration</h2>
+            <ul>
+                <li><strong>RFID patch</strong> – passive chip for access control and automatic logging.</li>
+                <li><strong>IPIS_CODE field in NORAD / Space‑Track.org</strong> – human‑readable marking of satellites and spacecraft.</li>
+                <li><strong>Stack verification</strong> – based on digitally signed ship/base logbook entries (more reliable than blockchain).</li>
+            </ul>
+            <p>Details in the repository's technical documentation.</p>
+        </div>
+    </div>
+
+    <!-- Slide 9: Honest limits -->
+    <div class="slide">
+        <div class="container">
+            <h2>⚠️ What IPIS does NOT do</h2>
+            <ul>
+                <li>Not a medical diagnostic tool (stack only hints at radiation exposure).</li>
+                <li>Does not override military ranks or national flags.</li>
+                <li>Not a mass fashion trend on Earth (it's a niche system for space).</li>
+                <li>Not designed for alien communication (though who knows).</li>
+                <li>Not mandatory – always voluntary.</li>
+            </ul>
+            <p><strong>In its niche</strong> (identification, access, navigation, culture) – it works excellently.</p>
+        </div>
+    </div>
+
+    <!-- Slide 10: Call to action and links -->
+    <div class="slide">
+        <div class="container">
+            <div class="quote">
+                “There’s a starman waiting in the sky…”<br>
+                — David Bowie, “Starman” (1972)
+            </div>
+            <h2>📢 Join us!</h2>
+            <p>The project is completely open. We invite everyone to:</p>
+            <ul>
+                <li>⭐ Star the repository on GitHub</li>
+                <li>🪡 Make your first IPIS patch using the <a href="https://github.com/snowdimon/IPIS/blob/main/docs/quickstart.md">quick start guide</a></li>
+                <li>💡 Suggest improvements via Issues or Pull Requests</li>
+                <li>🎮 Create mods for Kerbal Space Program, Star Citizen, Elite Dangerous</li>
+                <li>🚀 Run a pilot on a real (analogue or actual) space base</li>
+            </ul>
+            <p style="margin-top: 2rem;"><a href="https://github.com/snowdimon/IPIS" class="button">Go to GitHub →</a></p>
+            <div class="author">
+                <p><strong>Author:</strong> Snezhkov D., 01 — EARTH<br>
+                <strong>Codename:</strong> Duranki (The Bond of Heaven and Earth)<br>
+                Version 15.0, April 2026<br>
+                License: CC BY-SA 4.0</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        IPIS / Duranki – InterPlanetary Identity System | Snezhkov D., 01 — EARTH
+    </footer>
+</body>
+</html>
