@@ -23,3 +23,34 @@ So your patch will show: **main circle `01`**, and **stack disc `01`** below it.
 Download the example patch from `assets/chevron_example.svg` (or use any image editing software to draw a circle with `01` inside and a row of small touching circles with `01`).
 
 If you cannot open SVG, here is a simple text-based design:
+┌─────┐
+│ 01  │ (main circle)
+└─────┘
+┌───┐
+│01 │ (stack disc)
+└───┘
+
+## Step 3: Print and Cut
+
+- Print the design on paper (or iron‑on transfer paper).
+- Cut out the shape, leaving a small border.
+- If possible, laminate or cover with clear tape for durability.
+
+## Step 4: Attach Velcro
+
+- Stick a small piece of Velcro hook on the back of the patch.
+- Attach the corresponding Velcro loop to your jacket, backpack, or uniform.
+
+## Step 5: Wear It!
+
+Your first IPIS patch is ready. It says: *I am on Earth (01), and I was born here (stack 01).*
+
+## What’s Next?
+
+- When you move to another place (e.g., a Moon simulation base), you can add a new stack disc.
+- If you perform a "spacewalk" (EVA) in a simulator, you can add an `E` disc.
+- Use the [Stack Guide](stack_guide.md) to learn how to update your patch properly.
+
+## Share Your Creation
+
+Post a photo of your IPIS patch on social media with #IPIS #Duranki. Show the world that you are ready for the future of space identity!
