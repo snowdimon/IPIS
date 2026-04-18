@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPIS / Дуранки – презентация</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+            background: #0a1128;
+            color: #eee;
+            line-height: 1.5;
+        }
+        .slide {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+            border-bottom: 1px solid #2a3a5a;
+            scroll-snap-align: start;
+        }
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            border-left: 5px solid #4a90e2;
+            padding-left: 1rem;
+        }
+        h2 {
+            font-size: 2rem;
+            margin: 1.5rem 0 1rem;
+            color: #ffd966;
+        }
+        h3 {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+        }
+        p, li {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+        ul, ol {
+            margin: 1rem 0 1rem 2rem;
+        }
+        .code-example {
+            background: #1e2a3a;
+            padding: 0.8rem;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 1.1rem;
+            margin: 1rem 0;
+            color: #bbffaa;
+        }
+        .quote {
+            font-style: italic;
+            font-size: 1.4rem;
+            color: #bbccff;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .author {
+            text-align: center;
+            margin-top: 2rem;
+            border-top: 1px solid #2a3a5a;
+            padding-top: 2rem;
+        }
+        img {
+            max-width: 200px;
+            display: block;
+            margin: 1rem auto;
+        }
+        .badge {
+            display: inline-block;
+            background: #2a3a5a;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.8rem;
+            background: #061020;
+        }
+        @media (max-width: 700px) {
+            .slide { padding: 1.5rem; }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.6rem; }
+            p, li { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="container">
+            <img src="assets/logo.svg" alt="Логотип IPIS" style="width: 150px;">
+            <h1>IPIS / Дуранки</h1>
+            <p><strong>InterPlanetary Identity System</strong><br>Межпланетная система идентификации</p>
+            <p>Кодовое имя: «Дуранки» — <em>Нить Неба и Земли</em></p>
+            <p>Добровольный протокол идентификации, доступа и навигации в Солнечной системе.</p>
+            <p>Автор: Снежков Д., 01 — ЗЕМЛЯ</p>
+            <p>Версия 15.0, апрель 2026</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="container">
+            <h2>Что даёт IPIS?</h2>
+            <ul>
+                <li>Человеку, кораблю, роботу — <strong>человеко-читаемый код</strong></li>
+                <li><strong>Стек Снежкова</strong> — накапливаемая история посещённых миров</li>
+                <li>Единый язык для идентификации без отмены флагов и существующих систем</li>
+            </ul>
+            <div class="code-example">
+                Пример кода: circle 03 (человек на Марсе)<br>
+                Стек: 01 02’ E (родился на Земле, работал на лунной орбите с выходами)
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="container">
+            <h2>Кодировка</h2>
+            <ul>
+                <li>Круг — человек / база / пилотируемый корабль</li>
+                <li>Шестиугольник — робот / дрон / беспилотник</li>
+                <li>01 — Земля, 02 — Луна, 03 — Марс, 04,05… — будущие миры</li>
+                <li>’ (апостроф) — орбитальный объект (например, 02’)</li>
+                <li>E — выход в открытый космос (временный маркер и плашка за риск)</li>
+                <li>00 — глубокий космос за орбитой Марса</li>
+            </ul>
+            <div class="code-example">
+                Примеры: circle 01, circle 02’, hex 03, circle 00
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="container">
+            <h2>Стек Снежкова</h2>
+            <p>Горизонтальный ряд <strong>соприкасающихся кружков</strong> (диаметр 8–10 мм).</p>
+            <ul>
+                <li>Первый кружок — место рождения (только поверхность)</li>
+                <li>Далее — места долговременной работы (>6 месяцев) в хронологии</li>
+                <li>После мира с выходами в космос — отдельный кружок E</li>
+                <li>Текущее место — в основном круге шеврона, в стеке не дублируется</li>
+            </ul>
+            <div class="code-example">
+                Пример: 01 02’ E 03<br>
+                Родился на Земле, работал на лунной орбите с выходами, теперь на Марсе
+            </div>
+            <img src="assets/stack_layout.svg" alt="Стек" style="width: 300px;">
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="container">
+            <h2>Нить корабля и двухслойный шеврон</h2>
+            <p><strong>Нить корабля:</strong> на корпусе — прямая линия от начального узла к конечному (например, 01—03). Промежуточные манёвры — только в цифровом профиле.</p>
+            <p><strong>Двухслойный шеврон:</strong> внешний слой — текущий код; внутренний — плоская плашка (будущий элемент стека). При смене базы внешний слой отлепляется, плашка извлекается и добавляется в стек. Не нужно печатать плашки в космосе.</p>
+            <img src="assets/two_layer_patch.svg" alt="Двухслойный шеврон" style="width: 300px;">
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="container">
+            <h2>Ритуал «Глоток базы»</h2>
+            <ol>
+                <li>Стакан местной воды</li>
+                <li>Глоток — символическое принятие в экосистему</li>
+                <li>Вручение нового шеврона (звук липучки Velcro)</li>
+            </ol>
+            <p>Полная инструкция по надеванию и обновлению стека — в <a href="docs/stack_guide.md" style="color:#bbffaa;">руководстве по стеку</a>.</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="container">
+            <h2>Техническая интеграция</h2>
+            <ul>
+                <li><strong>RFID-шеврон</strong> — пассивный чип для контроля доступа и логирования</li>
+                <li><strong>Поле IPIS_CODE</strong> в каталоге NORAD / Space‑Track.org — человеко-читаемая маркировка</li>
+                <li><strong>Верификация стека</strong> — по цифровым подписям в бортовых журналах кораблей и баз</li>
+            </ul>
+            <p>Детали — в технических документах репозитория.</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="container">
+            <h2>Границы применимости</h2>
+            <p><strong>IPIS не предназначен для:</strong></p>
+            <ul>
+                <li>Медицинской диагностики (только грубая подсказка о радиации)</li>
+                <li>Юридического или военного старшинства (флаги и звания приоритетны)</li>
+                <li>Массовой моды на Земле (система нишевая)</li>
+                <li>Общения с инопланетянами</li>
+                <li>Обязательного стандарта в играх (возможны фанатские моды)</li>
+            </ul>
+            <p><strong>Отлично работает</strong> в своей нише: идентификация в космосе, доступ, навигация, культура.</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="container">
+            <div class="quote">
+                «Там, в небе, нас ждёт звездный человек…»<br>
+                — Дэвид Боуи, «Starman» (1972)
+            </div>
+            <div class="author">
+                <p><strong>Автор концепции:</strong> Снежков Д., 01 — ЗЕМЛЯ</p>
+                <p><strong>Официальное название:</strong> IPIS (InterPlanetary Identity System)</p>
+                <p><strong>Кодовое имя:</strong> «Дуранки» (Duranki — Нить Неба и Земли)</p>
+                <p>Версия 15.0, апрель 2026</p>
+                <p>Концепция открыта для использования, адаптации и пилотных проектов.</p>
+                <p><a href="https://github.com/snowdimon/IPIS" style="color:#bbffaa;">GitHub-репозиторий</a></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        IPIS / Дуранки — Межпланетная система идентификации | Снежков Д., 01 — ЗЕМЛЯ
+    </footer>
+</body>
+</html>
