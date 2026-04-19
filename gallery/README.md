@@ -1,25 +1,24 @@
-# IPIS / Duranki – Visual Gallery
+# Визуальная галерея IPIS
 
-Here you can find concept images of IPIS applied in real‑world space environments: mission control screens, spacesuits, spacecraft hulls, and the Base Gulp ritual.
+Здесь собраны концептуальные изображения, показывающие, как система IPIS / «Дуранки» выглядит в реальных космических сценариях.
 
-## Gallery
+## Изображения
 
-| Preview | Description |
-|---------|-------------|
-| <img src="mission_control.jpg" width="150"> | **Mission Control** – displays with `IPIS_CODE` fields for tracked objects. |
-| <img src="spacesuit_patch.jpg" width="150"> | **Spacesuit Patch** – main patch (circle 03) and Snezhkov Stack (01 02' E). |
-| <img src="spacecraft_hull.jpg" width="150"> | **Ship Thread** – straight line from 01 to 03 on a spacecraft hull. |
-| <img src="uniform_patches.jpg" width="150"> | **Uniform Patches** – everyday wear with IPIS identification. |
-| <img src="lunar_ceremony.jpg" width="150"> | **Base Gulp** – ritual of receiving a new patch on a lunar station. |
-| <img src="stack_closeup.jpg" width="150"> | **Snezhkov Stack** – close‑up of touching discs. |
-| <img src="ship_thread_real.jpg" width="150"> | **Realistic Ship Thread** – cargo vessel with 01—03 line. |
-| <img src="two_layer_demo.jpg" width="150"> | **Two‑layer Patch** – outer layer peeled off, inner disc ready. |
+| Файл | Описание |
+|------|-----------|
+| `man_on_mars.png` | Человек на Марсе – шеврон 03, стек: 01 02’ E |
+| `spaceship_close.png` | Пилотируемый корабль – крупный план с нитью 01—03 |
+| `drone-satelite_close.png` | Дрон-спутник – шестиугольник 02’ на орбите Луны |
+| `mission_control.png` | Центр управления – экран с полем IPIS_CODE |
+| `spaceship_full.png` | Корабль целиком – нить на корпусе видна издалека |
+| `drone-satelite_full.png` | Беспилотник в глубоком космосе – код 00 |
+| `spacecraft_hull.png` | Фрагмент обшивки с прямой нитью между 01 и 03 |
+| `uniform_patches.png` | Повседневная форма с шевронами и стеками экипажа |
 
-> Click on any image to view full size (you may need to open the raw file).  
-> All images are concept visuals for the IPIS / Duranki system.
+## Просмотр
 
-For the interactive gallery with modal window, open [`index.html`](index.html) in your browser (if you have cloned the repo).
+Откройте [интерактивную галерею](index.html) для увеличения изображений по клику.
 
----
+## Лицензия
 
-*Part of the [IPIS / Duranki project](https://github.com/snowdimon/IPIS) – CC BY-SA 4.0*
+Все изображения распространяются на условиях [CC BY-SA 4.0](../LICENSE).
