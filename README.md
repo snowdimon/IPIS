@@ -52,6 +52,16 @@ A person born on Earth (`01`), who worked on a lunar orbital station with EVAs (
 
 ---
 
+## 🖼️ See It in Action
+
+A picture is worth a thousand words. See how IPIS looks on a Martian suit, a spacecraft hull, and in mission control.
+
+[![Visual Gallery](https://img.shields.io/badge/📸-Open_Gallery-blue)](https://snowdimon.github.io/IPIS/gallery/index.html)
+
+> Click the badge above to open the interactive gallery.
+
+---
+
 ## Repository Structure
 
 - `presentation/` – slides (Markdown source, and eventually PDF)  
