@@ -44,6 +44,13 @@
             background-clip: text;
             color: transparent;
         }
+        .duranki-sub {
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: #ffd966;
+            margin-top: 0.2rem;
+            font-style: italic;
+        }
         .subhead {
             font-size: 1.3rem;
             margin: 1rem 0;
@@ -158,8 +165,15 @@
             border-radius: 20px;
             font-size: 0.8rem;
         }
+        .sumerian {
+            font-size: 0.9rem;
+            color: #aaa;
+            text-align: center;
+            margin-top: 0.5rem;
+        }
         @media (max-width: 700px) {
             h1 { font-size: 2rem; }
+            .duranki-sub { font-size: 1.3rem; }
             .subhead { font-size: 1rem; }
             .section h2 { font-size: 1.8rem; }
         }
@@ -170,8 +184,10 @@
     <div class="hero">
         <div class="container">
             <img src="assets/logo.svg" alt="IPIS Logo" class="logo">
-            <h1>IPIS / Duranki</h1>
+            <h1>IPIS</h1>
+            <div class="duranki-sub">Duranki</div>
             <div class="subhead">InterPlanetary Identity System</div>
+            <div class="sumerian">“Duranki” – ancient Sumerian for <em>The Bond of Heaven and Earth</em></div>
             <div class="tagline">
                 <strong>“We build not a wall, but a bridge.”</strong><br>
                 A voluntary protocol for identification, access, and navigation in the Solar System.
@@ -290,6 +306,9 @@
     <div class="section" style="background: #0f172a;">
         <div class="container">
             <h2>📦 Open source. Open future.</h2>
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+                <img src="assets/logo.svg" alt="IPIS Logo" style="width: 80px; opacity: 0.8;">
+            </div>
             <p style="text-align: center; max-width: 800px; margin: 0 auto;">IPIS is released under <strong>CC BY-SA 4.0</strong>. You can use, adapt, and pilot it – freely. The repository contains full specifications, design assets, and a quick start guide.</p>
             <div class="badge-container">
                 <span class="badge">✅ Voluntary</span>
