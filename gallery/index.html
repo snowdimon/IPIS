@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IPIS – визуальная галерея</title>
+    <title>IPIS – Visual Gallery</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -48,7 +48,6 @@
             font-size: 0.9rem;
             color: #bbccff;
         }
-        /* Модальное окно */
         .modal {
             display: none;
             position: fixed;
@@ -94,7 +93,7 @@
     </style>
 </head>
 <body>
-    <h1>🖼️ IPIS в реальной среде</h1>
+    <h1>🖼️ IPIS in Real Environments</h1>
     <div class="gallery" id="gallery"></div>
     <div id="modal" class="modal">
         <span class="close">&times;</span>
@@ -102,19 +101,19 @@
         <div id="modal-caption" class="caption"></div>
     </div>
     <footer>
-        <p>← <a href="../README.md">Назад к README</a> | <a href="https://github.com/snowdimon/IPIS">GitHub</a></p>
+        <p>← <a href="../README.md">Back to README</a> | <a href="https://github.com/snowdimon/IPIS">GitHub</a></p>
     </footer>
 
     <script>
         const images = [
-            { src: "images/man_on_mars.png", caption: "Человек на Марсе – шеврон 03, стек: 01 02’ E" },
-            { src: "images/spaceship_close.png", caption: "Пилотируемый корабль – крупный план с нитью 01—03" },
-            { src: "images/drone-satelite_close.png", caption: "Дрон-спутник – шестиугольник 02’ на орбите Луны" },
-            { src: "images/mission_control.png", caption: "Центр управления – экран с полем IPIS_CODE" },
-            { src: "images/spaceship_full.png", caption: "Корабль целиком – нить на корпусе видна издалека" },
-            { src: "images/drone-satelite_full.png", caption: "Беспилотник в глубоком космосе – код 00" },
-            { src: "images/spacecraft_hull.png", caption: "Фрагмент обшивки с прямой нитью между 01 и 03" },
-            { src: "images/uniform_patches.png", caption: "Повседневная форма с шевронами и стеками экипажа" }
+            { src: "images/man_on_mars.png", caption: "Person on Mars – patch 03, stack: 01 02’ E" },
+            { src: "images/spaceship_close.png", caption: "Crewed spacecraft – close‑up with thread 01—03" },
+            { src: "images/drone-satelite_close.png", caption: "Drone satellite – hexagon 02’ on lunar orbit" },
+            { src: "images/mission_control.png", caption: "Mission control – screen showing IPIS_CODE field" },
+            { src: "images/spaceship_full.png", caption: "Full spacecraft – hull thread visible from afar" },
+            { src: "images/drone-satelite_full.png", caption: "Uncrewed probe in deep space – code 00" },
+            { src: "images/spacecraft_hull.png", caption: "Hull fragment – straight line between 01 and 03" },
+            { src: "images/uniform_patches.png", caption: "Daily uniforms – crew patches and stacks" }
         ];
 
         const galleryDiv = document.getElementById('gallery');
