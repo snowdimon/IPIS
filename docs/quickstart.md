@@ -20,7 +20,7 @@ So your patch will show: **main circle `01`**, and **stack disc `01`** below it.
 
 ## Step 2: Get the SVG Template
 
-Download the example patch from `[assets/chevron_example.svg] (https://github.com/snowdimon/IPIS/blob/main/assets/chevron_example.svg)` (or use any image editing software to draw a circle with `01` inside and a row of small touching circles with `01`).
+Download the example patch from https://github.com/snowdimon/IPIS/blob/main/assets/chevron_example.svg (or use any image editing software to draw a circle with `01` inside and a row of small touching circles with `01`).
 
 ## Step 3: Print and Cut
 
