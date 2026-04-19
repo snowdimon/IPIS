@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPIS / Duranki – InterPlanetary Identity System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+            background: #0a1128;
+            color: #e0e0e0;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Header / Hero */
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: linear-gradient(135deg, #0a1128 0%, #1a2a4a 100%);
+        }
+        .logo {
+            width: 150px;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #ffffff, #88aaff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .subhead {
+            font-size: 1.3rem;
+            margin: 1rem 0;
+            color: #bbccff;
+        }
+        .tagline {
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            border-left: 4px solid #ffd966;
+            padding-left: 1rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            background: #1e2a3a;
+            padding: 1rem;
+            border-radius: 12px;
+        }
+        .btn {
+            display: inline-block;
+            background: #4a90e2;
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 2rem;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background: #2a6ec0;
+        }
+
+        /* Sections */
+        .section {
+            padding: 3rem 1rem;
+            border-bottom: 1px solid #2a3a5a;
+        }
+        .section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: #ffd966;
+            text-align: center;
+        }
+        .section h3 {
+            font-size: 1.5rem;
+            margin: 1.5rem 0 0.8rem;
+            color: #bbffaa;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .card {
+            background: #1a1a2e;
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 1px solid #2a3a5a;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #ffd966;
+        }
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .gallery-preview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .gallery-preview img {
+            width: 180px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid #2a3a5a;
+            transition: transform 0.2s;
+        }
+        .gallery-preview img:hover {
+            transform: scale(1.05);
+        }
+        .quote {
+            font-style: italic;
+            font-size: 1.4rem;
+            text-align: center;
+            color: #bbccff;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            background: #061020;
+            font-size: 0.9rem;
+        }
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem;
+            margin: 1.5rem 0;
+        }
+        .badge {
+            background: #2a3a5a;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        @media (max-width: 700px) {
+            h1 { font-size: 2rem; }
+            .subhead { font-size: 1rem; }
+            .section h2 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <div class="container">
+            <img src="assets/logo.svg" alt="IPIS Logo" class="logo">
+            <h1>IPIS / Duranki</h1>
+            <div class="subhead">InterPlanetary Identity System</div>
+            <div class="tagline">
+                <strong>“We build not a wall, but a bridge.”</strong><br>
+                A voluntary protocol for identification, access, and navigation in the Solar System.
+            </div>
+            <a href="#why" class="btn">Discover the solution →</a>
+        </div>
+    </div>
+
+    <div class="section" id="why">
+        <div class="container">
+            <h2>🔥 The problem</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-icon">🌍🚀</div>
+                    <h3>Growing chaos</h3>
+                    <p>Space is getting crowded – dozens of nations, private companies, mixed crews. No single simple language to instantly recognize who or what is in front of you.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">❓</div>
+                    <h3>No visible experience</h3>
+                    <p>Flags and call signs don't show history. But in space, experience is critical for safety, trust, and efficient teamwork.</p>
+                </div>
+            </div>
+            <div class="quote">
+                “Today in space it’s a mess of flags, mission logos, and corporate patches. IPIS is the first attempt to create an operating system for space identity.”
+            </div>
+        </div>
+    </div>
+
+    <div class="section" style="background: #0f172a;">
+        <div class="container">
+            <h2>💡 IPIS – The solution</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem auto;">IPIS is a socio‑technical operating system. Rockets are hardware – IPIS is the software that enables different people, nations, and machines to work together without conflict.</p>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-icon">🔵⬡</div>
+                    <h3>Simple coding</h3>
+                    <p>Circle (human/base) or hexagon (robot) + planet number (01 Earth, 02 Moon, 03 Mars) + index (' for orbit, E for EVA, 00 for deep space).</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🏅</div>
+                    <h3>Snezhkov Stack</h3>
+                    <p>Horizontal row of touching discs – your accumulated space biography: birthplace, work locations, and EVAs. Wear your experience on your sleeve.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🛸</div>
+                    <h3>Ship Thread</h3>
+                    <p>Straight line on the hull from start to end node (e.g., 01—03). Intermediate manoeuvres are digital only. Clean, visible, unambiguous.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔄</div>
+                    <h3>Two‑layer patch</h3>
+                    <p>No need to print new badges in space. Peel off the outer layer, the inner disc becomes your next stack element. Elegant and practical.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="container">
+            <h2>🖼️ See it in real life</h2>
+            <div class="gallery-preview">
+                <img src="gallery/images/man_on_mars.png" alt="Person on Mars">
+                <img src="gallery/images/spaceship_close.png" alt="Spacecraft close-up">
+                <img src="gallery/images/mission_control.png" alt="Mission control">
+                <img src="gallery/images/uniform_patches.png" alt="Uniform patches">
+                <img src="gallery/images/spacecraft_hull.png" alt="Hull thread">
+                <img src="gallery/images/drone-satelite_close.png" alt="Drone satellite">
+            </div>
+            <p style="text-align: center; margin-top: 1rem;">
+                <a href="https://snowdimon.github.io/IPIS/gallery/index.html" class="btn" style="background: #2a3a5a;">📸 Open full gallery →</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="section" style="background: #0f172a;">
+        <div class="container">
+            <h2>⚙️ Technical integration</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-icon">📡</div>
+                    <h3>RFID patch</h3>
+                    <p>Passive chip for access control, automatic logging, and presence tracking. Works with existing base infrastructure.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🛰️</div>
+                    <h3>NORAD extension</h3>
+                    <p>Optional <code>IPIS_CODE</code> field in Space‑Track.org catalog – human‑readable identification for every satellite and spacecraft.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📋</div>
+                    <h3>Verification via logbooks</h3>
+                    <p>Stack entries are backed by digitally signed ship and base logbooks. No blockchain complexity – just reliable cryptography.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="container">
+            <h2>🍵 Ritual “Base Gulp”</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <p style="font-size: 1.2rem;">1. A glass of local water.<br>2. A sip – symbolic acceptance into the ecosystem.<br>3. Handover of the new patch (sound of Velcro).</p>
+                    <p>Voluntary, humane, bonding. It creates a sense of belonging and respect.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🤝</div>
+                    <h3>Why it matters</h3>
+                    <p>Isolated crews need more than technical standards – they need culture. “Base Gulp” makes IPIS alive.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" style="background: #0f172a;">
+        <div class="container">
+            <h2>📦 Open source. Open future.</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto;">IPIS is released under <strong>CC BY-SA 4.0</strong>. You can use, adapt, and pilot it – freely. The repository contains full specifications, design assets, and a quick start guide.</p>
+            <div class="badge-container">
+                <span class="badge">✅ Voluntary</span>
+                <span class="badge">🌍 International</span>
+                <span class="badge">🛡️ No flags replaced</span>
+                <span class="badge">🚀 Ready for pilots</span>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="https://github.com/snowdimon/IPIS" class="btn">⭐ Star on GitHub</a>
+                <a href="docs/quickstart.md" class="btn" style="background: #2a3a5a;">📖 Quick start guide</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p><strong>Author:</strong> Snezhkov D., 01 — EARTH &nbsp;|&nbsp; <strong>Codename:</strong> Duranki – The Bond of Heaven and Earth &nbsp;|&nbsp; Version 15.0, April 2026</p>
+        <p>“There’s a starman waiting in the sky…” – David Bowie, <em>Starman</em></p>
+        <p><a href="https://github.com/snowdimon/IPIS" style="color: #bbffaa;">GitHub repository</a></p>
+    </div>
+</body>
+</html>
