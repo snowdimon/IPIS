@@ -16,6 +16,13 @@
 
 **IPIS (InterPlanetary Identity System)** is a voluntary protocol for identification, access control, and navigation in the Solar System. Its codename is **Duranki** (ancient Sumerian for *The Bond of Heaven and Earth*).
 
+> **IPIS is not just a design system — it is a socio‑technical operating system.**  
+> Rockets are hardware. IPIS is the software that enables different people, nations, and machines to work together without conflict.
+
+<p align="center">
+  <img src="assets/circle_hex.svg" alt="Basic symbols" width="300">
+</p>
+
 IPIS gives every object (human, spacecraft, robot) a **human‑readable code** and a **stackable history of visited worlds** – the **Snezhkov Stack**.
 
 It does not replace national flags or existing systems (NORAD, transponders). It works alongside them, creating a shared semantic layer for space activities.
@@ -30,6 +37,11 @@ It does not replace national flags or existing systems (NORAD, transponders). It
 - **Two‑layer patch** – outer layer shows current code; under it hides a flat disc (future stack element). When you leave a base, the outer layer is peeled off and the disc is added to your stack. No need to print new patches in space.  
 - **Ritual “Base Gulp”** – a glass of local water, a sip, the sound of Velcro – a symbolic admission into the new ecosystem.  
 - **Technical integration** – RFID chips in patches for access control; `IPIS_CODE` field in NORAD / Space‑Track.org catalog. Stack verification is based on ship and base logbooks (digitally signed).  
+
+<p align="center">
+  <img src="assets/chevron_example.svg" alt="Example patch" width="180">
+  <img src="assets/stack_layout.svg" alt="Stack layout" width="200">
+</p>
 
 ---
 
@@ -47,7 +59,7 @@ A person born on Earth (`01`), who worked on a lunar orbital station with EVAs (
 
 - `presentation/` – slides (Markdown source, and eventually PDF)  
 - `docs/` – full specifications, stack guide, RFID spec, NORAD extension, verification via logbooks, future expansion notes, cultural examples, quick start guide  
-- `assets/` – SVG logo, patch designs, stack layout, ship thread, two‑layer diagram  
+- `assets/` – SVG logo, patch designs, stack layout, ship thread, two‑layer diagram, basic symbols  
 - `LICENSE` – CC BY-SA 4.0  
 - `CONTRIBUTING.md` – how to help  
 - `CODE_OF_CONDUCT.md` – community guidelines  
