@@ -17,7 +17,7 @@ Here are concept visuals showing how IPIS / Duranki looks in real‑world space 
 
 ## Viewing
 
-Open the [interactive gallery](index.html) to click on any image for a larger view.
+Open the [interactive gallery]([index.html](https://rawcdn.githack.com/snowdimon/IPIS/3450ecc650c8191c91e6ac9fec77fee64d1f18b3/gallery/index.html) to click on any image for a larger view.
 
 ## License
 
