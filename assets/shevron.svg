@@ -1,0 +1,6 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://w3.org">
+  <!-- Основной диск -->
+  <circle cx="100" cy="100" r="95" fill="white" stroke="black" stroke-width="4"/>
+  <!-- Номер объекта -->
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="80" fill="black">01</text>
+</svg>
