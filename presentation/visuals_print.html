@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>IPIS – визуальная презентация</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: white;
+            color: black;
+            margin: 0;
+            padding: 0;
+        }
+        .slide {
+            page-break-after: always;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+        .slide img {
+            max-width: 80%;
+            max-height: 60vh;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        h2 {
+            margin-top: 1rem;
+            color: #0a1128;
+        }
+        p {
+            max-width: 80%;
+            font-size: 1.2rem;
+        }
+        footer {
+            font-size: 0.8rem;
+            margin-top: 2rem;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <h1>IPIS / Дуранки</h1>
+        <p>Межпланетная система идентификации – как это выглядит вживую</p>
+        <footer>Снежков Д., 01 — ЗЕМЛЯ | CC BY-SA 4.0</footer>
+    </div>
+
+    <div class="slide">
+        <img src="../gallery/images/man_on_mars.png" alt="Человек на Марсе">
+        <h2>Человек на Марсе</h2>
+        <p>Шеврон 03, стек: 01 02’ E (Земля → лунная орбита с выходами → Марс)</p>
+    </div>
+
+    <div class="slide">
+        <img src="../gallery/images/spaceship_close.png" alt="Корабль крупно">
+        <h2>Пилотируемый корабль</h2>
+        <p>Нить 01—03 на корпусе, прямая линия от края до края</p>
+    </div>
+
+    <div class="slide">
+        <img src="../gallery/images/drone-satelite_close.png" alt="Дрон-спутник">
+        <h2>Дрон-спутник</h2>
+        <p>Шестиугольник 02’ – робот на лунной орбите</p>
+    </div>
+
+    <div class="slide">
+        <img src="../gallery/images/mission_control.png" alt="ЦУП">
+        <h2>Центр управления</h2>
+        <p>Экран диспетчера с полем IPIS_CODE для каждого объекта</p>
+    </div>
+
+    <div class="slide">
+        <img src="../gallery/images/spaceship_full.png" alt="Корабль целиком">
+        <h2>Корабль в полёте</h2>
+        <p>Нить заметна даже на расстоянии</p>
+    </div>
+
+    <div class="slide">
+        <img src="../gallery/images/drone-satelite_full.png" alt="Беспилотник">
+        <h2>Беспилотник в глубоком космосе</h2>
+        <p>Код 00 – за орбитой Марса</p>
+    </div>
+
+    <div class="slide">
+        <img src="../gallery/images/spacecraft_hull.png" alt="Обшивка">
+        <h2>Фрагмент обшивки</h2>
+        <p>Прямая линия между узлами 01 и 03</p>
+    </div>
+
+    <div class="slide">
+        <img src="../gallery/images/uniform_patches.png" alt="Форма">
+        <h2>Повседневная форма</h2>
+        <p>Шевроны и стеки у членов экипажа</p>
+    </div>
+
+    <div class="slide">
+        <h1>Присоединяйтесь!</h1>
+        <p>GitHub: <a href="https://github.com/snowdimon/IPIS">https://github.com/snowdimon/IPIS</a></p>
+        <p>Лицензия CC BY-SA 4.0 – свободно для адаптаций и пилотов</p>
+    </div>
+</body>
+</html>
