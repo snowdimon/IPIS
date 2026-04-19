@@ -1,24 +1,24 @@
-# Визуальная галерея IPIS
+# IPIS Visual Gallery
 
-Здесь собраны концептуальные изображения, показывающие, как система IPIS / «Дуранки» выглядит в реальных космических сценариях.
+Here are concept visuals showing how IPIS / Duranki looks in real‑world space scenarios.
 
-## Изображения
+## Images
 
-| Файл | Описание |
-|------|-----------|
-| `man_on_mars.png` | Человек на Марсе – шеврон 03, стек: 01 02’ E |
-| `spaceship_close.png` | Пилотируемый корабль – крупный план с нитью 01—03 |
-| `drone-satelite_close.png` | Дрон-спутник – шестиугольник 02’ на орбите Луны |
-| `mission_control.png` | Центр управления – экран с полем IPIS_CODE |
-| `spaceship_full.png` | Корабль целиком – нить на корпусе видна издалека |
-| `drone-satelite_full.png` | Беспилотник в глубоком космосе – код 00 |
-| `spacecraft_hull.png` | Фрагмент обшивки с прямой нитью между 01 и 03 |
-| `uniform_patches.png` | Повседневная форма с шевронами и стеками экипажа |
+| File | Description |
+|------|-------------|
+| `man_on_mars.png` | Person on Mars – patch 03, stack: 01 02’ E |
+| `spaceship_close.png` | Crewed spacecraft – close‑up with thread 01—03 |
+| `drone-satelite_close.png` | Drone satellite – hexagon 02’ on lunar orbit |
+| `mission_control.png` | Mission control – screen showing IPIS_CODE field |
+| `spaceship_full.png` | Full spacecraft – hull thread visible from afar |
+| `drone-satelite_full.png` | Uncrewed probe in deep space – code 00 |
+| `spacecraft_hull.png` | Hull fragment – straight line between 01 and 03 |
+| `uniform_patches.png` | Daily uniforms – crew patches and stacks |
 
-## Просмотр
+## Viewing
 
-Откройте [интерактивную галерею](index.html) для увеличения изображений по клику.
+Open the [interactive gallery](index.html) to click on any image for a larger view.
 
-## Лицензия
+## License
 
-Все изображения распространяются на условиях [CC BY-SA 4.0](../LICENSE).
+All images are released under [CC BY-SA 4.0](../LICENSE).
