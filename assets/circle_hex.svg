@@ -13,10 +13,10 @@
   <!-- Круг (человек) -->
   <circle class="circle-sym" cx="80" cy="60" r="30" />
   <text class="text" x="80" y="60">01</text>
-  <text class="label" x="80" y="105">circle – human / base / crewed ship</text>
+  <text class="label" x="80" y="105">circle – human / base </text>
   
   <!-- Шестиугольник (робот) -->
   <polygon class="hex-sym" points="190,30 220,45 220,75 190,90 160,75 160,45" />
   <text class="text" x="190" y="60">03</text>
-  <text class="label" x="190" y="105">hex – robot / drone / uncrewed</text>
+  <text class="label" x="190" y="105">hex – robot / drone </text>
 </svg>
