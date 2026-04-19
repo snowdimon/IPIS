@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPIS / Duranki – Visual Gallery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #0a1128;
+            color: #eee;
+            padding: 2rem;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+            border-left: none;
+        }
+        .sub {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #bbccff;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .card {
+            background: #1a1a2e;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #2a3a5a;
+        }
+        .card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            border-color: #4a90e2;
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        .card p {
+            padding: 0.8rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #dddddd;
+        }
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .modal img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+        .modal .caption {
+            color: #fff;
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            text-align: center;
+            background: rgba(0,0,0,0.6);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: #bbb;
+        }
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1rem;
+            font-size: 0.8rem;
+            color: #888;
+        }
+        a {
+            color: #4a90e2;
+        }
+        @media (max-width: 700px) {
+            body { padding: 1rem; }
+            .gallery { gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<h1>IPIS / Duranki – Visual Gallery</h1>
+<div class="sub">How the system looks in real-life scenarios</div>
+
+<div class="gallery" id="gallery"></div>
+
+<div id="modal" class="modal">
+    <span class="close">&times;</span>
+    <img id="modal-img" src="" alt="">
+    <div id="modal-caption" class="caption"></div>
+</div>
+
+<footer>
+    <p>Part of <a href="https://github.com/snowdimon/IPIS">IPIS InterPlanetary Identity System</a> | CC BY-SA 4.0</p>
+</footer>
+
+<script>
+    // ------------------------------------------------------------------
+    // EDIT THIS LIST: add your image filenames and descriptions
+    // Place your images in the same folder (gallery/) or use subfolder paths.
+    // Supported formats: jpg, png, webp, etc.
+    // ------------------------------------------------------------------
+    const images = [
+        { src: "mission_control.jpg", caption: "Mission Control display showing IPIS_CODE fields for tracked objects" },
+        { src: "spacesuit_patch.jpg", caption: "Astronaut suit with IPIS main patch (circle 03) and Snezhkov Stack (01 02' E)" },
+        { src: "spacecraft_hull.jpg", caption: "Spacecraft hull with straight Ship Thread from Earth (01) to Mars (03)" },
+        { src: "uniform_patches.jpg", caption: "Everyday uniforms with IPIS identification patches" },
+        { src: "lunar_ceremony.jpg", caption: "Base Gulp ritual – receiving a new patch on a lunar station" },
+        { src: "stack_closeup.jpg", caption: "Close-up of the Snezhkov Stack: touching discs 01, 02', E" },
+        { src: "ship_thread_real.jpg", caption: "Realistic view of a cargo ship with 01—03 thread on its hull" },
+        { src: "two_layer_demo.jpg", caption: "Two‑layer patch: outer layer peeled off, inner disc ready for stack" }
+    ];
+    // ------------------------------------------------------------------
+
+    const galleryDiv = document.getElementById('gallery');
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalCaption = document.getElementById('modal-caption');
+    const closeSpan = document.getElementsByClassName('close')[0];
+
+    function buildGallery() {
+        images.forEach(img => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            const image = document.createElement('img');
+            image.src = img.src;
+            image.alt = img.caption;
+            // fallback if image missing
+            image.onerror = () => { image.src = 'https://placehold.co/400x200?text=Image+not+found'; };
+            const captionP = document.createElement('p');
+            captionP.textContent = img.caption;
+            card.appendChild(image);
+            card.appendChild(captionP);
+            card.addEventListener('click', () => {
+                modal.style.display = 'flex';
+                modalImg.src = img.src;
+                modalCaption.textContent = img.caption;
+            });
+            galleryDiv.appendChild(card);
+        });
+    }
+
+    closeSpan.onclick = function() {
+        modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    buildGallery();
+</script>
+</body>
+</html>
