@@ -6,14 +6,14 @@ Here are concept visuals showing how IPIS / Duranki looks in real‑world space 
 
 | File | Description |
 |------|-------------|
-| `man_on_mars.png` | Person on Mars – patch 03, stack: 01 02’ E |
-| `spaceship_close.png` | Crewed spacecraft – close‑up with thread 01—03 |
-| `drone-satelite_close.png` | Drone satellite – hexagon 02’ on lunar orbit |
-| `mission_control.png` | Mission control – screen showing IPIS_CODE field |
-| `spaceship_full.png` | Full spacecraft – hull thread visible from afar |
-| `drone-satelite_full.png` | Uncrewed probe in deep space – code 00 |
-| `spacecraft_hull.png` | Hull fragment – straight line between 01 and 03 |
-| `uniform_patches.png` | Daily uniforms – crew patches and stacks |
+| [man_on_mars.png](images/man_on_mars.png) | Person on Mars – patch 03, stack: 01 02’ E |
+| [spaceship_close.png](images/spaceship_close.png) | Crewed spacecraft – close‑up with thread 01—03 |
+| [drone-satelite_close.png](images/drone-satelite_close.png) | Drone satellite – hexagon 02’ on lunar orbit |
+| [mission_control.png](images/mission_control.png) | Mission control – screen showing IPIS_CODE field |
+| [spaceship_full.png](images/spaceship_full.png) | Full spacecraft – hull thread visible from afar |
+| [drone-satelite_full.png](images/drone-satelite_full.png) | Uncrewed probe in deep space – code 00 |
+| [spacecraft_hull.png](images/spacecraft_hull.png) | Hull fragment – straight line between 01 and 03 |
+| [uniform_patches.png](images/uniform_patches.png) | Daily uniforms – crew patches and stacks |
 
 ## Viewing
 
