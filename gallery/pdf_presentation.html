@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IPIS / Duranki – Visual Presentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #0a1128;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        .slide {
+            page-break-after: always;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            background: #0a1128;
+            color: #eee;
+        }
+        .slide img {
+            max-width: 90%;
+            max-height: 70vh;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            background: #1a1a2e;
+            padding: 10px;
+        }
+        .caption {
+            margin-top: 1.5rem;
+            font-size: 1.2rem;
+            text-align: center;
+            max-width: 80%;
+            background: rgba(0,0,0,0.6);
+            padding: 0.8rem;
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .footer {
+            position: fixed;
+            bottom: 10px;
+            right: 20px;
+            font-size: 0.7rem;
+            color: #666;
+        }
+        @media print {
+            body {
+                background: white;
+            }
+            .slide {
+                background: white;
+                color: black;
+            }
+            .caption {
+                background: #f0f0f0;
+                color: black;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="slide">
+    <h1>IPIS / Duranki – Visual Showcase</h1>
+    <p style="margin-top: 1rem;">How the InterPlanetary Identity System looks in real‑life scenarios</p>
+    <p style="margin-top: 2rem;">Concept visuals | CC BY-SA 4.0</p>
+</div>
+
+<!-- Здесь будут слайды с изображениями – сгенерируем через JS, чтобы не дублировать список -->
+<div id="slides-container"></div>
+
+<script>
+    // Список изображений (тот же, что и в галерее, но можно скопировать или задать вручную)
+    const images = [
+        { src: "mission_control.jpg", caption: "Mission Control display showing IPIS_CODE fields for tracked objects" },
+        { src: "spacesuit_patch.jpg", caption: "Astronaut suit with IPIS main patch (circle 03) and Snezhkov Stack (01 02' E)" },
+        { src: "spacecraft_hull.jpg", caption: "Spacecraft hull with straight Ship Thread from Earth (01) to Mars (03)" },
+        { src: "uniform_patches.jpg", caption: "Everyday uniforms with IPIS identification patches" },
+        { src: "lunar_ceremony.jpg", caption: "Base Gulp ritual – receiving a new patch on a lunar station" },
+        { src: "stack_closeup.jpg", caption: "Close-up of the Snezhkov Stack: touching discs 01, 02', E" },
+        { src: "ship_thread_real.jpg", caption: "Realistic view of a cargo ship with 01—03 thread on its hull" },
+        { src: "two_layer_demo.jpg", caption: "Two‑layer patch: outer layer peeled off, inner disc ready for stack" }
+    ];
+
+    const container = document.getElementById('slides-container');
+    images.forEach(img => {
+        const slide = document.createElement('div');
+        slide.className = 'slide';
+        const picture = document.createElement('img');
+        picture.src = img.src;
+        picture.alt = img.caption;
+        picture.onerror = () => { picture.src = 'https://placehold.co/800x500?text=Image+not+found'; };
+        const cap = document.createElement('div');
+        cap.className = 'caption';
+        cap.textContent = img.caption;
+        slide.appendChild(picture);
+        slide.appendChild(cap);
+        container.appendChild(slide);
+    });
+
+    // Добавим последний слайд с автором
+    const lastSlide = document.createElement('div');
+    lastSlide.className = 'slide';
+    lastSlide.innerHTML = `
+        <h2 style="margin-bottom: 1rem;">IPIS / Duranki</h2>
+        <p>InterPlanetary Identity System</p>
+        <p style="margin-top: 1rem;">Author: Snezhkov D., 01 — EARTH</p>
+        <p>Codename: Duranki – The Bond of Heaven and Earth</p>
+        <p style="margin-top: 2rem;">Version 15.0 | CC BY-SA 4.0</p>
+        <p><a href="https://github.com/snowdimon/IPIS" style="color: #4a90e2;">github.com/snowdimon/IPIS</a></p>
+    `;
+    container.appendChild(lastSlide);
+</script>
+</body>
+</html>
