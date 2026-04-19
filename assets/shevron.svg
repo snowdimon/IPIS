@@ -1,6 +1,15 @@
-<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://w3.org">
-  <!-- Основной диск -->
-  <circle cx="100" cy="100" r="95" fill="white" stroke="black" stroke-width="4"/>
-  <!-- Номер объекта -->
-  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="80" fill="black">01</text>
+<svg width="600" height="300" viewBox="0 0 600 300" xmlns="http://w3.org">
+  <!-- Группа ЖИЗНЬ (Круг) -->
+  <g transform="translate(150, 150)">
+    <circle r="90" fill="#FFFFFF" stroke="#000000" stroke-width="6"/>
+    <text y="28" text-anchor="middle" font-family="Verdana, sans-serif" font-weight="900" font-size="80">03</text>
+    <text y="130" text-anchor="middle" font-family="Verdana, sans-serif" font-size="16" font-weight="bold" letter-spacing="2">HUMAN / BASE</text>
+  </g>
+
+  <!-- Группа МАШИНА (Гексагон) -->
+  <g transform="translate(450, 150)">
+    <path d="M0,-90 L78,-45 L78,45 L0,90 L-78,45 L-78,-45 Z" fill="#FFFFFF" stroke="#000000" stroke-width="6"/>
+    <text y="28" text-anchor="middle" font-family="Verdana, sans-serif" font-weight="900" font-size="80">03</text>
+    <text y="130" text-anchor="middle" font-family="Verdana, sans-serif" font-size="16" font-weight="bold" letter-spacing="2">DRONE / AI</text>
+  </g>
 </svg>
