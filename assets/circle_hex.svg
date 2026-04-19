@@ -10,13 +10,13 @@
   </defs>
   <rect class="bg" x="0" y="0" width="300" height="120" rx="10" ry="10" />
   
-  <!-- Круг (человек) -->
-  <circle class="circle-sym" cx="80" cy="60" r="30" />
-  <text class="text" x="80" y="60">01</text>
-  <text class="label" x="80" y="105">circle – human/base </text>
+  <!-- Круг (человек) с центром x=90 -->
+  <circle class="circle-sym" cx="90" cy="60" r="30" />
+  <text class="text" x="90" y="60">01</text>
+  <text class="label" x="90" y="105">circle – human/base</text>
   
-  <!-- Шестиугольник (робот) -->
-  <polygon class="hex-sym" points="190,30 220,45 220,75 190,90 160,75 160,45" />
-  <text class="text" x="190" y="60">03</text>
-  <text class="label" x="190" y="105">hex – robot/drone </text>
+  <!-- Шестиугольник (робот) с центром x=210 -->
+  <polygon class="hex-sym" points="210,30 240,45 240,75 210,90 180,75 180,45" />
+  <text class="text" x="210" y="60">03</text>
+  <text class="label" x="210" y="105">hex – robot/drone</text>
 </svg>
