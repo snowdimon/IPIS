@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 120" width="300" height="120">
+  <defs>
+    <style>
+      .bg { fill: #1a1a2e; }
+      .circle-sym { fill: none; stroke: #ffffff; stroke-width: 3; }
+      .hex-sym { fill: none; stroke: #ffffff; stroke-width: 3; }
+      .text { fill: #ffffff; font-family: 'Arial', sans-serif; font-size: 14px; text-anchor: middle; dominant-baseline: central; }
+      .label { fill: #bbbbbb; font-family: 'Arial', sans-serif; font-size: 12px; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect class="bg" x="0" y="0" width="300" height="120" rx="10" ry="10" />
+  
+  <!-- Круг (человек) -->
+  <circle class="circle-sym" cx="80" cy="60" r="30" />
+  <text class="text" x="80" y="60">01</text>
+  <text class="label" x="80" y="105">circle – human / base / crewed ship</text>
+  
+  <!-- Шестиугольник (робот) -->
+  <polygon class="hex-sym" points="190,30 220,45 220,75 190,90 160,75 160,45" />
+  <text class="text" x="190" y="60">03</text>
+  <text class="label" x="190" y="105">hex – robot / drone / uncrewed</text>
+</svg>
