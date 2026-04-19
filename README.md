@@ -33,16 +33,13 @@ It does not replace national flags or existing systems (NORAD, transponders). It
 
 - **Simple coding** – circle (human/base), hexagon (robot), numbers 01 (Earth), 02 (Moon), 03 (Mars), indices `'` (orbit), `E` (EVA), `00` (deep space).  
 - **Snezhkov Stack** – horizontal row of touching small discs, each with a world number. First disc = birthplace, then work locations (>6 months). `E` disc after any world where EVAs were performed.  
+  <p align="center"><img src="assets/stack_layout.svg" alt="Stack layout" width="200"></p>
 - **Ship Thread** – straight line on the hull from start to end node (e.g. `01—03`). Intermediate manoeuvres are digital only.  
+  <p align="center"><img src="assets/ship_thread.svg" alt="Ship thread" width="300"></p>
 - **Two‑layer patch** – outer layer shows current code; under it hides a flat disc (future stack element). When you leave a base, the outer layer is peeled off and the disc is added to your stack. No need to print new patches in space.  
+  <p align="center"><img src="assets/two_layer_patch.svg" alt="Two-layer patch" width="300"></p>
 - **Ritual “Base Gulp”** – a glass of local water, a sip, the sound of Velcro – a symbolic admission into the new ecosystem.  
 - **Technical integration** – RFID chips in patches for access control; `IPIS_CODE` field in NORAD / Space‑Track.org catalog. Stack verification is based on ship and base logbooks (digitally signed).  
-
-<p align="center">
-  <img src="assets/chevron_example.svg" alt="Example patch" width="180">
-  <img src="assets/stack_layout.svg" alt="Stack layout" width="200">
-</p>
-
 ---
 
 ## Quick Example
