@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IPIS · Duranki · Язык, на котором космос узнаёт своих</title>
+  <style>
+    /* ----- RESET & BASE ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0b0d15;
+      color: #e8edf5;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ----- АНИМИРОВАННЫЙ ФОН (звёзды + туманность) ----- */
+    .stars, .twinkling, .clouds {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    .stars {
+      background: #0b0d15 url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48Y2lyY2xlIGN4PSI2MCIgY3k9IjgwIiByPSIxIiBmaWxsPSIjZmZmZmZmIi8+PGNpcmNsZSBjeD0iMjAwIiBjeT0iMTUwIiByPSIxLjUiIGZpbGw9IiNmZmZmZmYiLz48Y2lyY2xlIGN4PSIxMDAiIGN5PSIyMjAiIHI9IjEiIGZpbGw9IiNmZmZmZmYiLz48Y2lyY2xlIGN4PSIyNTAiIGN5PSI3MCIgcj0iMSIgZmlsbD0iI2ZmZmZmZiIvPjwvc3ZnPg==');
+      background-size: 300px 300px;
+      animation: panStars 200s linear infinite;
+    }
+
+    .twinkling {
+      background: transparent url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIj48Y2lyY2xlIGN4PSI0MDAiIGN5PSIxMDAiIHI9IjIiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNyIvPjxjaXJjbGUgY3g9IjUwIiBjeT0iMzAwIiByPSIxLjgiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNSIvPjwvc3ZnPg==');
+      background-size: 500px 500px;
+      animation: panStars 150s linear infinite reverse;
+      opacity: 0.7;
+    }
+
+    .clouds {
+      background: radial-gradient(circle at 30% 40%, rgba(20, 157, 220, 0.08) 0%, transparent 40%),
+                  radial-gradient(circle at 80% 70%, rgba(180, 50, 220, 0.06) 0%, transparent 50%);
+      animation: pulseGlow 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes panStars {
+      0% { background-position: 0 0; }
+      100% { background-position: 1000px 800px; }
+    }
+
+    @keyframes pulseGlow {
+      0% { opacity: 0.6; transform: scale(1); }
+      100% { opacity: 1; transform: scale(1.02); }
+    }
+
+    /* ----- TYPOGRAPHY & UTILS ----- */
+    h1, h2, h3 {
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: clamp(3.2rem, 12vw, 5.6rem);
+      background: linear-gradient(135deg, #ffffff, #a0c0ff, #b0a0ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 30px rgba(80, 150, 255, 0.3);
+    }
+
+    h2 {
+      font-size: 2.4rem;
+      margin-bottom: 2rem;
+      color: #d6e5ff;
+      border-left: 6px solid #3f8cff;
+      padding-left: 1.5rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 5;
+    }
+
+    section {
+      padding: 5rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(145deg, #1e2b5c, #0f1a3a);
+      border: 1px solid #3f8cff;
+      color: white;
+      padding: 0.9rem 2.2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 8px 20px rgba(0, 20, 50, 0.6), 0 0 0 0 #3f8cff inset;
+      transition: all 0.25s ease;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .btn:hover {
+      background: linear-gradient(145deg, #26408f, #15265e);
+      border-color: #7aaaff;
+      box-shadow: 0 10px 28px rgba(63, 140, 255, 0.3), 0 0 0 2px rgba(63, 140, 255, 0.2) inset;
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #5f7faf;
+      box-shadow: none;
+    }
+
+    /* ----- HEADER ----- */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 0;
+      position: relative;
+    }
+
+    .hero-sub {
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      letter-spacing: 8px;
+      color: #9bbaff;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-desc {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 2rem 0 3rem;
+      color: #cbd5f0;
+    }
+
+    /* ----- CARDS ----- */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .card {
+      background: rgba(18, 28, 50, 0.5);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(100, 160, 255, 0.2);
+      border-radius: 28px;
+      padding: 2.2rem 2rem;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: #4f9cff;
+      box-shadow: 0 30px 50px -20px #1a3a6e;
+    }
+
+    .card-icon {
+      font-size: 2.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+
+    .card p {
+      color: #b8c7e7;
+    }
+
+    /* ----- СТЕК ПРИМЕР (READING STACK) ----- */
+    .stack-demo {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      background: rgba(0, 10, 25, 0.6);
+      border-radius: 40px;
+      padding: 2.5rem;
+      border: 1px solid #2e4a8e;
+      margin: 2.5rem 0;
+      backdrop-filter: blur(8px);
+    }
+
+    .stack-visual {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .disk {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #e0e8ff, #2c3f6e);
+      border: 3px solid #7aaaff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.4rem;
+      color: white;
+      text-shadow: 0 2px 5px black;
+      box-shadow: 0 5px 0 #0f1a2e, 0 10px 20px rgba(0,0,0,0.3);
+      transition: transform 0.2s;
+    }
+
+    .disk.hex {
+      border-radius: 20% 50% 20% 50%;
+      background: radial-gradient(circle at 30% 30%, #d0f0d0, #1e4a2e);
+      border-color: #6fcf6f;
+    }
+
+    .stack-interpretation {
+      flex: 1;
+      min-width: 240px;
+    }
+
+    .stack-line {
+      font-family: 'SF Mono', 'Menlo', monospace;
+      background: #0a1226;
+      padding: 1rem 1.5rem;
+      border-radius: 20px;
+      border-left: 6px solid #3f8cff;
+      margin: 0.8rem 0;
+    }
+
+    /* ----- ГАЛЕРЕЯ ----- */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 3rem 0;
+    }
+
+    .gallery-item {
+      border-radius: 24px;
+      overflow: hidden;
+      background: #111a30;
+      border: 1px solid #2e4a8e;
+      transition: all 0.25s;
+      cursor: pointer;
+      aspect-ratio: 1 / 1;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-item:hover {
+      border-color: #7aaaff;
+      box-shadow: 0 0 25px rgba(63, 140, 255, 0.3);
+    }
+
+    /* Лайтбокс */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(5, 8, 18, 0.95);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 85vh;
+      border-radius: 20px;
+      border: 2px solid #3f8cff;
+      box-shadow: 0 0 60px #1a3a8a;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 30px; right: 40px;
+      font-size: 3rem;
+      color: white;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: 0.2s;
+    }
+
+    .lightbox-close:hover { opacity: 1; transform: scale(1.1); }
+
+    /* ----- СЦЕНАРИЙ АВАРИИ (callout) ----- */
+    .emergency-callout {
+      background: linear-gradient(145deg, #1b1730, #0f1422);
+      border-radius: 30px;
+      padding: 2.5rem;
+      border: 1px solid #a05050;
+      box-shadow: 0 0 40px rgba(220, 60, 60, 0.15);
+      margin: 2.5rem 0;
+    }
+
+    .emergency-callout p {
+      font-size: 1.25rem;
+      font-style: italic;
+    }
+
+    /* ----- РОЛИ УЧАСТНИКОВ ----- */
+    .roles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-around;
+      margin-top: 2rem;
+    }
+
+    .role-card {
+      background: #131e35;
+      border-radius: 28px;
+      padding: 2rem;
+      flex: 1 1 240px;
+      text-align: center;
+      border: 1px solid #2e5580;
+    }
+
+    .role-icon { font-size: 3rem; margin-bottom: 0.8rem; }
+
+    /* Стили для заглушек ссылок */
+    .placeholder-link {
+      color: #ffb347 !important;
+      text-decoration: underline wavy #ff8c00;
+      font-weight: 600;
+      cursor: help;
+    }
+    .placeholder-link:hover {
+      color: #ffa01c !important;
+      text-decoration: underline wavy #ffbb33;
+    }
+
+    /* ----- FOOTER ----- */
+    footer {
+      padding: 3rem 0;
+      text-align: center;
+      color: #9aafcf;
+      border-top: 1px solid #1f2e4a;
+      margin-top: 3rem;
+    }
+
+    /* ----- RESPONSIVE ----- */
+    @media (max-width: 640px) {
+      .container { padding: 0 1.5rem; }
+      h2 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Фоны -->
+  <div class="stars"></div>
+  <div class="twinkling"></div>
+  <div class="clouds"></div>
+
+  <div class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-sub">Duranki / IPIS</div>
+      <h1>Ты не с Земли.<br>Кто ты в Солнечной системе?</h1>
+      <div class="hero-desc">
+        Язык, на котором будет говорить космос. История объекта в паре символов.
+      </div>
+      <div>
+        <a href="#stack-demo" class="btn">Узнай свой код</a>
+        <a href="#gallery" class="btn btn-outline">Смотреть галерею</a>
+      </div>
+    </section>
+
+    <!-- 3 КАРТОЧКИ -->
+    <section>
+      <h2>Система, которая говорит на понятном языке</h2>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">🪡</div>
+          <h3>Твой космический паспорт</h3>
+          <p>Один взгляд — и любой поймёт, с Луны ты, с Марса или из пояса астероидов. Даже если связь с Землёй потеряна.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📚</div>
+          <h3>История жизни в пяти дисках</h3>
+          <p>Где родился, где работал, где оставил частицу себя. Твоя космическая биография.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🚀</div>
+          <h3>Корабль, который помнит путь</h3>
+          <p>Шрам на обшивке, говорящий: «Я был там, я вернулся, я иду дальше».</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ПРИМЕР ЧТЕНИЯ СТЕКА (Snezhkov's Stack) -->
+    <section id="stack-demo">
+      <h2>Стек Снежкова · прочитать за секунду</h2>
+      <div class="stack-demo">
+        <div class="stack-visual">
+          <div class="disk">02</div>
+          <div class="disk hex">03E</div>
+          <div class="disk">02</div>
+          <div class="disk">04'</div>
+          <div class="disk">00</div>
+        </div>
+        <div class="stack-interpretation">
+          <div class="stack-line"><strong>🔵 02</strong> — Родился на Луне</div>
+          <div class="stack-line"><strong>🔴 03E</strong> — Марс, выход в открытый космос</div>
+          <div class="stack-line"><strong>🔵 02</strong> — Вернулся на Луну</div>
+          <div class="stack-line"><strong>🟡 04'</strong> — Орбитальная станция у Цереры</div>
+          <div class="stack-line"><strong>⚪ 00</strong> — Дальний космос (опыт за пределами миров)</div>
+          <p style="margin-top: 1.5rem;">⚡ Биография космонавта видна с первого взгляда.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ГАЛЕРЕЯ (из папки gallery/images) -->
+    <section id="gallery">
+      <h2>Галерея · как это выглядит</h2>
+      <p>Рендеры патчей, нашивок, интеграция в снаряжение.</p>
+      <div class="gallery-grid" id="galleryContainer">
+        <!-- Изображения будут вставлены через JavaScript -->
+      </div>
+      <p style="margin-top: 1rem;"><a href="https://github.com/snowdimon/IPIS/tree/main/gallery/images" target="_blank" class="btn btn-outline" style="font-size:0.9rem;">📁 Открыть папку с изображениями</a></p>
+    </section>
+
+    <!-- РИТУАЛ -->
+    <section>
+      <h2>«Глоток воды на новой базе»</h2>
+      <div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
+        <div style="font-size: 6rem;">💧</div>
+        <div>
+          <p style="font-size: 1.5rem; margin-bottom: 1rem;">Вымышленный обряд инициации. Ты становишься частью мира, когда его вода становится частью тебя.</p>
+          <p>Один глоток. Отрывание текущего шеврона -Звук липучки- выдача нового. И ты больше не гость. Ты — свой.</p>
+        </div>
+      </div>
+    </section>
+
+   
+    <!-- ПРИЗЫВ К УЧАСТИЮ (роли) -->
+    <section>
+      <h2>Стань соавтором языка Солнечной системы</h2>
+      <div class="roles">
+        <div class="role-card">
+          <div class="role-icon">🎮</div>
+          <h3>Разработчик игр / моддер</h3>
+          <p>Добавь IPIS в KSP, Starfield или свою игру — набор ассетов открыт.</p>
+          <a href="#" class="placeholder-link" title="Замените на реальную ссылку для скачивания">[заглушка] Скачать ассеты</a>
+        </div>
+        <div class="role-card">
+          <div class="role-icon">🧑‍🔬</div>
+          <h3>Участник аналоговой миссии</h3>
+          <p>Предложи пилотное внедрение в SIRIUS, MDRS или своём хабе.</p>
+          <a href="#" class="placeholder-link" title="Замените на форму связи или email">[заглушка] Связаться</a>
+        </div>
+        <div class="role-card">
+          <div class="role-icon">📐</div>
+          <h3>Дизайнер / инженер</h3>
+          <p>Улучши визуальный язык, спецификацию или документацию.</p>
+          <a href="https://github.com/snowdimon/IPIS" target="_blank" style="color:#7aaaff;">GitHub →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>IPIS / Duranki · Потому что космос слишком велик, чтобы в нём теряться.</p>
+      <p style="margin-top: 2rem; font-size: 0.9rem;">CC BY-SA 4.0 · <a href="https://github.com/snowdimon/IPIS" target="_blank" style="color:#9bbaff;">GitHub</a> · <a href="#" style="color:#9bbaff;" class="placeholder-link">CONTRIBUTING</a></p>
+    </footer>
+  </div>
+
+  <!-- Лайтбокс для галереи -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightboxClose">&times;</span>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+
+  <script>
+    (function() {
+      // ✅ ОРИЕНТИРУЕМСЯ НА РЕАЛЬНЫЕ ФАЙЛЫ В gallery/images
+      // Проверь
+      const galleryImages = [
+        'gallery/images/man_on_mars.png',
+        'gallery/images/mission_control.png',
+        'gallery/images/uniform_patches.png',
+        'gallery/images/spaceship_close.png',
+        'gallery/images/drone-satelite_close.png',
+        'gallery/images/drone-satelite_full.png' 
+      ];
+
+      const container = document.getElementById('galleryContainer');
+      if (container) {
+        galleryImages.forEach(src => {
+          const item = document.createElement('div');
+          item.className = 'gallery-item';
+          const img = document.createElement('img');
+          img.src = src;
+          img.alt = 'IPIS визуализация';
+          img.loading = 'lazy';
+          item.appendChild(img);
+          item.addEventListener('click', () => openLightbox(src));
+          container.appendChild(item);
+        });
+      }
+
+      // Лайтбокс
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const closeBtn = document.getElementById('lightboxClose');
+
+      function openLightbox(src) {
+        lightboxImg.src = src;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      closeBtn.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+          closeLightbox();
+        }
+      });
+
+      // Плавный скролл для якорных ссылок
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (href === '#') return;
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+    })();
+  </script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</body>
+</html>
