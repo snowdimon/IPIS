@@ -95,7 +95,8 @@ A person born on Earth (`01`), who worked on a lunar orbital station with spacew
 1. **Quick start** – [Quick Start Guide](docs/quickstart.md) – make your first IPIS patch in 5 minutes.
 2. **Learn stack mechanics** – [Stack Guide](docs/stack_guide.md) – detailed patch donning / updating.
 3. **Dive into technical integration** – [RFID spec](docs/rfid_spec.md) and [NORAD extension](docs/norad_extension.md).
-4. **Explore cultural examples** – [Stack Examples](docs/stack_examples.md) (Major Tom, John Carter, etc.).
+4. **Explore cultural examples** – [Stack Examples](docs/stack_examples.md) 
+5. **Glossary** [Glossary](docs/glossary.en.md)
 
 The system is **open** – you can adopt, adapt, and pilot it. Feedback and contributions are welcome.
 
