@@ -261,7 +261,141 @@
             </div>
         </div>
     </div>
+<!-- DURANKI CODE GENERATOR (EN) -->
+<section id="generator">
+  <h2>Generate Your Duranki Code</h2>
+  <p style="margin-bottom: 2rem;">Choose your destination — get your patch and interpretation.</p>
+  
+  <div style="background: rgba(18, 28, 50, 0.5); backdrop-filter: blur(12px); border-radius: 40px; padding: 2.5rem; border: 1px solid #3f8cff;">
+    <!-- Destination selection -->
+    <div style="margin-bottom: 2rem;">
+      <label style="display: block; margin-bottom: 0.8rem; font-weight: 600; color: #d6e5ff;">Where are we going?</label>
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+          <input type="radio" name="destination" value="orbit" checked> 🌍 Earth Orbit (ISS)
+        </label>
+        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+          <input type="radio" name="destination" value="lunar_orbit"> 🌕 Lunar Orbit (Gateway)
+        </label>
+        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+          <input type="radio" name="destination" value="moon"> 🌕 Lunar Surface
+        </label>
+        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+          <input type="radio" name="destination" value="mars"> 🔴 Mars Surface
+        </label>
+        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+          <input type="radio" name="destination" value="all"> 🚀 All stops (Earth Orbit → Lunar Orbit → Moon → Mars)
+        </label>
+      </div>
+    </div>
 
+    <!-- Object type -->
+    <div style="margin-bottom: 2rem;">
+      <label style="display: block; margin-bottom: 0.8rem; font-weight: 600; color: #d6e5ff;">Object type</label>
+      <div style="display: flex; gap: 1.5rem;">
+        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+          <input type="radio" name="type" value="human" checked> 🧑 Human / Base (circle)
+        </label>
+        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+          <input type="radio" name="type" value="robot"> 🤖 Robot (hexagon)
+        </label>
+      </div>
+    </div>
+
+    <button id="generateBtn" class="btn" style="margin-bottom: 2rem;">✨ Generate Patch</button>
+
+    <!-- Result -->
+    <div id="generatorResult" style="display: none;">
+      <div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
+        <div id="stackVisual" class="stack-visual" style="justify-content: center;"></div>
+        <div id="codeDescription" style="flex:1; min-width: 250px; background: #0a1226; padding: 1.5rem; border-radius: 20px; border-left: 6px solid #3f8cff;">
+          <p style="font-family: monospace; font-size: 1.2rem; margin-bottom: 1rem;" id="codeString"></p>
+          <p id="codeInterpretation"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function() {
+    const generateBtn = document.getElementById('generateBtn');
+    const resultDiv = document.getElementById('generatorResult');
+    const stackVisual = document.getElementById('stackVisual');
+    const codeString = document.getElementById('codeString');
+    const codeInterpretation = document.getElementById('codeInterpretation');
+
+    // Code interpretation map
+    const interpretations = {
+      '01': 'Earth (origin)',
+      "01'": 'Earth Orbit',
+      "02'": 'Lunar Orbit',
+      '02': 'Lunar Surface',
+      '03': 'Mars Surface',
+      '04': 'Ceres',
+      '00': 'Deep space',
+      'E': 'Extravehicular activity'
+    };
+
+    function generateCode() {
+      const destination = document.querySelector('input[name="destination"]:checked').value;
+      const type = document.querySelector('input[name="type"]:checked').value;
+      
+      let codes = ['01']; // start from Earth
+      let description = ['01 — Earth (origin)'];
+      
+      switch(destination) {
+        case 'orbit':
+          codes.push("01'");
+          description.push("01' — Earth Orbit");
+          break;
+        case 'lunar_orbit':
+          codes.push("02'");
+          description.push("02' — Lunar Orbit");
+          break;
+        case 'moon':
+          codes.push('02');
+          description.push('02 — Lunar Surface');
+          break;
+        case 'mars':
+          codes.push('03');
+          description.push('03 — Mars Surface');
+          break;
+        case 'all':
+          codes.push("01'", "02'", '02', '03');
+          description.push("01' — Earth Orbit", "02' — Lunar Orbit", '02 — Lunar Surface', '03 — Mars Surface');
+          break;
+      }
+
+      // Render disks
+      stackVisual.innerHTML = '';
+      codes.forEach(code => {
+        const disk = document.createElement('div');
+        disk.className = 'disk' + (type === 'robot' ? ' hex' : '');
+        disk.textContent = code;
+        stackVisual.appendChild(disk);
+      });
+
+      // Build code string
+      const fullCode = codes.join(' → ');
+      codeString.textContent = fullCode;
+      
+      // Build interpretation
+      let interpretationText = description.join('<br>');
+      if (type === 'robot') {
+        interpretationText += '<br><span style="color: #6fcf6f;">🤖 Hexagon — robot or autonomous system</span>';
+      } else {
+        interpretationText += '<br><span style="color: #7aaaff;">🧑 Circle — human or habitable base</span>';
+      }
+      codeInterpretation.innerHTML = interpretationText;
+
+      resultDiv.style.display = 'block';
+      resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    generateBtn.addEventListener('click', generateCode);
+  })();
+</script>
     <div class="section" style="background: #0f172a;">
         <div class="container">
             <h2>🛠 Technical integration</h2>
