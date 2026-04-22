@@ -1,7 +1,5 @@
 <p align="center">
   <img src="assets/logo.svg" alt="Логотип IPIS" width="200">
-  <br>
-  <em>Дуранки – Нить Неба и Земли</em>
 </p>
 
 # IPIS / Дуранки – Межпланетная система идентификации
