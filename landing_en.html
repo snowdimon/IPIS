@@ -1,567 +1,329 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IPIS · Duranki · The Language Space Speaks</title>
-  <style>
-    /* ----- RESET & BASE ----- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPIS / Duranki – InterPlanetary Identity System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      background: #0b0d15;
-      color: #e8edf5;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+        body {
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+            background: #0a1128;
+            color: #e0e0e0;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
 
-    /* ----- ANIMATED BACKGROUND (stars + nebula) ----- */
-    .stars, .twinkling, .clouds {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -2;
-      pointer-events: none;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
 
-    .stars {
-      background: #0b0d15 url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48Y2lyY2xlIGN4PSI2MCIgY3k9IjgwIiByPSIxIiBmaWxsPSIjZmZmZmZmIi8+PGNpcmNsZSBjeD0iMjAwIiBjeT0iMTUwIiByPSIxLjUiIGZpbGw9IiNmZmZmZmYiLz48Y2lyY2xlIGN4PSIxMDAiIGN5PSIyMjAiIHI9IjEiIGZpbGw9IiNmZmZmZmYiLz48Y2lyY2xlIGN4PSIyNTAiIGN5PSI3MCIgcj0iMSIgZmlsbD0iI2ZmZmZmZiIvPjwvc3ZnPg==');
-      background-size: 300px 300px;
-      animation: panStars 200s linear infinite;
-    }
+        /* Header / Hero */
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: linear-gradient(135deg, #0a1128 0%, #1a2a4a 100%);
+        }
+        .logo {
+            width: 150px;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #ffffff, #88aaff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .duranki-sub {
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: #ffd966;
+            margin-top: 0.2rem;
+            font-style: italic;
+        }
+        .subhead {
+            font-size: 1.3rem;
+            margin: 1rem 0;
+            color: #bbccff;
+        }
+        .tagline {
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            border-left: 4px solid #ffd966;
+            padding-left: 1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            background: #1e2a3a;
+            padding: 1rem;
+            border-radius: 12px;
+        }
+        .btn {
+            display: inline-block;
+            background: #4a90e2;
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 2rem;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background: #2a6ec0;
+        }
 
-    .twinkling {
-      background: transparent url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIj48Y2lyY2xlIGN4PSI0MDAiIGN5PSIxMDAiIHI9IjIiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNyIvPjxjaXJjbGUgY3g9IjUwIiBjeT0iMzAwIiByPSIxLjgiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNSIvPjwvc3ZnPg==');
-      background-size: 500px 500px;
-      animation: panStars 150s linear infinite reverse;
-      opacity: 0.7;
-    }
-
-    .clouds {
-      background: radial-gradient(circle at 30% 40%, rgba(20, 157, 220, 0.08) 0%, transparent 40%),
-                  radial-gradient(circle at 80% 70%, rgba(180, 50, 220, 0.06) 0%, transparent 50%);
-      animation: pulseGlow 12s ease-in-out infinite alternate;
-    }
-
-    @keyframes panStars {
-      0% { background-position: 0 0; }
-      100% { background-position: 1000px 800px; }
-    }
-
-    @keyframes pulseGlow {
-      0% { opacity: 0.6; transform: scale(1); }
-      100% { opacity: 1; transform: scale(1.02); }
-    }
-
-    /* ----- TYPOGRAPHY & UTILS ----- */
-    h1, h2, h3 {
-      font-weight: 600;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-    }
-
-    h1 {
-      font-size: clamp(3.2rem, 12vw, 5.6rem);
-      background: linear-gradient(135deg, #ffffff, #a0c0ff, #b0a0ff);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      margin-bottom: 1rem;
-      text-shadow: 0 0 30px rgba(80, 150, 255, 0.3);
-    }
-
-    h2 {
-      font-size: 2.4rem;
-      margin-bottom: 2rem;
-      color: #d6e5ff;
-      border-left: 6px solid #3f8cff;
-      padding-left: 1.5rem;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      position: relative;
-      z-index: 5;
-    }
-
-    section {
-      padding: 5rem 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .btn {
-      display: inline-block;
-      background: linear-gradient(145deg, #1e2b5c, #0f1a3a);
-      border: 1px solid #3f8cff;
-      color: white;
-      padding: 0.9rem 2.2rem;
-      border-radius: 60px;
-      font-weight: 600;
-      text-decoration: none;
-      letter-spacing: 0.5px;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 8px 20px rgba(0, 20, 50, 0.6), 0 0 0 0 #3f8cff inset;
-      transition: all 0.25s ease;
-      margin-right: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .btn:hover {
-      background: linear-gradient(145deg, #26408f, #15265e);
-      border-color: #7aaaff;
-      box-shadow: 0 10px 28px rgba(63, 140, 255, 0.3), 0 0 0 2px rgba(63, 140, 255, 0.2) inset;
-      transform: translateY(-3px);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 1px solid #5f7faf;
-      box-shadow: none;
-    }
-
-    /* ----- HEADER ----- */
-    .hero {
-      min-height: 90vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 6rem 0;
-      position: relative;
-    }
-
-    .hero-sub {
-      font-size: 1.4rem;
-      text-transform: uppercase;
-      letter-spacing: 8px;
-      color: #9bbaff;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-desc {
-      font-size: 1.3rem;
-      max-width: 700px;
-      margin: 2rem 0 3rem;
-      color: #cbd5f0;
-    }
-
-    /* ----- CARDS ----- */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .card {
-      background: rgba(18, 28, 50, 0.5);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(100, 160, 255, 0.2);
-      border-radius: 28px;
-      padding: 2.2rem 2rem;
-      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      border-color: #4f9cff;
-      box-shadow: 0 30px 50px -20px #1a3a6e;
-    }
-
-    .card-icon {
-      font-size: 2.8rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .card h3 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: #ffffff;
-    }
-
-    .card p {
-      color: #b8c7e7;
-    }
-
-    /* ----- STACK DEMO (READING STACK) ----- */
-    .stack-demo {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 2.5rem;
-      background: rgba(0, 10, 25, 0.6);
-      border-radius: 40px;
-      padding: 2.5rem;
-      border: 1px solid #2e4a8e;
-      margin: 2.5rem 0;
-      backdrop-filter: blur(8px);
-    }
-
-    .stack-visual {
-      display: flex;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-    }
-
-    .disk {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, #e0e8ff, #2c3f6e);
-      border: 3px solid #7aaaff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 1.4rem;
-      color: white;
-      text-shadow: 0 2px 5px black;
-      box-shadow: 0 5px 0 #0f1a2e, 0 10px 20px rgba(0,0,0,0.3);
-      transition: transform 0.2s;
-    }
-
-    .disk.hex {
-      border-radius: 20% 50% 20% 50%;
-      background: radial-gradient(circle at 30% 30%, #d0f0d0, #1e4a2e);
-      border-color: #6fcf6f;
-    }
-
-    .stack-interpretation {
-      flex: 1;
-      min-width: 240px;
-    }
-
-    .stack-line {
-      font-family: 'SF Mono', 'Menlo', monospace;
-      background: #0a1226;
-      padding: 1rem 1.5rem;
-      border-radius: 20px;
-      border-left: 6px solid #3f8cff;
-      margin: 0.8rem 0;
-    }
-
-    /* ----- GALLERY ----- */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin: 3rem 0;
-    }
-
-    .gallery-item {
-      border-radius: 24px;
-      overflow: hidden;
-      background: #111a30;
-      border: 1px solid #2e4a8e;
-      transition: all 0.25s;
-      cursor: pointer;
-      aspect-ratio: 1 / 1;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.4s;
-    }
-
-    .gallery-item:hover img {
-      transform: scale(1.05);
-    }
-
-    .gallery-item:hover {
-      border-color: #7aaaff;
-      box-shadow: 0 0 25px rgba(63, 140, 255, 0.3);
-    }
-
-    /* Lightbox */
-    .lightbox {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(5, 8, 18, 0.95);
-      backdrop-filter: blur(12px);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .lightbox.active {
-      display: flex;
-    }
-
-    .lightbox img {
-      max-width: 90%;
-      max-height: 85vh;
-      border-radius: 20px;
-      border: 2px solid #3f8cff;
-      box-shadow: 0 0 60px #1a3a8a;
-    }
-
-    .lightbox-close {
-      position: absolute;
-      top: 30px; right: 40px;
-      font-size: 3rem;
-      color: white;
-      cursor: pointer;
-      opacity: 0.7;
-      transition: 0.2s;
-    }
-
-    .lightbox-close:hover { opacity: 1; transform: scale(1.1); }
-
-    /* ----- ROLES FOR PARTICIPATION ----- */
-    .roles {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: space-around;
-      margin-top: 2rem;
-    }
-
-    .role-card {
-      background: #131e35;
-      border-radius: 28px;
-      padding: 2rem;
-      flex: 1 1 240px;
-      text-align: center;
-      border: 1px solid #2e5580;
-    }
-
-    .role-icon { font-size: 3rem; margin-bottom: 0.8rem; }
-
-    /* Placeholder link style */
-    .placeholder-link {
-      color: #ffb347 !important;
-      text-decoration: underline wavy #ff8c00;
-      font-weight: 600;
-      cursor: help;
-    }
-    .placeholder-link:hover {
-      color: #ffa01c !important;
-      text-decoration: underline wavy #ffbb33;
-    }
-
-    /* ----- FOOTER ----- */
-    footer {
-      padding: 3rem 0;
-      text-align: center;
-      color: #9aafcf;
-      border-top: 1px solid #1f2e4a;
-      margin-top: 3rem;
-    }
-
-    /* ----- RESPONSIVE ----- */
-    @media (max-width: 640px) {
-      .container { padding: 0 1.5rem; }
-      h2 { font-size: 2rem; }
-    }
-  </style>
+        /* Sections */
+        .section {
+            padding: 3rem 1rem;
+            border-bottom: 1px solid #2a3a5a;
+        }
+        .section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: #ffd966;
+            text-align: center;
+        }
+        .section h3 {
+            font-size: 1.5rem;
+            margin: 1.5rem 0 0.8rem;
+            color: #bbffaa;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .card {
+            background: #1a1a2e;
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 1px solid #2a3a5a;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #ffd966;
+        }
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .gallery-preview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .gallery-preview img {
+            width: 180px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid #2a3a5a;
+            transition: transform 0.2s;
+        }
+        .gallery-preview img:hover {
+            transform: scale(1.05);
+        }
+        .quote {
+            font-style: italic;
+            font-size: 1.4rem;
+            text-align: center;
+            color: #bbccff;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            background: #061020;
+            font-size: 0.9rem;
+        }
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem;
+            margin: 1.5rem 0;
+        }
+        .badge {
+            background: #2a3a5a;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        .sumerian {
+            font-size: 0.9rem;
+            color: #aaa;
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+        @media (max-width: 700px) {
+            h1 { font-size: 2rem; }
+            .duranki-sub { font-size: 1.3rem; }
+            .subhead { font-size: 1rem; }
+            .section h2 { font-size: 1.8rem; }
+        }
+    </style>
 </head>
 <body>
-  <!-- Background layers -->
-  <div class="stars"></div>
-  <div class="twinkling"></div>
-  <div class="clouds"></div>
 
-  <div class="container">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-sub">Duranki / IPIS</div>
-      <h1>You are not from Earth.<br>Who are you in the Solar System?</h1>
-      <div class="hero-desc">
-        The language space will speak. An object's story in just a few symbols.
-      </div>
-      <div>
-        <a href="#stack-demo" class="btn">Discover your code</a>
-        <a href="#gallery" class="btn btn-outline">View gallery</a>
-      </div>
-    </section>
-
-    <!-- 3 CARDS -->
-    <section>
-      <h2>A system that speaks clearly</h2>
-      <div class="card-grid">
-        <div class="card">
-          <div class="card-icon">🪡</div>
-          <h3>Your space passport</h3>
-          <p>One glance — and anyone knows if you're from the Moon, Mars, or the asteroid belt. Even when Earth is out of reach.</p>
+    <div class="hero">
+        <div class="container">
+            <img src="assets/logo.svg" alt="IPIS Logo" class="logo">
+            <h1>IPIS</h1>
+            <div class="subhead">InterPlanetary Identity System</div>
+            <div class="tagline">
+                <strong>An architectural proposal for a future civilisation colonising worlds</strong><br>
+                A voluntary protocol for identification, access, and navigation in the Solar System and beyond.
+            </div>
+            <a href="#problem" class="btn">Learn more →</a>
         </div>
-        <div class="card">
-          <div class="card-icon">📚</div>
-          <h3>A life story in five disks</h3>
-          <p>Where you were born, where you worked, where you left a part of yourself. Your cosmic biography.</p>
+    </div>
+
+    <div class="section" id="problem">
+        <div class="container">
+            <h2>🚀 What problem does IPIS solve?</h2>
+            <p>The lack of a universal, instantly readable, Earth‑independent way to identify the origin, qualifications, and route of a person or object in the context of a distributed human presence in the Solar System and beyond.</p>
+            <p>IPIS replaces cumbersome Earth‑bound bureaucratic procedures and digital databases with a single visual‑electronic language that is understandable to both humans and computers anywhere in space.</p>
+            <div class="quote">
+                «Right now, spacesuits are a mess of flags, mission logos, and corporate patches. It's chaos. IPIS is the first step towards order.»
+            </div>
         </div>
-        <div class="card">
-          <div class="card-icon">🚀</div>
-          <h3>A ship that remembers</h3>
-          <p>A scar on the hull that says: "I was there, I came back, I'm moving on."</p>
+    </div>
+
+    <div class="section" style="background: #0f172a;">
+        <div class="container">
+            <h2>💡 How does it work?</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem auto;">The core of the system is symbolic‑geometric notation and a digital code for an object according to the space expansion plan.</p>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-icon">🔵</div>
+                    <h3>Circle</h3>
+                    <p>Life: human, base, crewed spacecraft</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⬡</div>
+                    <h3>Hexagon</h3>
+                    <p>Robot, drone, uncrewed vehicle</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">01 02 03</div>
+                    <h3>Planets</h3>
+                    <p>01 — Earth, 02 — Moon, 03 — Mars, 04, 05… — new worlds</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">' E 00</div>
+                    <h3>Indices</h3>
+                    <p>' — orbit, E — EVA (risk), 00 — deep space</p>
+                </div>
+            </div>
         </div>
-      </div>
-    </section>
+    </div>
 
-    <!-- STACK READING EXAMPLE (Snezhkov's Stack) -->
-    <section id="stack-demo">
-      <h2>Snezhkov's Stack · read in a second</h2>
-      <div class="stack-demo">
-        <div class="stack-visual">
-          <div class="disk">02</div>
-          <div class="disk hex">03E</div>
-          <div class="disk">02</div>
-          <div class="disk">04'</div>
-          <div class="disk">00</div>
+    <div class="section">
+        <div class="container">
+            <h2>🏅 Experience Stack</h2>
+            <p>A symbolic sequence of status changes during travel. On a person – a row of touching discs under the main patch. The first disc is the birthplace, then long‑term work locations, and after worlds with spacewalks – an <strong>E</strong> disc.</p>
+            <div class="code-example" style="background: #1e2a3a; padding: 0.8rem; border-radius: 8px; font-family: monospace; margin: 1rem 0;">Example: 01 02’ E 03 — born on Earth, worked on lunar orbit with EVAs, now on Mars.</div>
+            <p align="center"><img src="assets/stack_layout.svg" alt="Stack" width="200"></p>
         </div>
-        <div class="stack-interpretation">
-          <div class="stack-line"><strong>🔵 02</strong> — Born on the Moon</div>
-          <div class="stack-line"><strong>🔴 03E</strong> — Mars, extravehicular activity</div>
-          <div class="stack-line"><strong>🔵 02</strong> — Returned to the Moon</div>
-          <div class="stack-line"><strong>🟡 04'</strong> — Orbital station near Ceres</div>
-          <div class="stack-line"><strong>⚪ 00</strong> — Deep space (experience beyond worlds)</div>
-          <p style="margin-top: 1.5rem;">⚡ An astronaut's biography at a glance.</p>
+    </div>
+
+    <div class="section" style="background: #0f172a;">
+        <div class="container">
+            <h2>🛸 Ship Thread</h2>
+            <p>Route diagram – a straight line on the hull from the start node to the end node (e.g., 01—03). Intermediate manoeuvres are digital only. Simple and clear, like a subway map.</p>
+            <p align="center"><img src="assets/ship_thread.svg" alt="Ship Thread" width="300"></p>
         </div>
-      </div>
-    </section>
+    </div>
 
-    <!-- GALLERY (from gallery/images folder) -->
-    <section id="gallery">
-      <h2>Gallery · see how it looks</h2>
-      <p>Renders of patches, insignia, and gear integration.</p>
-      <div class="gallery-grid" id="galleryContainer">
-        <!-- Images will be inserted via JavaScript -->
-      </div>
-      <p style="margin-top: 1rem;"><a href="https://github.com/snowdimon/IPIS/tree/main/gallery/images" target="_blank" class="btn btn-outline" style="font-size:0.9rem;">📁 Open images folder</a></p>
-    </section>
-
-    <!-- RITUAL -->
-    <section>
-      <h2>“A sip of the base”</h2>
-      <div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
-        <div style="font-size: 6rem;">💧</div>
-        <div>
-          <p style="font-size: 1.5rem; margin-bottom: 1rem;">A fictional initiation rite. You become part of a world when its water becomes part of you.</p>
-          <p>One sip. The sound of velcro — tearing off the old patch, receiving the new one. You're no longer a guest. You belong.</p>
+    <div class="section">
+        <div class="container">
+            <h2>⭐ Star Prefix (for the very distant future, sci‑fi, and games)</h2>
+            <div class="badge-container">
+                <span class="badge">SUN — Sun</span>
+                <span class="badge">PRX — Proxima Centauri</span>
+                <span class="badge">… and so on</span>
+            </div>
         </div>
-      </div>
-    </section>
+    </div>
 
-    <!-- CALL TO PARTICIPATE (roles) -->
-    <section>
-      <h2>Become a co‑author of the Solar System's language</h2>
-      <div class="roles">
-        <div class="role-card">
-          <div class="role-icon">🎮</div>
-          <h3>Game dev / modder</h3>
-          <p>Add IPIS to KSP, Starfield, or your own game — the asset pack is open.</p>
-          <a href="https://github.com/snowdimon/IPIS/tree/main/assets" class="placeholder-link" title="Download">Download assets</a>
+    <div class="section" style="background: #0f172a;">
+        <div class="container">
+            <h2>🛠 Technical integration</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-icon">📡</div>
+                    <h3>RFID patches</h3>
+                    <p>Passive chips embedded in the patch. Bring your sleeve to a reader at an airlock – the door opens, the system logs the time and place. No passwords, no biometrics.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🛰️</div>
+                    <h3>IPIS_CODE in NORAD</h3>
+                    <p>Satellites and spacecraft get a human‑readable label. A dispatcher sees not just 25544, but `circle 01'` (crewed station in Earth orbit).</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📋</div>
+                    <h3>Stack verification</h3>
+                    <p>All records of base changes, EVAs, etc., are signed by commanders in onboard logbooks. Periodic synchronisation with a central registry is possible.</p>
+                </div>
+            </div>
         </div>
-        <div class="role-card">
-          <div class="role-icon">🧑‍🔬</div>
-          <h3>Analog mission participant</h3>
-          <p>Propose a pilot deployment in SIRIUS, MDRS, or your hub.</p>
-          <a href="https://github.com/snowdimon/IPIS/tree/main/docs" class="placeholder-link" title="Docs">Documentation</a>
+    </div>
+
+    <div class="section">
+        <div class="container">
+            <h2>🖼️ What it looks like in real life</h2>
+            <div class="gallery-preview">
+                <img src="gallery/images/man_on_mars.png" alt="Person on Mars">
+                <img src="gallery/images/spaceship_close.png" alt="Spacecraft close‑up">
+                <img src="gallery/images/mission_control.png" alt="Mission Control">
+                <img src="gallery/images/uniform_patches.png" alt="Uniforms">
+            </div>
+            <p style="text-align: center; margin-top: 1rem;">
+                <a href="https://snowdimon.github.io/IPIS/gallery/index.html" class="btn" style="background: #2a3a5a;">📸 Open full gallery →</a>
+            </p>
         </div>
-        <div class="role-card">
-          <div class="role-icon">📐</div>
-          <h3>Designer / engineer</h3>
-          <p>Improve the visual language, specification, or documentation.</p>
-          <a href="https://github.com/snowdimon/IPIS" target="_blank" style="color:#7aaaff;">GitHub →</a>
+    </div>
+
+    <div class="section" style="background: #0f172a;">
+        <div class="container">
+            <h2>📦 Open project. Open future.</h2>
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+                <img src="assets/logo.svg" alt="IPIS Logo" style="width: 80px; opacity: 0.8;">
+            </div>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto;">IPIS is released under the <strong>CC BY-SA 4.0</strong> license. You can use, adapt, and pilot it – freely. The repository contains full specifications, design assets, guides, and a quick start.</p>
+            <div class="badge-container">
+                <span class="badge">✅ Simple</span>
+                <span class="badge">🌍 International</span>
+                <span class="badge">🛡️ Doesn't replace existing rules</span>
+                <span class="badge">🚀 Pilot‑ready</span>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="https://github.com/snowdimon/IPIS" class="btn">⭐ GitHub</a>
+                <a href="docs/quickstart.md" class="btn" style="background: #2a3a5a;">📖 Quick start</a>
+            </div>
         </div>
-      </div>
-    </section>
+    </div>
 
-    <!-- FOOTER -->
-    <footer>
-      <p>IPIS / Duranki · Space is too big to get lost in.</p>
-      <p style="margin-top: 2rem; font-size: 0.9rem;">CC BY-SA 4.0 · <a href="https://github.com/snowdimon/IPIS" target="_blank" style="color:#9bbaff;">GitHub</a> · <a href="#" style="color:#9bbaff;" class="placeholder-link">CONTRIBUTING</a></p>
-    </footer>
-  </div>
-
-  <!-- Lightbox for gallery -->
-  <div class="lightbox" id="lightbox">
-    <span class="lightbox-close" id="lightboxClose">&times;</span>
-    <img id="lightboxImg" src="" alt="">
-  </div>
-
-  <script>
-    (function() {
-      // ✅ Based on actual files in gallery/images
-      const galleryImages = [
-        'gallery/images/man_on_mars.png',
-        'gallery/images/mission_control.png',
-        'gallery/images/uniform_patches.png',
-        'gallery/images/spaceship_close.png',
-        'gallery/images/drone-satelite_close.png',
-        'gallery/images/drone-satelite_full.png' 
-      ];
-
-      const container = document.getElementById('galleryContainer');
-      if (container) {
-        galleryImages.forEach(src => {
-          const item = document.createElement('div');
-          item.className = 'gallery-item';
-          const img = document.createElement('img');
-          img.src = src;
-          img.alt = 'IPIS visualization';
-          img.loading = 'lazy';
-          item.appendChild(img);
-          item.addEventListener('click', () => openLightbox(src));
-          container.appendChild(item);
-        });
-      }
-
-      // Lightbox
-      const lightbox = document.getElementById('lightbox');
-      const lightboxImg = document.getElementById('lightboxImg');
-      const closeBtn = document.getElementById('lightboxClose');
-
-      function openLightbox(src) {
-        lightboxImg.src = src;
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeLightbox() {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-
-      closeBtn.addEventListener('click', closeLightbox);
-      lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) closeLightbox();
-      });
-      window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-          closeLightbox();
-        }
-      });
-
-      // Smooth scroll for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-          const href = this.getAttribute('href');
-          if (href === '#') return;
-          const target = document.querySelector(href);
-          if (target) {
-            e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth' });
-          }
-        });
-      });
-    })();
-  </script>
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <div class="footer">
+        <p><strong>Author:</strong> 01 — EARTH &nbsp;|&nbsp; <strong>Codename:</strong> Duranki – The Bond of Heaven and Earth &nbsp;|&nbsp; Version 15.0, April 2026</p>
+        <p>“There’s a starman waiting in the sky…” – David Bowie, <em>Starman</em></p>
+        <p><a href="https://github.com/snowdimon/IPIS" style="color: #bbffaa;">GitHub repository</a> | <a href="https://snowdimon.github.io/IPIS/gallery/index.html" style="color: #bbffaa;">Gallery</a></p>
+    </div>
 </body>
 </html>
