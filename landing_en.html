@@ -261,10 +261,10 @@
             </div>
         </div>
     </div>
-<!-- DURANKI CODE GENERATOR (EN) -->
+    <!-- DURANKI CODE GENERATOR (EN) - string format -->
 <section id="generator">
   <h2>Generate Your Duranki Code</h2>
-  <p style="margin-bottom: 2rem;">Choose your destination — get your patch and interpretation.</p>
+  <p style="margin-bottom: 2rem;">Choose your destination — get your unique identifier string.</p>
   
   <div style="background: rgba(18, 28, 50, 0.5); backdrop-filter: blur(12px); border-radius: 40px; padding: 2.5rem; border: 1px solid #3f8cff;">
     <!-- Destination selection -->
@@ -294,24 +294,22 @@
       <label style="display: block; margin-bottom: 0.8rem; font-weight: 600; color: #d6e5ff;">Object type</label>
       <div style="display: flex; gap: 1.5rem;">
         <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-          <input type="radio" name="type" value="human" checked> 🧑 Human
+          <input type="radio" name="type" value="circle" checked> 🧑 Human / Base (circle)
         </label>
         <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-          <input type="radio" name="type" value="robot"> 🤖 Robot
+          <input type="radio" name="type" value="hex"> 🤖 Robot (hexagon)
         </label>
       </div>
     </div>
 
-    <button id="generateBtn" class="btn" style="margin-bottom: 2rem;">✨ Generate Patch</button>
+    <button id="generateBtn" class="btn" style="margin-bottom: 2rem;">✨ Generate Code</button>
 
     <!-- Result -->
     <div id="generatorResult" style="display: none;">
-      <div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
-        <div id="stackVisual" class="stack-visual" style="justify-content: center;"></div>
-        <div id="codeDescription" style="flex:1; min-width: 250px; background: #0a1226; padding: 1.5rem; border-radius: 20px; border-left: 6px solid #3f8cff;">
-          <p style="font-family: monospace; font-size: 1.2rem; margin-bottom: 1rem;" id="codeString"></p>
-          <p id="codeInterpretation"></p>
-        </div>
+      <div style="background: #0a1226; padding: 2rem; border-radius: 20px; border-left: 6px solid #3f8cff;">
+        <p style="font-family: 'SF Mono', 'Menlo', monospace; font-size: 1.6rem; margin-bottom: 1.5rem; word-break: break-all;" id="codeString"></p>
+        <p id="codeInterpretation" style="font-size: 1.1rem;"></p>
+        <div id="stackVisual" class="stack-visual" style="justify-content: flex-start; margin-top: 1.5rem;"></div>
       </div>
     </div>
   </div>
@@ -339,55 +337,55 @@
 
     function generateCode() {
       const destination = document.querySelector('input[name="destination"]:checked').value;
-      const type = document.querySelector('input[name="type"]:checked').value;
+      const type = document.querySelector('input[name="type"]:checked').value; // "circle" or "hex"
       
-      let codes = ['01']; // start from Earth
+      let locCodes = ['01']; // always start from Earth
       let description = ['01 — Earth (origin)'];
       
       switch(destination) {
         case 'orbit':
-          codes.push("01'");
+          locCodes.push("01'");
           description.push("01' — Earth Orbit");
           break;
         case 'lunar_orbit':
-          codes.push("02'");
+          locCodes.push("02'");
           description.push("02' — Lunar Orbit");
           break;
         case 'moon':
-          codes.push('02');
+          locCodes.push('02');
           description.push('02 — Lunar Surface');
           break;
         case 'mars':
-          codes.push('03');
+          locCodes.push('03');
           description.push('03 — Mars Surface');
           break;
         case 'all':
-          codes.push("01'", "02'", '02', '03');
+          locCodes.push("01'", "02'", '02', '03');
           description.push("01' — Earth Orbit", "02' — Lunar Orbit", '02 — Lunar Surface', '03 — Mars Surface');
           break;
       }
 
-      // Render disks
-      stackVisual.innerHTML = '';
-      codes.forEach(code => {
-        const disk = document.createElement('div');
-        disk.className = 'disk' + (type === 'robot' ? ' hex' : '');
-        disk.textContent = code;
-        stackVisual.appendChild(disk);
-      });
-
-      // Build code string
-      const fullCode = codes.join(' → ');
+      // Build full code string: sun-[type]-code1-code2-...
+      const fullCode = `sun-${type}-${locCodes.join('-')}`;
       codeString.textContent = fullCode;
-      
+
       // Build interpretation
       let interpretationText = description.join('<br>');
-      if (type === 'robot') {
+      if (type === 'hex') {
         interpretationText += '<br><span style="color: #6fcf6f;">🤖 Hexagon — robot or autonomous system</span>';
       } else {
         interpretationText += '<br><span style="color: #7aaaff;">🧑 Circle — human or habitable base</span>';
       }
       codeInterpretation.innerHTML = interpretationText;
+
+      // Render visual disks (optional but nice to keep)
+      stackVisual.innerHTML = '';
+      locCodes.forEach(code => {
+        const disk = document.createElement('div');
+        disk.className = 'disk' + (type === 'hex' ? ' hex' : '');
+        disk.textContent = code;
+        stackVisual.appendChild(disk);
+      });
 
       resultDiv.style.display = 'block';
       resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -396,6 +394,7 @@
     generateBtn.addEventListener('click', generateCode);
   })();
 </script>
+    
     <div class="section" style="background: #0f172a;">
         <div class="container">
             <h2>🛠 Technical integration</h2>
