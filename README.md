@@ -42,6 +42,10 @@ It does not replace national flags or existing systems (NORAD, transponders). It
 - **Technical integration** – RFID chips in patches for access control; `IPIS_CODE` field in NORAD / Space‑Track.org catalog. Stack verification is based on ship and base logbooks (digitally signed).  
 ---
 
+## Star prefix (for far future)
+SOL
+CER
+
 ## Quick Example
 
 A person born on Earth (`01`), who worked on a lunar orbital station with EVAs (`02’E`), and is currently on Mars (`03`):
