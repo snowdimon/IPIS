@@ -10,12 +10,12 @@
 
 ## Structures and Elements
 
-- **Snezhkov Stack** – a sequence of symbols (discs) encoding an object’s history: birthplace → long‑term work locations (>6 months) → EVAs. Named after the system author.
+- **Snezhkov Stack** – a sequence of symbols (discs) encoding an object’s history: birthplace → long‑term work locations → EVAs. Named after the system author.
 - **Thread** – graphical route marking on a spacecraft hull. A straight line from the start node to the end node (e.g., 01—03). Intermediate manoeuvres are not shown.
 - **Phase** – complete astronaut patch: main circle (current location) plus horizontal stack below it.
 - **Disc** – an individual circle in the stack (world number, letter E, or star prefix).
 - **Two‑layer patch** – a patch where a flat inner disc is hidden under the outer layer (the main circle). When leaving a base, the outer layer is peeled off and the inner disc becomes the next stack element.
-- **Velcro** – fastener for patches and discs. The peeling sound is part of the “Gulp” ritual.
+- **Velcro** – fastener for patches and discs.
 
 ## Processes and Rituals
 
@@ -33,9 +33,10 @@
 ## Future Extensions
 
 - **Star prefix** – indicator of a star or barycentre for systems beyond the Solar System. Examples: `SUN` (Sun), `PRX` (Proxima Centauri).
-- **Yulia** – informal term for a spacecraft without a fixed route, capable of changing course mid‑flight. Named after a woman “who loves adventures”. Used for exploration or reconnaissance missions.
+- **Julia** – informal term for a spacecraft without a fixed route, capable of changing course mid‑flight. Used for exploration or reconnaissance missions.
 
 ## Cultural and Codename
 
 - **Duranki** – codename of the system (Sumerian for “The Bond of Heaven and Earth”). Reflects the connection between worlds.
 - **Snezhkov Stack** – as above. Named after the concept author – D. Snezhkov.
+- **Julia** – ... don't tell my wife.
