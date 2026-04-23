@@ -5,10 +5,11 @@
 # IPIS / Duranki – InterPlanetary Identity System
 
 [![Concept Status](https://img.shields.io/badge/status-concept-blue)](https://github.com/snowdimon/IPIS)
-[![Version](https://img.shields.io/badge/version-15.0-green)](https://github.com/snowdimon/IPIS/releases)
+[![Version](https://img.shields.io/badge/version-1.0-green)](https://github.com/snowdimon/IPIS/releases)
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 [![GitHub issues](https://img.shields.io/badge/issues-orange)](https://github.com/snowdimon/IPIS/issues)
 [![Pull Requests Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![Community](https://img.shields.io/badge/community-telegram-blue)](https://t.me/ipis_duranki)
 
 **IPIS (InterPlanetary Identity System)** — a protocol for identifying objects in the Solar System (and beyond).
 
@@ -130,4 +131,4 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) and our [Code of Conduct](CODE_OF
 
 ## Author
 
-**Dmitry Snezhkov**, 01 — EARTH; version 15.0, April 2026
+**Dmitry Snezhkov**, 01 — EARTH; version 1.0, April 2026
