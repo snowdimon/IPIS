@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use IPIS / Duranki in your work, please cite this software as follows:"
 title: "IPIS / Duranki: InterPlanetary Identity System"
-version: 15.0
+version: 1.0
 date-released: 2026-04
 authors:
   - family-names: "Snezhkov"
