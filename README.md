@@ -63,7 +63,7 @@ It replaces cumbersome Earth‑bound bureaucratic procedures and digital databas
 
 ---
 
-## Star Prefix (for the very distant future, sci‑fi, and games)
+## Star Prefix (for the very distant future, sci‑fi and games)
 
 - `SUN` — Sun
 - `PRX` — Proxima Centauri
