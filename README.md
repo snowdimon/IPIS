@@ -10,6 +10,7 @@
 [![GitHub issues](https://img.shields.io/badge/issues-orange)](https://github.com/snowdimon/IPIS/issues)
 [![Pull Requests Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Community](https://img.shields.io/badge/community-telegram-blue)](https://t.me/ipis_duranki)
+[![Community](https://img.shields.io/badge/community-reddit-red)](https://www.reddit.com/r/IPIS_DURANKI/)
 
 **IPIS (InterPlanetary Identity System)** — a protocol for identifying objects in the Solar System (and beyond).
 
