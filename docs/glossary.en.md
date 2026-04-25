@@ -29,6 +29,7 @@
 - **Digital profile** – electronic record of the stack and object history, stored in a central registry.
 - **Logbook** – electronic journal of a spacecraft or base, containing signed entries for movements and events.
 - **Mission Control** – uses the `IPIS_CODE` field to monitor objects.
+- **IFA/IPFA** – The Interplanetary Flight Association.
 
 ## Future Extensions
 
