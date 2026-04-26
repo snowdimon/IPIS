@@ -21,50 +21,55 @@
             overflow-x: hidden;
         }
 
-        /* Animated starry background */
-        body::before {
-            content: '';
+        /* Animated starry background - ON TOP */
+        .stars-container {
             position: fixed;
-            top: 0; left: 0;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
-            background: transparent;
-            background-image: 
-                radial-gradient(2px 2px at 20px 30px, #eee, transparent),
-                radial-gradient(2px 2px at 40px 70px, #fff, transparent),
-                radial-gradient(1px 1px at 90px 40px, #ddd, transparent),
-                radial-gradient(1px 1px at 130px 80px, #fff, transparent),
-                radial-gradient(2px 2px at 160px 30px, #eee, transparent),
-                radial-gradient(1px 1px at 200px 60px, #fff, transparent),
-                radial-gradient(2px 2px at 250px 90px, #ddd, transparent),
-                radial-gradient(1px 1px at 300px 20px, #fff, transparent),
-                radial-gradient(2px 2px at 350px 70px, #eee, transparent),
-                radial-gradient(1px 1px at 400px 40px, #fff, transparent);
-            background-size: 400px 100px;
-            animation: panStars 80s linear infinite;
+            z-index: 1000;
+            pointer-events: none;
         }
 
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0; left: 0;
+        .stars-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
             background: transparent;
             background-image: 
-                radial-gradient(1px 1px at 50px 20px, #fff, transparent),
-                radial-gradient(2px 2px at 100px 60px, #eee, transparent),
-                radial-gradient(1px 1px at 180px 30px, #fff, transparent),
-                radial-gradient(2px 2px at 230px 80px, #ddd, transparent),
-                radial-gradient(1px 1px at 280px 50px, #fff, transparent),
-                radial-gradient(2px 2px at 330px 30px, #eee, transparent),
-                radial-gradient(1px 1px at 380px 70px, #fff, transparent),
-                radial-gradient(2px 2px at 420px 40px, #ddd, transparent);
-            background-size: 450px 120px;
-            animation: panStars 120s linear infinite reverse;
+                radial-gradient(2px 2px at 20% 10%, #ffffff, transparent),
+                radial-gradient(1px 1px at 45% 25%, #eeeeee, transparent),
+                radial-gradient(2px 2px at 70% 15%, #ffffff, transparent),
+                radial-gradient(1px 1px at 85% 30%, #dddddd, transparent),
+                radial-gradient(2px 2px at 15% 45%, #ffffff, transparent),
+                radial-gradient(1px 1px at 55% 50%, #eeeeee, transparent),
+                radial-gradient(2px 2px at 75% 55%, #ffffff, transparent),
+                radial-gradient(1px 1px at 30% 65%, #dddddd, transparent),
+                radial-gradient(2px 2px at 90% 70%, #ffffff, transparent),
+                radial-gradient(1px 1px at 10% 80%, #eeeeee, transparent),
+                radial-gradient(2px 2px at 40% 85%, #ffffff, transparent),
+                radial-gradient(1px 1px at 65% 90%, #dddddd, transparent);
+            background-size: 600px 300px;
+            animation: panStars 60s linear infinite;
             opacity: 0.7;
+        }
+
+        .stars-layer:nth-child(2) {
+            background-image: 
+                radial-gradient(1px 1px at 25% 15%, #ffffff, transparent),
+                radial-gradient(2px 2px at 60% 35%, #eeeeee, transparent),
+                radial-gradient(1px 1px at 80% 20%, #ffffff, transparent),
+                radial-gradient(2px 2px at 5% 55%, #dddddd, transparent),
+                radial-gradient(1px 1px at 35% 70%, #ffffff, transparent),
+                radial-gradient(2px 2px at 70% 75%, #eeeeee, transparent),
+                radial-gradient(1px 1px at 50% 85%, #ffffff, transparent),
+                radial-gradient(2px 2px at 95% 45%, #dddddd, transparent);
+            background-size: 800px 400px;
+            animation: panStars 90s linear infinite reverse;
+            opacity: 0.5;
         }
 
         @keyframes panStars {
@@ -147,7 +152,7 @@
         .section {
             padding: 3rem 1rem;
             border-bottom: 1px solid rgba(42,58,90,0.5);
-            background: rgba(10,17,40,0.6);
+            background: rgba(10,17,40,0.3);
             backdrop-filter: blur(5px);
         }
         .section h2 {
@@ -251,15 +256,12 @@
             box-shadow: 0 5px 0 #0f1a2e, 0 10px 20px rgba(0,0,0,0.3);
             transition: transform 0.2s;
         }
-        /* Настоящий шестиугольник */
+        /* True hexagon */
         .disk.hex {
             border-radius: 0;
             clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
             background: radial-gradient(circle at 40% 30%, #d0f0d0, #1e4a2e);
             border: 3px solid #6fcf6f;
-        }
-        .disk.hex::before {
-            display: none; /* на всякий случай */
         }
         @media (max-width: 700px) {
             h1 { font-size: 2rem; }
@@ -270,6 +272,12 @@
     </style>
 </head>
 <body>
+
+    <!-- Звёздный фон на переднем плане -->
+    <div class="stars-container">
+        <div class="stars-layer"></div>
+        <div class="stars-layer"></div>
+    </div>
 
     <div class="hero">
         <div class="container">
@@ -446,12 +454,12 @@
             <h2>🖼️ Scenes from the expansion</h2>
             <div class="gallery-preview">
                 <figure style="text-align: center;">
-                    <img src="gallery/images/man_on_mars.png" alt="Person on Mars">
-                    <figcaption style="font-size:0.8rem; margin-top:0.3rem;">Arnold sees Earth for the first time (Ch.2)</figcaption>
+                    <img src="gallery/images/man_on_mars.png" alt="Man on Mars">
+                    <figcaption style="font-size:0.8rem; margin-top:0.3rem;">Man on Mars</figcaption>
                 </figure>
                 <figure style="text-align: center;">
                     <img src="gallery/images/spaceship_close.png" alt="Spacecraft close‑up">
-                    <figcaption style="font-size:0.8rem; margin-top:0.3rem;">Bob's "Polar Star" (Ch.3)</figcaption>
+                    <figcaption style="font-size:0.8rem; margin-top:0.3rem;">Spacecraft</figcaption>
                 </figure>
                 <figure style="text-align: center;">
                     <img src="gallery/images/mission_control.png" alt="Mission Control">
@@ -505,7 +513,7 @@
     </div>
 
     <div class="footer">
-        <p><strong>Author:</strong> 01 — EARTH &nbsp;|&nbsp; <strong>Codename:</strong> Duranki – The Bond of Heaven and Earth &nbsp;|&nbsp; Version 17.0, April 2026</p>
+        <p><strong>Author:</strong> 01 — EARTH &nbsp;|&nbsp; <strong>Codename:</strong> Duranki – The Bond of Heaven and Earth &nbsp;|&nbsp; Version 18.0, April 2026</p>
         <p>“There’s a starman waiting in the sky…” – David Bowie, <em>Starman</em></p>
         <p>
             <a href="https://github.com/snowdimon/IPIS" style="color: #bbffaa;">GitHub</a> |
