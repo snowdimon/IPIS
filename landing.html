@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IPIS / Дуранки – Межпланетная система идентификации</title>
+    <title>IPIS / Duranki – Межпланетная система идентификации</title>
     <style>
         * {
             margin: 0;
@@ -17,19 +17,80 @@
             color: #e0e0e0;
             line-height: 1.6;
             scroll-behavior: smooth;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Анимированные звёзды на переднем плане */
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            pointer-events: none;
+        }
+
+        .stars-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            background-image: 
+                radial-gradient(2px 2px at 20% 10%, #ffffff, transparent),
+                radial-gradient(1px 1px at 45% 25%, #eeeeee, transparent),
+                radial-gradient(2px 2px at 70% 15%, #ffffff, transparent),
+                radial-gradient(1px 1px at 85% 30%, #dddddd, transparent),
+                radial-gradient(2px 2px at 15% 45%, #ffffff, transparent),
+                radial-gradient(1px 1px at 55% 50%, #eeeeee, transparent),
+                radial-gradient(2px 2px at 75% 55%, #ffffff, transparent),
+                radial-gradient(1px 1px at 30% 65%, #dddddd, transparent),
+                radial-gradient(2px 2px at 90% 70%, #ffffff, transparent),
+                radial-gradient(1px 1px at 10% 80%, #eeeeee, transparent),
+                radial-gradient(2px 2px at 40% 85%, #ffffff, transparent),
+                radial-gradient(1px 1px at 65% 90%, #dddddd, transparent);
+            background-size: 600px 300px;
+            animation: panStars 60s linear infinite;
+            opacity: 0.7;
+        }
+
+        .stars-layer:nth-child(2) {
+            background-image: 
+                radial-gradient(1px 1px at 25% 15%, #ffffff, transparent),
+                radial-gradient(2px 2px at 60% 35%, #eeeeee, transparent),
+                radial-gradient(1px 1px at 80% 20%, #ffffff, transparent),
+                radial-gradient(2px 2px at 5% 55%, #dddddd, transparent),
+                radial-gradient(1px 1px at 35% 70%, #ffffff, transparent),
+                radial-gradient(2px 2px at 70% 75%, #eeeeee, transparent),
+                radial-gradient(1px 1px at 50% 85%, #ffffff, transparent),
+                radial-gradient(2px 2px at 95% 45%, #dddddd, transparent);
+            background-size: 800px 400px;
+            animation: panStars 90s linear infinite reverse;
+            opacity: 0.5;
+        }
+
+        @keyframes panStars {
+            0% { background-position: 0 0; }
+            100% { background-position: 1000px 500px; }
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem 1.5rem;
+            position: relative;
+            z-index: 2;
         }
 
         /* Header / Hero */
         .hero {
             text-align: center;
             padding: 4rem 1rem;
-            background: linear-gradient(135deg, #0a1128 0%, #1a2a4a 100%);
+            background: linear-gradient(135deg, rgba(10,17,40,0.85) 0%, rgba(26,42,74,0.85) 100%);
+            backdrop-filter: blur(5px);
         }
         .logo {
             width: 150px;
@@ -64,7 +125,8 @@
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-            background: #1e2a3a;
+            background: rgba(30,42,58,0.7);
+            backdrop-filter: blur(5px);
             padding: 1rem;
             border-radius: 12px;
         }
@@ -76,8 +138,11 @@
             border-radius: 40px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 2rem;
+            margin-top: 0.5rem;
             transition: background 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
         }
         .btn:hover {
             background: #2a6ec0;
@@ -86,7 +151,9 @@
         /* Sections */
         .section {
             padding: 3rem 1rem;
-            border-bottom: 1px solid #2a3a5a;
+            border-bottom: 1px solid rgba(42,58,90,0.5);
+            background: rgba(10,17,40,0.3);
+            backdrop-filter: blur(5px);
         }
         .section h2 {
             font-size: 2.2rem;
@@ -106,7 +173,8 @@
             margin-top: 2rem;
         }
         .card {
-            background: #1a1a2e;
+            background: rgba(26,26,46,0.7);
+            backdrop-filter: blur(10px);
             padding: 1.5rem;
             border-radius: 16px;
             border: 1px solid #2a3a5a;
@@ -149,7 +217,8 @@
         .footer {
             text-align: center;
             padding: 2rem;
-            background: #061020;
+            background: rgba(6,16,32,0.8);
+            backdrop-filter: blur(10px);
             font-size: 0.9rem;
         }
         .badge-container {
@@ -165,11 +234,34 @@
             border-radius: 20px;
             font-size: 0.8rem;
         }
-        .sumerian {
-            font-size: 0.9rem;
-            color: #aaa;
-            text-align: center;
-            margin-top: 0.5rem;
+        /* Стили генератора */
+        .stack-visual {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+        .disk {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #e0e8ff, #2c3f6e);
+            border: 3px solid #7aaaff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.4rem;
+            color: white;
+            text-shadow: 0 2px 5px black;
+            box-shadow: 0 5px 0 #0f1a2e, 0 10px 20px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+        }
+        /* Настоящий шестиугольник */
+        .disk.hex {
+            border-radius: 0;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            background: radial-gradient(circle at 40% 30%, #d0f0d0, #1e4a2e);
+            border: 3px solid #6fcf6f;
         }
         @media (max-width: 700px) {
             h1 { font-size: 2rem; }
@@ -181,14 +273,20 @@
 </head>
 <body>
 
+    <!-- Звёздный фон на переднем плане -->
+    <div class="stars-container">
+        <div class="stars-layer"></div>
+        <div class="stars-layer"></div>
+    </div>
+
     <div class="hero">
         <div class="container">
             <img src="assets/logo.svg" alt="Логотип IPIS" class="logo">
             <h1>IPIS</h1>
             <div class="subhead">Межпланетная система идентификации</div>
             <div class="tagline">
-                <strong>Архитектурное предложение для цивилизации будущего, колонизирующей миры</strong><br>
-                Протокол идентификации и навигации в Солнечной системе и за её пределами.
+                <strong>Архитектурное предложение для будущей цивилизации, колонизирующей миры</strong><br>
+                Добровольный протокол идентификации, доступа и навигации в Солнечной системе и за её пределами.
             </div>
             <a href="#problem" class="btn">Узнать больше →</a>
         </div>
@@ -196,19 +294,19 @@
 
     <div class="section" id="problem">
         <div class="container">
-            <h2>🚀 Какую проблему решает IPIS?</h2>
-            <p>Отсутствие универсального, мгновенно считываемого и не зависящего от связи с Землёй способа идентифицировать происхождение, квалификацию и маршрут человека или объекта в условиях распределённого присутствия человечества в Солнечной системе и за её пределами.</p>
-            <p>IPIS заменяет громоздкие земные бюрократические процедуры и цифровые базы данных на единый визуально-электронный язык, понятный и человеку, и компьютеру в любой точке космоса.</p>
+            <h2>🚀 Зачем нужен паспорт для Марса?</h2>
+            <p>Сегодня астронавтов идентифицируют по эмблемам миссий, флагам и цифровым базам данных, привязанным к Земле. Завтра, с появлением постоянных баз на Луне и Марсе, потребуется универсальный, мгновенно читаемый и не зависящий от Земли способ определять происхождение, опыт и маршруты — как для людей, так и для машин.</p>
+            <p>IPIS заменяет громоздкие земные бюрократические процедуры единым визуально-электронным языком, понятным в любой точке космоса без подключения к сети.</p>
             <div class="quote">
-                «Сейчас на скафандрах — винегрет: флаги стран, логотипы миссий, корпоративные патчи. Это хаос. IPIS — первый шаг к порядку.»
+                «Сейчас скафандры — это мешанина флагов и корпоративных логотипов. IPIS — первый шаг к общему языку для космоса».
             </div>
         </div>
     </div>
 
-    <div class="section" style="background: #0f172a;">
+    <div class="section" style="background: rgba(15,23,42,0.7); backdrop-filter: blur(5px);">
         <div class="container">
-            <h2>💡 Как это работает?</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem auto;">Суть системы — символьно-геометрическое обозначение и цифровой код объекта согласно плану космической экспансии.</p>
+            <h2>💡 Патчи, диски и язык космоса</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem auto;">Ядро системы — символико-геометрическая нотация и цифровой код объекта в соответствии с планом космической экспансии.</p>
             <div class="grid-2">
                 <div class="card">
                     <div class="card-icon">🔵</div>
@@ -217,8 +315,8 @@
                 </div>
                 <div class="card">
                     <div class="card-icon">⬡</div>
-                    <h3>Шестиугольник</h3>
-                    <p>Робот, дрон, беспилотник</p>
+                    <h3>Шестигранник</h3>
+                    <p>Робот, дрон, беспилотный аппарат</p>
                 </div>
                 <div class="card">
                     <div class="card-icon">01 02 03</div>
@@ -228,7 +326,7 @@
                 <div class="card">
                     <div class="card-icon">' E 00</div>
                     <h3>Индексы</h3>
-                    <p>' — орбита, E — выход в космос (риск), 00 — глубокий космос</p>
+                    <p>' — орбита, E — выход в открытый космос (риск), 00 — дальний космос</p>
                 </div>
             </div>
         </div>
@@ -236,24 +334,24 @@
 
     <div class="section">
         <div class="container">
-            <h2>🏅 Стек опыта</h2>
-            <p>Символьный ряд смены статусов при путешествии. На человеке — ряд соприкасающихся кружков под основным шевроном. Первый кружок — место рождения, потом места долговременной работы, а после миров с выходами в космос — кружок <strong>E</strong>.</p>
-            <div class="code-example" style="background: #1e2a3a; padding: 0.8rem; border-radius: 8px; font-family: monospace; margin: 1rem 0;">Пример: 01 02’ E 03 — родился на Земле, работал на лунной орбите с выходами, теперь на Марсе.</div>
+            <h2>🏅 Ваша жизнь в пяти дисках — Стек Снежкова</h2>
+            <p>Символическая последовательность изменения статуса во время путешествий. У человека — ряд соприкасающихся дисков под главным патчем. Первый диск — место рождения, затем места длительной работы, а после миров с выходами в открытый космос — диск с индексом <strong>E</strong>.</p>
+            <div class="code-example" style="background: #1e2a3a; padding: 0.8rem; border-radius: 8px; font-family: monospace; margin: 1rem 0;">Пример: 01 02’ E 03 — рождён на Земле, работал на лунной орбите с выходами в космос, сейчас на Марсе.</div>
             <p align="center"><img src="assets/stack_layout.svg" alt="Стек" width="200"></p>
         </div>
     </div>
 
-    <div class="section" style="background: #0f172a;">
+    <div class="section" style="background: rgba(15,23,42,0.7); backdrop-filter: blur(5px);">
         <div class="container">
             <h2>🛸 Нить корабля</h2>
-            <p>Схема маршрута — прямая линия на корпусе от начального узла к конечному (например, 01—03). Промежуточные манёвры — только в цифровом профиле. Просто и понятно, как в метро.</p>
+            <p>Схема маршрута — прямая линия на корпусе от начального узла до конечного (например, 01—03). Промежуточные манёвры — только в цифровом виде. Просто и понятно, как схема метро.</p>
             <p align="center"><img src="assets/ship_thread.svg" alt="Нить корабля" width="300"></p>
         </div>
     </div>
 
     <div class="section">
         <div class="container">
-            <h2>⭐ Звёздный префикс (для очень далёкого будущего, фантастики и игр)</h2>
+            <h2>⭐ Звёздный префикс (для далёкого будущего, sci‑fi и игр)</h2>
             <div class="badge-container">
                 <span class="badge">SUN — Солнце</span>
                 <span class="badge">PRX — Проксима Центавра</span>
@@ -262,24 +360,90 @@
         </div>
     </div>
 
-    <div class="section" style="background: #0f172a;">
+    <section id="generator" class="section">
+      <div class="container">
+        <h2>✨ Сгенерируй свой код Duranki</h2>
+        <p style="margin-bottom: 2rem; text-align: center;">Выбери пункт назначения — получи свой уникальный идентификатор.</p>
+        
+        <div style="background: rgba(18, 28, 50, 0.7); backdrop-filter: blur(12px); border-radius: 40px; padding: 2.5rem; border: 1px solid #3f8cff;">
+          <div style="margin-bottom: 2rem;">
+            <label style="display: block; margin-bottom: 0.8rem; font-weight: 600; color: #d6e5ff;">Куда отправляемся?</label>
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="radio" name="destination" value="orbit" checked> 🌍 Орбита Земли (МКС)
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="radio" name="destination" value="lunar_orbit"> 🌕 Орбита Луны (Gateway)
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="radio" name="destination" value="moon"> 🌕 Поверхность Луны
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="radio" name="destination" value="mars"> 🔴 Поверхность Марса
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="radio" name="destination" value="all"> 🚀 Со всеми остановками (Орбита → Луна → Марс)
+              </label>
+            </div>
+          </div>
+      
+          <div style="margin-bottom: 2rem;">
+            <label style="display: block; margin-bottom: 0.8rem; font-weight: 600; color: #d6e5ff;">Тип объекта</label>
+            <div style="display: flex; gap: 1.5rem;">
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="radio" name="type" value="circle" checked> 🧑 Человек / База (круг)
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="radio" name="type" value="hex"> 🤖 Робот (шестигранник)
+              </label>
+            </div>
+          </div>
+      
+          <button id="generateBtn" class="btn" style="margin-bottom: 2rem; background: #4a90e2; color: white;">✨ Сгенерировать код</button>
+      
+          <div id="generatorResult" style="display: none;">
+            <div style="background: #0a1226; padding: 2rem; border-radius: 20px; border-left: 6px solid #3f8cff;">
+              <p style="font-family: 'SF Mono', 'Menlo', monospace; font-size: 1.6rem; margin-bottom: 1.5rem; word-break: break-all;" id="codeString"></p>
+              <p id="codeInterpretation" style="font-size: 1.1rem;"></p>
+              <div id="stackVisual" class="stack-visual" style="justify-content: flex-start; margin-top: 1.5rem;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section" style="background: rgba(15,23,42,0.7); backdrop-filter: blur(5px);">
+      <div class="container" style="text-align: center;">
+        <h2>📖 Мир IPIS оживает</h2>
+        <div class="quote">
+          «Я смотрю на свой скромный патч: 01–03. И думаю: „Не пора ли расширить стек?“»<br>
+          <span style="font-size: 1rem; color: #ffd966;">— Марк, глава 1 «Цикла Экспансии»</span>
+        </div>
+        <p style="max-width: 700px; margin: 0 auto 2rem;">
+          IPIS — это не просто протокол, это живая вселенная. Прочитайте истории обычных людей, которые носят патчи, едят марсианскую рыбу и открывают новые миры.
+        </p>
+        <a href="https://author.today/work/584198" target="_blank" class="btn" style="background: #ffd966; color: #0a1128;">📚 Читать «Цикл Экспансии»</a>
+      </div>
+    </div>
+
+    <div class="section">
         <div class="container">
             <h2>🛠 Техническая интеграция</h2>
             <div class="grid-2">
                 <div class="card">
                     <div class="card-icon">📡</div>
-                    <h3>RFID-шевроны</h3>
-                    <p>Пассивные чипы в подкладке. Подносишь рукав к считывателю на шлюзе — дверь открывается, система логирует время и место. Без паролей и биометрии.</p>
+                    <h3>RFID-патчи</h3>
+                    <p>Пассивные чипы, вшитые в нашивку. Поднесите рукав к считывателю у шлюза — дверь откроется, система зафиксирует время и место. Никаких паролей и биометрии.</p>
                 </div>
                 <div class="card">
                     <div class="card-icon">🛰️</div>
-                    <h3>Поле IPIS_CODE в NORAD</h3>
-                    <p>Спутники и корабли получают человеко-читаемую маркировку. Диспетчер видит не просто 25544, а circle 01' (пилотируемая станция на земной орбите).</p>
+                    <h3>IPIS_CODE в NORAD</h3>
+                    <p>Спутники и корабли получают человекочитаемую метку. Диспетчер видит не просто 25544, а `круг 01'` (пилотируемая станция на орбите Земли).</p>
                 </div>
                 <div class="card">
                     <div class="card-icon">📋</div>
                     <h3>Верификация стека</h3>
-                    <p>Все записи о смене базы, выходах в космос и т.д. подписываются командирами в бортовых журналах. Возможна периодическая синхронизация с центральным реестром.</p>
+                    <p>Все записи о смене баз, выходах в открытый космос и т.п. заверяются командирами в судовых журналах. Возможна периодическая синхронизация с центральным реестром.</p>
                 </div>
             </div>
         </div>
@@ -287,31 +451,43 @@
 
     <div class="section">
         <div class="container">
-            <h2>🖼️ Как это выглядит в жизни</h2>
+            <h2>🖼️ Кадры экспансии</h2>
             <div class="gallery-preview">
-                <img src="gallery/images/man_on_mars.png" alt="Человек на Марсе">
-                <img src="gallery/images/spaceship_close.png" alt="Корабль крупно">
-                <img src="gallery/images/mission_control.png" alt="ЦУП">
-                <img src="gallery/images/uniform_patches.png" alt="Форма">
+                <figure style="text-align: center;">
+                    <img src="gallery/images/man_on_mars.png" alt="Человек на Марсе">
+                    <figcaption style="font-size:0.8rem; margin-top:0.3rem;">Человек на Марсе</figcaption>
+                </figure>
+                <figure style="text-align: center;">
+                    <img src="gallery/images/spaceship_close.png" alt="Космический корабль">
+                    <figcaption style="font-size:0.8rem; margin-top:0.3rem;">Космический корабль</figcaption>
+                </figure>
+                <figure style="text-align: center;">
+                    <img src="gallery/images/mission_control.png" alt="Центр управления полётами">
+                    <figcaption style="font-size:0.8rem; margin-top:0.3rem;">Центр управления отслеживает флот</figcaption>
+                </figure>
+                <figure style="text-align: center;">
+                    <img src="gallery/images/uniform_patches.png" alt="Униформа с патчами">
+                    <figcaption style="font-size:0.8rem; margin-top:0.3rem;">Патчи в повседневной жизни</figcaption>
+                </figure>
             </div>
             <p style="text-align: center; margin-top: 1rem;">
-                <a href="https://snowdimon.github.io/IPIS/gallery/index.html" class="btn" style="background: #2a3a5a;">📸 Открыть полную галерею →</a>
+                <a href="https://snowdimon.github.io/IPIS/gallery/index.html" class="btn" style="background: #2a3a5a;">📸 Открыть галерею →</a>
             </p>
         </div>
     </div>
 
-    <div class="section" style="background: #0f172a;">
+    <div class="section" style="background: rgba(15,23,42,0.7); backdrop-filter: blur(5px);">
         <div class="container">
             <h2>📦 Открытый проект. Открытое будущее.</h2>
             <div style="text-align: center; margin-bottom: 1.5rem;">
                 <img src="assets/logo.svg" alt="IPIS Logo" style="width: 80px; opacity: 0.8;">
             </div>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto;">IPIS распространяется по лицензии <strong>CC BY-SA 4.0</strong>. Вы можете использовать, адаптировать и проводить пилоты — свободно. Репозиторий содержит полные спецификации, дизайн-активы, руководства и быстрый старт.</p>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto;">IPIS выпущен под лицензией <strong>CC BY-SA 4.0</strong>. Вы можете свободно использовать, адаптировать и пилотировать его. Репозиторий содержит полные спецификации, дизайн-ассеты, руководства и быстрый старт.</p>
             <div class="badge-container">
-                <span class="badge">✅ Просто</span>
-                <span class="badge">🌍 Международно</span>
-                <span class="badge">🛡️ Без отмены существующих правил</span>
-                <span class="badge">🚀 Готов к пилотам</span>
+                <span class="badge">✅ Простота</span>
+                <span class="badge">🌍 Интернациональность</span>
+                <span class="badge">🛡️ Не заменяет существующие правила</span>
+                <span class="badge">🚀 Готовность к пилоту</span>
             </div>
             <div style="text-align: center; margin-top: 2rem;">
                 <a href="https://github.com/snowdimon/IPIS" class="btn">⭐ GitHub</a>
@@ -320,10 +496,108 @@
         </div>
     </div>
 
-    <div class="footer">
-        <p><strong>Автор:</strong> 01 — ЗЕМЛЯ &nbsp;|&nbsp; <strong>Кодовое имя:</strong> Дуранки – Нить Неба и Земли &nbsp;|&nbsp; Версия 15.0, апрель 2026</p>
-        <p>«Там, в небе, нас ждёт звёздный человек…» – Дэвид Боуи, <em>Starman</em></p>
-        <p><a href="https://github.com/snowdimon/IPIS" style="color: #bbffaa;">GitHub репозиторий</a> | <a href="https://snowdimon.github.io/IPIS/gallery/index.html" style="color: #bbffaa;">Галерея</a></p>
+    <div class="section">
+        <div class="container" style="text-align: center;">
+            <h2>🌌 Присоединяйся к Экспансии</h2>
+            <p style="max-width: 700px; margin: 0 auto 2rem;">
+                IPIS — это больше, чем протокол. Это растущее сообщество мечтателей, инженеров и рассказчиков. Обсуждайте, творите и помогайте формировать будущее межпланетной идентичности.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
+                <a href="https://www.reddit.com/r/IPIS_DURANKI/" target="_blank" class="btn" style="background:#ff4500;">🤖 Reddit – r/IPIS_DURANKI</a>
+                <a href="https://t.me/ipis_duranki" target="_blank" class="btn" style="background:#2AABEE;">📢 Telegram</a>
+                <a href="https://author.today/work/584198" target="_blank" class="btn" style="background:#ffd966; color:#0a1128;">📚 Читать рассказы</a>
+                <a href="https://github.com/snowdimon/IPIS" target="_blank" class="btn">⭐ Внести вклад на GitHub</a>
+            </div>
+            <p style="margin-top: 2rem; font-size: 0.9rem;">Получил свой код Duranki? Поделись им с хэштегом <code>#MyDurankiCode</code> в соцсетях.</p>
+        </div>
     </div>
+
+    <div class="footer">
+        <p><strong>Автор:</strong> 01 — ЗЕМЛЯ &nbsp;|&nbsp; <strong>Кодовое имя:</strong> Duranki – Связь неба и земли &nbsp;|&nbsp; Версия 18.0, апрель 2026</p>
+        <p>“There’s a starman waiting in the sky…” – David Bowie, <em>Starman</em></p>
+        <p>
+            <a href="https://github.com/snowdimon/IPIS" style="color: #bbffaa;">GitHub</a> |
+            <a href="https://snowdimon.github.io/IPIS/gallery/index.html" style="color: #bbffaa;">Галерея</a> |
+            <a href="https://www.reddit.com/r/IPIS_DURANKI/" style="color: #bbffaa;">Reddit</a> |
+            <a href="https://t.me/ipis_duranki" style="color: #bbffaa;">Telegram</a> |
+            <a href="https://author.today/work/584198" style="color: #bbffaa;">Книга</a>
+        </p>
+    </div>
+
+    <script>
+      (function() {
+        const generateBtn = document.getElementById('generateBtn');
+        const resultDiv = document.getElementById('generatorResult');
+        const stackVisual = document.getElementById('stackVisual');
+        const codeString = document.getElementById('codeString');
+        const codeInterpretation = document.getElementById('codeInterpretation');
+    
+        const interpretations = {
+          '01': 'Земля (начало пути)',
+          "01'": 'Орбита Земли',
+          "02'": 'Орбита Луны',
+          '02': 'Поверхность Луны',
+          '03': 'Поверхность Марса',
+          '04': 'Каллисто',
+          '00': 'Дальний космос',
+          'E': 'Выход в открытый космос'
+        };
+    
+        function generateCode() {
+          const destination = document.querySelector('input[name="destination"]:checked').value;
+          const type = document.querySelector('input[name="type"]:checked').value;
+          
+          let locCodes = ['01'];
+          let description = ['01 — Земля (начало пути)'];
+          
+          switch(destination) {
+            case 'orbit':
+              locCodes.push("01'");
+              description.push("01' — Орбита Земли");
+              break;
+            case 'lunar_orbit':
+              locCodes.push("02'");
+              description.push("02' — Орбита Луны");
+              break;
+            case 'moon':
+              locCodes.push('02');
+              description.push('02 — Поверхность Луны');
+              break;
+            case 'mars':
+              locCodes.push('03');
+              description.push('03 — Поверхность Марса');
+              break;
+            case 'all':
+              locCodes.push("01'", "02'", '02', '03');
+              description.push("01' — Орбита Земли", "02' — Орбита Луны", '02 — Поверхность Луны', '03 — Поверхность Марса');
+              break;
+          }
+    
+          const fullCode = `sun-${type}-${locCodes.join('-')}`;
+          codeString.textContent = fullCode;
+    
+          let interpretationText = description.join('<br>');
+          if (type === 'hex') {
+            interpretationText += '<br><span style="color: #6fcf6f;">🤖 Шестигранник — робот или автономная система</span>';
+          } else {
+            interpretationText += '<br><span style="color: #7aaaff;">🧑 Круг — человек или обитаемая база</span>';
+          }
+          codeInterpretation.innerHTML = interpretationText;
+    
+          stackVisual.innerHTML = '';
+          locCodes.forEach(code => {
+            const disk = document.createElement('div');
+            disk.className = 'disk' + (type === 'hex' ? ' hex' : '');
+            disk.textContent = code;
+            stackVisual.appendChild(disk);
+          });
+    
+          resultDiv.style.display = 'block';
+          resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    
+        generateBtn.addEventListener('click', generateCode);
+      })();
+    </script>
 </body>
 </html>
