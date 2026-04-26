@@ -76,8 +76,11 @@
             border-radius: 40px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 2rem;
+            margin-top: 0.5rem;
             transition: background 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
         }
         .btn:hover {
             background: #2a6ec0;
@@ -171,6 +174,33 @@
             text-align: center;
             margin-top: 0.5rem;
         }
+        /* Generator styles */
+        .stack-visual {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+        .disk {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #e0e8ff, #2c3f6e);
+            border: 3px solid #7aaaff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.4rem;
+            color: white;
+            text-shadow: 0 2px 5px black;
+            box-shadow: 0 5px 0 #0f1a2e, 0 10px 20px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+        }
+        .disk.hex {
+            border-radius: 20% 50% 20% 50%;
+            background: radial-gradient(circle at 30% 30%, #d0f0d0, #1e4a2e);
+            border-color: #6fcf6f;
+        }
         @media (max-width: 700px) {
             h1 { font-size: 2rem; }
             .duranki-sub { font-size: 1.3rem; }
@@ -194,21 +224,23 @@
         </div>
     </div>
 
+    <!-- Problem (смягчённый заголовок) -->
     <div class="section" id="problem">
         <div class="container">
-            <h2>🚀 What problem does IPIS solve?</h2>
-            <p>The lack of a universal, instantly readable, Earth‑independent way to identify the origin, qualifications, and route of a person or object in the context of a distributed human presence in the Solar System and beyond.</p>
-            <p>IPIS replaces cumbersome Earth‑bound bureaucratic procedures and digital databases with a single visual‑electronic language that is understandable to both humans and computers anywhere in space.</p>
+            <h2>🚀 Why do we need a passport for Mars?</h2>
+            <p>Today, astronauts are identified by mission badges, flags, and digital databases tied to Earth. Tomorrow, with permanent bases on the Moon and Mars, we need a universal, instantly readable, Earth‑independent way to identify origin, experience, and routes – for both people and machines.</p>
+            <p>IPIS replaces cumbersome Earth‑bound bureaucratic procedures with a single visual‑electronic language understandable anywhere in space, without a network connection.</p>
             <div class="quote">
-                «Right now, spacesuits are a mess of flags, mission logos, and corporate patches. It's chaos. IPIS is the first step towards order.»
+                «Right now, spacesuits are a mess of flags and corporate logos. IPIS is the first step towards a common language for space.»
             </div>
         </div>
     </div>
 
+    <!-- How it works (смягчённый заголовок) -->
     <div class="section" style="background: #0f172a;">
         <div class="container">
-            <h2>💡 How does it work?</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem auto;">The core of the system is symbolic‑geometric notation and a digital code for an object according to the space expansion plan.</p>
+            <h2>💡 Patches, discs, and the language of space</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem auto;">The core of the system is a symbolic‑geometric notation and a digital code that follows the plan of space expansion.</p>
             <div class="grid-2">
                 <div class="card">
                     <div class="card-icon">🔵</div>
@@ -234,9 +266,10 @@
         </div>
     </div>
 
+    <!-- Experience Stack (оставлен без изменений, но можно смягчить) -->
     <div class="section">
         <div class="container">
-            <h2>🏅 Experience Stack</h2>
+            <h2>🏅 Your life in five discs – the Snezhkov Stack</h2>
             <p>A symbolic sequence of status changes during travel. On a person – a row of touching discs under the main patch. The first disc is the birthplace, then long‑term work locations, and after worlds with spacewalks – an <strong>E</strong> disc.</p>
             <div class="code-example" style="background: #1e2a3a; padding: 0.8rem; border-radius: 8px; font-family: monospace; margin: 1rem 0;">Example: 01 02’ E 03 — born on Earth, worked on lunar orbit with EVAs, now on Mars.</div>
             <p align="center"><img src="assets/stack_layout.svg" alt="Stack" width="200"></p>
@@ -261,60 +294,177 @@
             </div>
         </div>
     </div>
-    <!-- DURANKI CODE GENERATOR (EN) - string format -->
-    <section id="generator">
-      <h2>Generate Your Duranki Code</h2>
-      <p style="margin-bottom: 2rem;">Choose your destination — get your unique identifier string.</p>
+
+    <!-- DURANKI CODE GENERATOR (EN) -->
+    <section id="generator" class="section">
+      <div class="container">
+        <h2>✨ Generate Your Duranki Code</h2>
+        <p style="margin-bottom: 2rem; text-align: center;">Choose your destination — get your unique identifier string.</p>
+        
+        <div style="background: rgba(18, 28, 50, 0.5); backdrop-filter: blur(12px); border-radius: 40px; padding: 2.5rem; border: 1px solid #3f8cff;">
+          <div style="margin-bottom: 2rem;">
+            <label style="display: block; margin-bottom: 0.8rem; font-weight: 600; color: #d6e5ff;">Where are we going?</label>
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="radio" name="destination" value="orbit" checked> 🌍 Earth Orbit (ISS)
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="radio" name="destination" value="lunar_orbit"> 🌕 Lunar Orbit (Gateway)
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="radio" name="destination" value="moon"> 🌕 Lunar Surface
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="radio" name="destination" value="mars"> 🔴 Mars Surface
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="radio" name="destination" value="all"> 🚀 All stops (Earth Orbit → Lunar Orbit → Moon → Mars)
+              </label>
+            </div>
+          </div>
       
-      <div style="background: rgba(18, 28, 50, 0.5); backdrop-filter: blur(12px); border-radius: 40px; padding: 2.5rem; border: 1px solid #3f8cff;">
-        <!-- Destination selection -->
-        <div style="margin-bottom: 2rem;">
-          <label style="display: block; margin-bottom: 0.8rem; font-weight: 600; color: #d6e5ff;">Where are we going?</label>
-          <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
-            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-              <input type="radio" name="destination" value="orbit" checked> 🌍 Earth Orbit (ISS)
-            </label>
-            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-              <input type="radio" name="destination" value="lunar_orbit"> 🌕 Lunar Orbit (Gateway)
-            </label>
-            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-              <input type="radio" name="destination" value="moon"> 🌕 Lunar Surface
-            </label>
-            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-              <input type="radio" name="destination" value="mars"> 🔴 Mars Surface
-            </label>
-            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-              <input type="radio" name="destination" value="all"> 🚀 All stops (Earth Orbit → Lunar Orbit → Moon → Mars)
-            </label>
+          <div style="margin-bottom: 2rem;">
+            <label style="display: block; margin-bottom: 0.8rem; font-weight: 600; color: #d6e5ff;">Object type</label>
+            <div style="display: flex; gap: 1.5rem;">
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="radio" name="type" value="circle" checked> 🧑 Human / Base (circle)
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="radio" name="type" value="hex"> 🤖 Robot (hexagon)
+              </label>
+            </div>
           </div>
-        </div>
-    
-        <!-- Object type -->
-        <div style="margin-bottom: 2rem;">
-          <label style="display: block; margin-bottom: 0.8rem; font-weight: 600; color: #d6e5ff;">Object type</label>
-          <div style="display: flex; gap: 1.5rem;">
-            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-              <input type="radio" name="type" value="circle" checked> 🧑 Human / Base (circle)
-            </label>
-            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-              <input type="radio" name="type" value="hex"> 🤖 Robot (hexagon)
-            </label>
-          </div>
-        </div>
-    
-        <button id="generateBtn" class="btn" style="margin-bottom: 2rem;">✨ Generate Code</button>
-    
-        <!-- Result -->
-        <div id="generatorResult" style="display: none;">
-          <div style="background: #0a1226; padding: 2rem; border-radius: 20px; border-left: 6px solid #3f8cff;">
-            <p style="font-family: 'SF Mono', 'Menlo', monospace; font-size: 1.6rem; margin-bottom: 1.5rem; word-break: break-all;" id="codeString"></p>
-            <p id="codeInterpretation" style="font-size: 1.1rem;"></p>
-            <div id="stackVisual" class="stack-visual" style="justify-content: flex-start; margin-top: 1.5rem;"></div>
+      
+          <button id="generateBtn" class="btn" style="margin-bottom: 2rem; background: #4a90e2; color: white;">✨ Generate Code</button>
+      
+          <div id="generatorResult" style="display: none;">
+            <div style="background: #0a1226; padding: 2rem; border-radius: 20px; border-left: 6px solid #3f8cff;">
+              <p style="font-family: 'SF Mono', 'Menlo', monospace; font-size: 1.6rem; margin-bottom: 1.5rem; word-break: break-all;" id="codeString"></p>
+              <p id="codeInterpretation" style="font-size: 1.1rem;"></p>
+              <div id="stackVisual" class="stack-visual" style="justify-content: flex-start; margin-top: 1.5rem;"></div>
+            </div>
           </div>
         </div>
       </div>
     </section>
-    
+
+    <!-- NEW: Bridge to the stories -->
+    <div class="section" style="background: #0f172a;">
+      <div class="container" style="text-align: center;">
+        <h2>📖 The world of IPIS comes alive</h2>
+        <div class="quote">
+          «I look at my modest patch: 01–03. And I think: “Isn't it time to expand the stack?”»<br>
+          <span style="font-size: 1rem; color: #ffd966;">— Mark, Chapter 1 of <em>The Expansion Cycle</em></span>
+        </div>
+        <p style="max-width: 700px; margin: 0 auto 2rem;">
+          IPIS isn't just a protocol – it's a living universe. Read stories about ordinary people who wear the patches, eat Martian fish, and discover new worlds.
+        </p>
+        <a href="https://author.today/work/584198" target="_blank" class="btn" style="background: #ffd966; color: #0a1128;">📚 Read "The Expansion Cycle" (Rus)</a>
+      </div>
+    </div>
+
+    <!-- Technical integration -->
+    <div class="section">
+        <div class="container">
+            <h2>🛠 Technical integration</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-icon">📡</div>
+                    <h3>RFID patches</h3>
+                    <p>Passive chips embedded in the patch. Bring your sleeve to a reader at an airlock – the door opens, the system logs the time and place. No passwords, no biometrics.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🛰️</div>
+                    <h3>IPIS_CODE in NORAD</h3>
+                    <p>Satellites and spacecraft get a human‑readable label. A dispatcher sees not just 25544, but `circle 01'` (crewed station in Earth orbit).</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📋</div>
+                    <h3>Stack verification</h3>
+                    <p>All records of base changes, EVAs, etc., are signed by commanders in onboard logbooks. Periodic synchronisation with a central registry is possible.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery with story hints -->
+    <div class="section">
+        <div class="container">
+            <h2>🖼️ Scenes from the expansion</h2>
+            <div class="gallery-preview">
+                <figure style="text-align: center;">
+                    <img src="gallery/images/man_on_mars.png" alt="Person on Mars">
+                    <figcaption style="font-size:0.8rem; margin-top:0.3rem;">Arnold sees Earth for the first time (Ch.2)</figcaption>
+                </figure>
+                <figure style="text-align: center;">
+                    <img src="gallery/images/spaceship_close.png" alt="Spacecraft close‑up">
+                    <figcaption style="font-size:0.8rem; margin-top:0.3rem;">Bob's "Polar Star" (Ch.3)</figcaption>
+                </figure>
+                <figure style="text-align: center;">
+                    <img src="gallery/images/mission_control.png" alt="Mission Control">
+                    <figcaption style="font-size:0.8rem; margin-top:0.3rem;">Mission control tracks the fleet</figcaption>
+                </figure>
+                <figure style="text-align: center;">
+                    <img src="gallery/images/uniform_patches.png" alt="Uniforms">
+                    <figcaption style="font-size:0.8rem; margin-top:0.3rem;">Patches in daily life</figcaption>
+                </figure>
+            </div>
+            <p style="text-align: center; margin-top: 1rem;">
+                <a href="https://snowdimon.github.io/IPIS/gallery/index.html" class="btn" style="background: #2a3a5a;">📸 Open full gallery →</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Open project -->
+    <div class="section" style="background: #0f172a;">
+        <div class="container">
+            <h2>📦 Open project. Open future.</h2>
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+                <img src="assets/logo.svg" alt="IPIS Logo" style="width: 80px; opacity: 0.8;">
+            </div>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto;">IPIS is released under the <strong>CC BY-SA 4.0</strong> license. You can use, adapt, and pilot it – freely. The repository contains full specifications, design assets, guides, and a quick start.</p>
+            <div class="badge-container">
+                <span class="badge">✅ Simple</span>
+                <span class="badge">🌍 International</span>
+                <span class="badge">🛡️ Doesn't replace existing rules</span>
+                <span class="badge">🚀 Pilot‑ready</span>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="https://github.com/snowdimon/IPIS" class="btn">⭐ GitHub</a>
+                <a href="docs/quickstart.md" class="btn" style="background: #2a3a5a;">📖 Quick start</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW: Join the Expansion (Community) -->
+    <div class="section">
+        <div class="container" style="text-align: center;">
+            <h2>🌌 Join the Expansion</h2>
+            <p style="max-width: 700px; margin: 0 auto 2rem;">
+                IPIS is more than a protocol – it's a growing community of dreamers, engineers, and storytellers. Discuss, create, and help shape the future of interplanetary identity.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
+                <a href="https://www.reddit.com/r/IPIS_DURANKI/" target="_blank" class="btn" style="background:#ff4500;">🤖 Reddit – r/IPIS_DURANKI</a>
+                <a href="https://t.me/ipis_duranki" target="_blank" class="btn" style="background:#2AABEE;">📢 Telegram</a>
+                <a href="https://author.today/work/584198" target="_blank" class="btn" style="background:#ffd966; color:#0a1128;">📚 Read the stories (Rus)</a>
+                <a href="https://github.com/snowdimon/IPIS" target="_blank" class="btn">⭐ Contribute on GitHub</a>
+            </div>
+            <p style="margin-top: 2rem; font-size: 0.9rem;">Got your own Duranki code? Share it with <code>#MyDurankiCode</code> on social media.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p><strong>Author:</strong> 01 — EARTH &nbsp;|&nbsp; <strong>Codename:</strong> Duranki – The Bond of Heaven and Earth &nbsp;|&nbsp; Version 16.0, April 2026</p>
+        <p>“There’s a starman waiting in the sky…” – David Bowie, <em>Starman</em></p>
+        <p>
+            <a href="https://github.com/snowdimon/IPIS" style="color: #bbffaa;">GitHub</a> |
+            <a href="https://snowdimon.github.io/IPIS/gallery/index.html" style="color: #bbffaa;">Gallery</a> |
+            <a href="https://www.reddit.com/r/IPIS_DURANKI/" style="color: #bbffaa;">Reddit</a> |
+            <a href="https://t.me/ipis_duranki" style="color: #bbffaa;">Telegram</a> |
+            <a href="https://author.today/work/584198" style="color: #bbffaa;">Book</a>
+        </p>
+    </div>
+
     <script>
       (function() {
         const generateBtn = document.getElementById('generateBtn');
@@ -323,23 +473,22 @@
         const codeString = document.getElementById('codeString');
         const codeInterpretation = document.getElementById('codeInterpretation');
     
-        // Code interpretation map
         const interpretations = {
           '01': 'Earth (origin)',
           "01'": 'Earth Orbit',
           "02'": 'Lunar Orbit',
           '02': 'Lunar Surface',
           '03': 'Mars Surface',
-          '04': 'Ceres',
+          '04': 'Callisto',
           '00': 'Deep space',
           'E': 'Extravehicular activity'
         };
     
         function generateCode() {
           const destination = document.querySelector('input[name="destination"]:checked').value;
-          const type = document.querySelector('input[name="type"]:checked').value; // "circle" or "hex"
+          const type = document.querySelector('input[name="type"]:checked').value;
           
-          let locCodes = ['01']; // always start from Earth
+          let locCodes = ['01'];
           let description = ['01 — Earth (origin)'];
           
           switch(destination) {
@@ -365,11 +514,9 @@
               break;
           }
     
-          // Build full code string: sun-[type]-code1-code2-...
           const fullCode = `sun-${type}-${locCodes.join('-')}`;
           codeString.textContent = fullCode;
     
-          // Build interpretation
           let interpretationText = description.join('<br>');
           if (type === 'hex') {
             interpretationText += '<br><span style="color: #6fcf6f;">🤖 Hexagon — robot or autonomous system</span>';
@@ -378,7 +525,6 @@
           }
           codeInterpretation.innerHTML = interpretationText;
     
-          // Render visual disks (optional but nice to keep)
           stackVisual.innerHTML = '';
           locCodes.forEach(code => {
             const disk = document.createElement('div');
@@ -394,69 +540,5 @@
         generateBtn.addEventListener('click', generateCode);
       })();
     </script>
-    
-    <div class="section" style="background: #0f172a;">
-        <div class="container">
-            <h2>🛠 Technical integration</h2>
-            <div class="grid-2">
-                <div class="card">
-                    <div class="card-icon">📡</div>
-                    <h3>RFID patches</h3>
-                    <p>Passive chips embedded in the patch. Bring your sleeve to a reader at an airlock – the door opens, the system logs the time and place. No passwords, no biometrics.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🛰️</div>
-                    <h3>IPIS_CODE in NORAD</h3>
-                    <p>Satellites and spacecraft get a human‑readable label. A dispatcher sees not just 25544, but `circle 01'` (crewed station in Earth orbit).</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">📋</div>
-                    <h3>Stack verification</h3>
-                    <p>All records of base changes, EVAs, etc., are signed by commanders in onboard logbooks. Periodic synchronisation with a central registry is possible.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="container">
-            <h2>🖼️ What it looks like in real life</h2>
-            <div class="gallery-preview">
-                <img src="gallery/images/man_on_mars.png" alt="Person on Mars">
-                <img src="gallery/images/spaceship_close.png" alt="Spacecraft close‑up">
-                <img src="gallery/images/mission_control.png" alt="Mission Control">
-                <img src="gallery/images/uniform_patches.png" alt="Uniforms">
-            </div>
-            <p style="text-align: center; margin-top: 1rem;">
-                <a href="https://snowdimon.github.io/IPIS/gallery/index.html" class="btn" style="background: #2a3a5a;">📸 Open full gallery →</a>
-            </p>
-        </div>
-    </div>
-
-    <div class="section" style="background: #0f172a;">
-        <div class="container">
-            <h2>📦 Open project. Open future.</h2>
-            <div style="text-align: center; margin-bottom: 1.5rem;">
-                <img src="assets/logo.svg" alt="IPIS Logo" style="width: 80px; opacity: 0.8;">
-            </div>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto;">IPIS is released under the <strong>CC BY-SA 4.0</strong> license. You can use, adapt, and pilot it – freely. The repository contains full specifications, design assets, guides, and a quick start.</p>
-            <div class="badge-container">
-                <span class="badge">✅ Simple</span>
-                <span class="badge">🌍 International</span>
-                <span class="badge">🛡️ Doesn't replace existing rules</span>
-                <span class="badge">🚀 Pilot‑ready</span>
-            </div>
-            <div style="text-align: center; margin-top: 2rem;">
-                <a href="https://github.com/snowdimon/IPIS" class="btn">⭐ GitHub</a>
-                <a href="docs/quickstart.md" class="btn" style="background: #2a3a5a;">📖 Quick start</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="footer">
-        <p><strong>Author:</strong> 01 — EARTH &nbsp;|&nbsp; <strong>Codename:</strong> Duranki – The Bond of Heaven and Earth &nbsp;|&nbsp; Version 15.0, April 2026</p>
-        <p>“There’s a starman waiting in the sky…” – David Bowie, <em>Starman</em></p>
-        <p><a href="https://github.com/snowdimon/IPIS" style="color: #bbffaa;">GitHub repository</a> | <a href="https://snowdimon.github.io/IPIS/gallery/index.html" style="color: #bbffaa;">Gallery</a></p>
-    </div>
 </body>
 </html>
