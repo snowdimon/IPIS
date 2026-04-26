@@ -17,19 +17,75 @@
             color: #e0e0e0;
             line-height: 1.6;
             scroll-behavior: smooth;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated starry background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: transparent;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+                radial-gradient(2px 2px at 40px 70px, #fff, transparent),
+                radial-gradient(1px 1px at 90px 40px, #ddd, transparent),
+                radial-gradient(1px 1px at 130px 80px, #fff, transparent),
+                radial-gradient(2px 2px at 160px 30px, #eee, transparent),
+                radial-gradient(1px 1px at 200px 60px, #fff, transparent),
+                radial-gradient(2px 2px at 250px 90px, #ddd, transparent),
+                radial-gradient(1px 1px at 300px 20px, #fff, transparent),
+                radial-gradient(2px 2px at 350px 70px, #eee, transparent),
+                radial-gradient(1px 1px at 400px 40px, #fff, transparent);
+            background-size: 400px 100px;
+            animation: panStars 80s linear infinite;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: transparent;
+            background-image: 
+                radial-gradient(1px 1px at 50px 20px, #fff, transparent),
+                radial-gradient(2px 2px at 100px 60px, #eee, transparent),
+                radial-gradient(1px 1px at 180px 30px, #fff, transparent),
+                radial-gradient(2px 2px at 230px 80px, #ddd, transparent),
+                radial-gradient(1px 1px at 280px 50px, #fff, transparent),
+                radial-gradient(2px 2px at 330px 30px, #eee, transparent),
+                radial-gradient(1px 1px at 380px 70px, #fff, transparent),
+                radial-gradient(2px 2px at 420px 40px, #ddd, transparent);
+            background-size: 450px 120px;
+            animation: panStars 120s linear infinite reverse;
+            opacity: 0.7;
+        }
+
+        @keyframes panStars {
+            0% { background-position: 0 0; }
+            100% { background-position: 1000px 500px; }
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem 1.5rem;
+            position: relative;
+            z-index: 2;
         }
 
         /* Header / Hero */
         .hero {
             text-align: center;
             padding: 4rem 1rem;
-            background: linear-gradient(135deg, #0a1128 0%, #1a2a4a 100%);
+            background: linear-gradient(135deg, rgba(10,17,40,0.85) 0%, rgba(26,42,74,0.85) 100%);
+            backdrop-filter: blur(5px);
         }
         .logo {
             width: 150px;
@@ -64,7 +120,8 @@
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-            background: #1e2a3a;
+            background: rgba(30,42,58,0.7);
+            backdrop-filter: blur(5px);
             padding: 1rem;
             border-radius: 12px;
         }
@@ -89,7 +146,9 @@
         /* Sections */
         .section {
             padding: 3rem 1rem;
-            border-bottom: 1px solid #2a3a5a;
+            border-bottom: 1px solid rgba(42,58,90,0.5);
+            background: rgba(10,17,40,0.6);
+            backdrop-filter: blur(5px);
         }
         .section h2 {
             font-size: 2.2rem;
@@ -109,7 +168,8 @@
             margin-top: 2rem;
         }
         .card {
-            background: #1a1a2e;
+            background: rgba(26,26,46,0.7);
+            backdrop-filter: blur(10px);
             padding: 1.5rem;
             border-radius: 16px;
             border: 1px solid #2a3a5a;
@@ -152,7 +212,8 @@
         .footer {
             text-align: center;
             padding: 2rem;
-            background: #061020;
+            background: rgba(6,16,32,0.8);
+            backdrop-filter: blur(10px);
             font-size: 0.9rem;
         }
         .badge-container {
@@ -167,12 +228,6 @@
             padding: 0.3rem 1rem;
             border-radius: 20px;
             font-size: 0.8rem;
-        }
-        .sumerian {
-            font-size: 0.9rem;
-            color: #aaa;
-            text-align: center;
-            margin-top: 0.5rem;
         }
         /* Generator styles */
         .stack-visual {
@@ -196,10 +251,15 @@
             box-shadow: 0 5px 0 #0f1a2e, 0 10px 20px rgba(0,0,0,0.3);
             transition: transform 0.2s;
         }
+        /* Настоящий шестиугольник */
         .disk.hex {
-            border-radius: 20% 50% 20% 50%;
-            background: radial-gradient(circle at 30% 30%, #d0f0d0, #1e4a2e);
-            border-color: #6fcf6f;
+            border-radius: 0;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            background: radial-gradient(circle at 40% 30%, #d0f0d0, #1e4a2e);
+            border: 3px solid #6fcf6f;
+        }
+        .disk.hex::before {
+            display: none; /* на всякий случай */
         }
         @media (max-width: 700px) {
             h1 { font-size: 2rem; }
@@ -224,7 +284,6 @@
         </div>
     </div>
 
-    <!-- Problem (смягчённый заголовок) -->
     <div class="section" id="problem">
         <div class="container">
             <h2>🚀 Why do we need a passport for Mars?</h2>
@@ -236,8 +295,7 @@
         </div>
     </div>
 
-    <!-- How it works (смягчённый заголовок) -->
-    <div class="section" style="background: #0f172a;">
+    <div class="section" style="background: rgba(15,23,42,0.7); backdrop-filter: blur(5px);">
         <div class="container">
             <h2>💡 Patches, discs, and the language of space</h2>
             <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem auto;">The core of the system is a symbolic‑geometric notation and a digital code that follows the plan of space expansion.</p>
@@ -266,7 +324,6 @@
         </div>
     </div>
 
-    <!-- Experience Stack (оставлен без изменений, но можно смягчить) -->
     <div class="section">
         <div class="container">
             <h2>🏅 Your life in five discs – the Snezhkov Stack</h2>
@@ -276,7 +333,7 @@
         </div>
     </div>
 
-    <div class="section" style="background: #0f172a;">
+    <div class="section" style="background: rgba(15,23,42,0.7); backdrop-filter: blur(5px);">
         <div class="container">
             <h2>🛸 Ship Thread</h2>
             <p>Route diagram – a straight line on the hull from the start node to the end node (e.g., 01—03). Intermediate manoeuvres are digital only. Simple and clear, like a subway map.</p>
@@ -295,13 +352,12 @@
         </div>
     </div>
 
-    <!-- DURANKI CODE GENERATOR (EN) -->
     <section id="generator" class="section">
       <div class="container">
         <h2>✨ Generate Your Duranki Code</h2>
         <p style="margin-bottom: 2rem; text-align: center;">Choose your destination — get your unique identifier string.</p>
         
-        <div style="background: rgba(18, 28, 50, 0.5); backdrop-filter: blur(12px); border-radius: 40px; padding: 2.5rem; border: 1px solid #3f8cff;">
+        <div style="background: rgba(18, 28, 50, 0.7); backdrop-filter: blur(12px); border-radius: 40px; padding: 2.5rem; border: 1px solid #3f8cff;">
           <div style="margin-bottom: 2rem;">
             <label style="display: block; margin-bottom: 0.8rem; font-weight: 600; color: #d6e5ff;">Where are we going?</label>
             <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
@@ -348,8 +404,7 @@
       </div>
     </section>
 
-    <!-- NEW: Bridge to the stories -->
-    <div class="section" style="background: #0f172a;">
+    <div class="section" style="background: rgba(15,23,42,0.7); backdrop-filter: blur(5px);">
       <div class="container" style="text-align: center;">
         <h2>📖 The world of IPIS comes alive</h2>
         <div class="quote">
@@ -363,7 +418,6 @@
       </div>
     </div>
 
-    <!-- Technical integration -->
     <div class="section">
         <div class="container">
             <h2>🛠 Technical integration</h2>
@@ -387,7 +441,6 @@
         </div>
     </div>
 
-    <!-- Gallery with story hints -->
     <div class="section">
         <div class="container">
             <h2>🖼️ Scenes from the expansion</h2>
@@ -415,8 +468,7 @@
         </div>
     </div>
 
-    <!-- Open project -->
-    <div class="section" style="background: #0f172a;">
+    <div class="section" style="background: rgba(15,23,42,0.7); backdrop-filter: blur(5px);">
         <div class="container">
             <h2>📦 Open project. Open future.</h2>
             <div style="text-align: center; margin-bottom: 1.5rem;">
@@ -436,7 +488,6 @@
         </div>
     </div>
 
-    <!-- NEW: Join the Expansion (Community) -->
     <div class="section">
         <div class="container" style="text-align: center;">
             <h2>🌌 Join the Expansion</h2>
@@ -454,7 +505,7 @@
     </div>
 
     <div class="footer">
-        <p><strong>Author:</strong> 01 — EARTH &nbsp;|&nbsp; <strong>Codename:</strong> Duranki – The Bond of Heaven and Earth &nbsp;|&nbsp; Version 16.0, April 2026</p>
+        <p><strong>Author:</strong> 01 — EARTH &nbsp;|&nbsp; <strong>Codename:</strong> Duranki – The Bond of Heaven and Earth &nbsp;|&nbsp; Version 17.0, April 2026</p>
         <p>“There’s a starman waiting in the sky…” – David Bowie, <em>Starman</em></p>
         <p>
             <a href="https://github.com/snowdimon/IPIS" style="color: #bbffaa;">GitHub</a> |
