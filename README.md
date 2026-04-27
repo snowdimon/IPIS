@@ -109,7 +109,7 @@ The system is **open** – you can adopt, adapt, and pilot it. Feedback and cont
 - **Two‑layer patch** – the outer layer of the large circle patch shows the current code; under it hides a flat disc (future stack element). When you leave a base, the outer layer is peeled off and the inner disc is added to your stack. No need to print new badges in space.  
   <p align="center"><img src="assets/two_layer_patch.svg" alt="Two‑layer patch" width="300"></p>
 - **Rituals:** “Base Gulp” – a fictional tradition that solidifies the code change (initiation). The newcomer receives a vessel of local water, takes a sip (symbolic acceptance into the ecosystem), and the senior hands over the new patch, tearing off the old one with a Velcro sound. This does not replace official procedures – it is a human anchor, a symbol of belonging. Isolated crews need rituals no less than they need instructions.
-- **Technical integration** – RFID chips in patches for access control; `IPIS_CODE` field in NORAD / Space‑Track.org. Stack verification is based on digitally signed ship/base logbooks.
+- **Technical integration** – RFID chips in patches for access control; `IPIS_CODE` field in NORAD / Space‑Track.org. Stack verification is decentralized, using digital signatures in ship logs. Validation occurs within a network of nodes (ships and bases) that are within direct communication range.
 - **Colour palette** – black‑and‑white, high contrast.
 
 ---
