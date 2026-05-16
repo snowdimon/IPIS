@@ -9,6 +9,7 @@
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 [![GitHub issues](https://img.shields.io/badge/issues-orange)](https://github.com/snowdimon/IPIS/issues)
 [![Pull Requests Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![Promo](https://img.shields.io/badge/promo-landing-blue)](https://snowdimon.github.io/IPIS/landing.html)
 [![Community](https://img.shields.io/badge/community-reddit-red)](https://www.reddit.com/r/IPIS_DURANKI/)
 
 
